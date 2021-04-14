@@ -1,10 +1,20 @@
 <!DOCTYPE html>
     <head>
-        <title>Sample for IM2</title>
+        <title>Main Page</title>
         <link href="{{URL::asset('css/style.css')}}" rel="stylesheet">
     </head>
     <body>
-        <div id="topbar"><h1 id="title"><a href=''>XHIBIT</a></h1></div>
+        <div id="topbar">
+            <h1 id="title"><a href=''>XHIBIT</a></h1>
+            
+
+            <div id="logoutBtn">
+                <a href="">
+                    <div id="logoutText">LOG OFF</div>
+                        <img id="logoutIcon" src="{{URL::asset('icons/log out.svg')}}" alt="">
+                </a>
+            </div>
+        </div>
 
         <div id="container">
     
@@ -22,9 +32,13 @@
             </div>
             <div id="mainSide">
                 <div class="tableContainer">
-                    
                     <table>
-                        <h2 class='tableName'>art</h2><button class='deleteData'>delete</button><button class='addData'>add</button>
+                        <div class="tableLabel">
+                            <h2 class='tableName'>art</h2>
+                            <button class='deleteData  tableBtn'>delete</button>
+                            <button class='addData tableBtn'><a href="/newArt">add</a></button>
+                        </div>
+                        
                         <tr>
                             <th>ArtID</th>
                             <th>Title</th>
@@ -45,7 +59,11 @@
                 
                 <div class="tableContainer">
                     <table>
-                        <h2 class='tableName'>artists</h2><button class='deleteData'>delete</button><button class='addData'>add</button>
+                        <div class="tableLabel">
+                            <h2 class='tableName'>artists</h2>
+                            <button class='deleteData  tableBtn'>delete</button>
+                            <button class='addData tableBtn'>add</button>
+                        </div>
                         <tr>
                             <th>Artist ID</th>
                             <th>Name</th>
@@ -64,7 +82,11 @@
 
                 <div class="tableContainer">
                     <table>
-                    <h2 class='tableName'>exhibit</h2><button class='deleteData'>delete</button><button class='addData'>add</button>
+                        <div class="tableLabel">
+                            <h2 class='tableName'>exhibit</h2>
+                            <button class='deleteData  tableBtn'>delete</button>
+                            <button class='addData tableBtn'>add</button>
+                        </div>
                     <tr>
                         <th>Exhibit ID</th>
                         <th>Start Date</th>
@@ -83,7 +105,11 @@
                 </div>
                 <div class="tableContainer">
                     <table>
-                    <h2 class='tableName'>music</h2><button class='deleteData'>delete</button><button class='addData'>add</button>
+                        <div class="tableLabel">
+                            <h2 class='tableName'>music</h2>
+                            <button class='deleteData  tableBtn'>delete</button>
+                            <button class='addData tableBtn'>add</button>
+                        </div>
                         <tr>
                             <th>Music ID</th>
                             <th>Title</th>
@@ -105,7 +131,11 @@
                 </div>
                 <div class="tableContainer">
                     <table>
-                    <h2 class='tableName'>poetry</h2><button class='deleteData'>delete</button><button class='addData'>add</button>
+                    <div class="tableLabel">
+                        <h2 class='tableName'>poetry</h2>
+                        <button class='deleteData  tableBtn'>delete</button>
+                        <button class='addData tableBtn'>add</button>
+                    </div>
                     <tr>
                         <th>Poetry ID</th>
                         <th>Title</th>
@@ -122,7 +152,11 @@
                 </div>
                 <div class="tableContainer">
                     <table>
-                    <h2 class='tableName'>transaction</h2><button class='deleteData'>delete</button><button class='addData'>add</button>
+                    <div class="tableLabel">
+                        <h2 class='tableName'>transaction</h2>
+                        <button class='deleteData  tableBtn'>delete</button>
+                        <button class='addData tableBtn'>add</button>
+                    </div>
                     <tr>
                         <th>Transaction ID</th>
                         <th>Transaction Date</th>
