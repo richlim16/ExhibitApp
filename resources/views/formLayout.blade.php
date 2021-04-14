@@ -74,11 +74,14 @@
     </style>
     </head>
     <body>
+        
         <div class="container">
             <button class="homeBtn"><a href="/">Home</a></button>
             <div class="formContainer">
                 @yield('content')
             </div>
         </div>
+
+        
     </body>
 </html>

@@ -31,3 +31,9 @@ Route::get('/newTransaction', [sampleCont::class, 'newTransaction']);
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/artTable', [sampleCont::class, 'artTable']);
+Route::get('/artistTable', [sampleCont::class, 'artistTable']);
+Route::get('/exhibitsTable', [sampleCont::class, 'exhibitsTable']);
+Route::get('/musicTable', [sampleCont::class, 'musicTable']);
+Route::get('/poetriesTable', [sampleCont::class, 'poetriesTable']);
+Route::get('/transactionsTable', [sampleCont::class, 'transactionsTable']);

@@ -13,13 +13,13 @@
             <div id="sidenav">
                 <h2 id="label">TABLES</h2>
                 <ul id="nav">
-                    <a href=""><li class="selected" id="allTab">All</li></a>
-                    <a href=""><li class="subTab">artist</li></a>
-                    <a href=""><li class="subTab">art</li></a>
-                    <a href=""><li class="subTab">exhibits</li></a>
-                    <a href=""><li class="subTab">music</li></a>
-                    <a href=""><li class="subTab">poetries</li></a>
-                    <a href=""><li class="subTab">transactions</li></a>
+                    <a href="/"><li class="selected" id="allTab">All</li></a>
+                    <a href="/artTable"><li class="subTab">art</li></a>
+                    <a href="/artistTable"><li class="subTab">artist</li></a>
+                    <a href="/exhibitsTable"><li class="subTab">exhibits</li></a>
+                    <a href="/musicTable"><li class="subTab">music</li></a>
+                    <a href="/poetriesTable"><li class="subTab">poetries</li></a>
+                    <a href="/transactionsTable"><li class="subTab">transactions</li></a>
                 </ul>
 
                 @guest
@@ -58,7 +58,7 @@
                 <div class="tableContainer">
                     <table>
                         <div class="tableLabel">
-                            <h2 class='tableName'>art</h2>
+                            <h2 class='tableName'>Art</h2>
                             @if(Auth::check())
                             <button class='addData tableBtn'><a href="/newArt">add</a></button>
                             @endif
@@ -85,9 +85,9 @@
                 <div class="tableContainer">
                     <table>
                         <div class="tableLabel">
-                            <h2 class='tableName'>artists</h2>
+                            <h2 class='tableName'>Artists</h2>
                             @if(Auth::check())
-                            <button class='addData tableBtn'>add</button>
+                            <button class='addData tableBtn'><a href="/newArtist">add</a></button>
                             @endif
                         </div>
                         <tr>
@@ -109,9 +109,9 @@
                 <div class="tableContainer">
                     <table>
                         <div class="tableLabel">
-                            <h2 class='tableName'>exhibit</h2>
+                            <h2 class='tableName'>Exhibit</h2>
                             @if(Auth::check())
-                            <button class='addData tableBtn'>add</button>
+                            <button class='addData tableBtn'><a href="/newExhibit">add</a></button>
                             @endif
                         </div>
                     <tr>
@@ -133,9 +133,9 @@
                 <div class="tableContainer">
                     <table>
                         <div class="tableLabel">
-                            <h2 class='tableName'>music</h2>
+                            <h2 class='tableName'>Music</h2>
                             @if(Auth::check())
-                            <button class='addData tableBtn'>add</button>
+                            <button class='addData tableBtn'><a href="/newMusic">add</a></button>
                             @endif
                         </div>
                         <tr>
@@ -160,9 +160,9 @@
                 <div class="tableContainer">
                     <table>
                     <div class="tableLabel">
-                        <h2 class='tableName'>poetry</h2>
+                        <h2 class='tableName'>Poetry</h2>
                         @if(Auth::check())
-                        <button class='addData tableBtn'>add</button>
+                        <button class='addData tableBtn'><a href="/newPoetry">add</a></button>
                         @endif
                     </div>
                     <tr>
@@ -182,9 +182,9 @@
                 <div class="tableContainer">
                     <table>
                     <div class="tableLabel">
-                        <h2 class='tableName'>transaction</h2>
+                        <h2 class='tableName'>Transaction</h2>
                         @if(Auth::check())
-                        <button class='addData tableBtn'>add</button>
+                        <button class='addData tableBtn'><a href="/newTransaction">add</a></button>
                         @endif
                     </div>
                     <tr>

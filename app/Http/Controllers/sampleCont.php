@@ -22,6 +22,37 @@ class sampleCont extends Controller
         return view('welcome')->with('art', $art)->with('artist', $artist)->with('exhibit', $exhibit)->with('music', $music)->with('poetry', $poetry)->with('transaction', $transaction);
     }
 
+    function artTable(){
+        $art = art::all();
+
+        return view('tables/artTable')->with('art', $art);
+    }
+    function artistTable(){
+        $artist = artist::all();
+
+        return view('tables/artistTable')->with('artist', $artist);
+    }
+    function exhibitsTable(){
+        $exhibit = exhibit::all();
+
+        return view('tables/exhibitsTable')->with('exhibit', $exhibit);
+    }
+    function musicTable(){
+        $music = music::all();
+
+        return view('tables/musicTable')->with('music', $music);
+    }
+    function poetriesTable(){
+        $poetry = poetry::all();
+
+        return view('tables/poetriesTable')->with('poetry', $poetry);
+    }
+    function transactionsTable(){
+        $transaction = transaction::all();
+
+        return view('tables/transactionsTable')->with('transaction', $transaction);
+    }
+
     function insertArt(Request $request){
         $title = $request->input('artTitle');
         $type = $request->input('artType');
