@@ -2,65 +2,6 @@
     <head>
         <title>Sample for IM2</title>
         <link href="{{URL::asset('css/style.css')}}" rel="stylesheet">
-        <style>
-            a{
-                text-decoration: none;
-                color: #111;
-            }
-            body{
-                padding: 0;
-                margin: 0;
-                background: #eee;
-            }
-            table{
-                border-collapse: collapse;
-                width: 50%;
-                padding: 20px;
-
-                background: #fff;
-            }
-            td{
-                border: 1px solid black;
-            }
-            th{
-                border: 2px solid black;
-                background: #aaa;
-                margin: 0;
-                padding: 0;
-            }
-            tr{
-                text-align: center;
-            }
-            .container{
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
-            }
-            .tableContainer{
-                display: grid;
-                place-items: center;
-                margin: 20px;
-                padding: 20px;
-
-                width: 50%;
-                background: #fff;
-                border-radius: 10px;
-                border: 5px solid #111;
-            }
-            .insertButton{
-                margin: 20px;
-                background: #eee;
-                padding: 5px;
-                border-radius: 5px;
-                border: 3px solid #111;
-                font-size: 15px;
-                transition: .2s;
-            }
-            .insertButton:hover{
-                border: 3px solid #fa0;
-            }
-        </style>
     </head>
     <body>
         <div class="container">
