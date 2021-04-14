@@ -4,7 +4,9 @@
         <link href="{{URL::asset('css/style.css')}}" rel="stylesheet">
     </head>
     <body>
-        <div id="topbar"><h1 id="title"><a href=''>XHIBIT</a></h1></div>
+        <div id="topbar">
+        <h1 id="title"><a href=''>XHIBIT</a></h1>
+        </div>
 
         <div id="container">
     
@@ -19,12 +21,47 @@
                     <a href=""><li class="subTab">poetries</li></a>
                     <a href=""><li class="subTab">transactions</li></a>
                 </ul>
+
+                @guest
+                            @if (Route::has('login'))
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                </li>
+                            @endif
+                            
+                            @if (Route::has('register'))
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                </li>
+                            @endif
+                        @else
+                            <li class="nav-item dropdown">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    {{ Auth::user()->name }}
+                                </a>
+
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        @csrf
+                                    </form>
+                                </div>
+                            </li>
+                        @endguest
             </div>
             <div id="mainSide">
                 <div class="tableContainer">
                     
                     <table>
-                        <h2 class='tableName'>art</h2><button class='deleteData'>delete</button><button class='addData'>add</button>
+                        <h2 class='tableName'>art</h2>
+                        @if(Auth::check())
+                        <button class='deleteData'>delete</button><button class='addData'>add</button>
+                        @endif
                         <tr>
                             <th>ArtID</th>
                             <th>Title</th>
@@ -45,7 +82,10 @@
                 
                 <div class="tableContainer">
                     <table>
-                        <h2 class='tableName'>artists</h2><button class='deleteData'>delete</button><button class='addData'>add</button>
+                        <h2 class='tableName'>artists</h2>
+                        @if(Auth::check())
+                        <button class='deleteData'>delete</button><button class='addData'>add</button>
+                        @endif
                         <tr>
                             <th>Artist ID</th>
                             <th>Name</th>
@@ -64,7 +104,10 @@
 
                 <div class="tableContainer">
                     <table>
-                    <h2 class='tableName'>exhibit</h2><button class='deleteData'>delete</button><button class='addData'>add</button>
+                    <h2 class='tableName'>exhibit</h2>
+                    @if(Auth::check())
+                    <button class='deleteData'>delete</button><button class='addData'>add</button>
+                    @endif
                     <tr>
                         <th>Exhibit ID</th>
                         <th>Start Date</th>
@@ -83,7 +126,10 @@
                 </div>
                 <div class="tableContainer">
                     <table>
-                    <h2 class='tableName'>music</h2><button class='deleteData'>delete</button><button class='addData'>add</button>
+                    <h2 class='tableName'>music</h2>
+                    @if(Auth::check())
+                    <button class='deleteData'>delete</button><button class='addData'>add</button>
+                    @endif
                         <tr>
                             <th>Music ID</th>
                             <th>Title</th>
@@ -105,7 +151,10 @@
                 </div>
                 <div class="tableContainer">
                     <table>
-                    <h2 class='tableName'>poetry</h2><button class='deleteData'>delete</button><button class='addData'>add</button>
+                    <h2 class='tableName'>poetry</h2>
+                    @if(Auth::check())
+                    <button class='deleteData'>delete</button><button class='addData'>add</button>
+                    @endif
                     <tr>
                         <th>Poetry ID</th>
                         <th>Title</th>
@@ -122,7 +171,10 @@
                 </div>
                 <div class="tableContainer">
                     <table>
-                    <h2 class='tableName'>transaction</h2><button class='deleteData'>delete</button><button class='addData'>add</button>
+                    <h2 class='tableName'>transaction</h2>
+                    @if(Auth::check())
+                    <button class='deleteData'>delete</button><button class='addData'>add</button>
+                    @endif
                     <tr>
                         <th>Transaction ID</th>
                         <th>Transaction Date</th>
