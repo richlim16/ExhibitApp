@@ -13,7 +13,6 @@ use App\Http\Controllers\sampleCont;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 Route::get('/', [sampleCont::class, 'home']);
 Route::post('/insertArt', [sampleCont::class, 'insertArt']);
 Route::get('/newArt', [sampleCont::class, 'newArt']);
