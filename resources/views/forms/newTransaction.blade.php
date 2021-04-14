@@ -5,7 +5,7 @@
         <h1>TRANSACTION FORM</h1>
         <label for="transactionDate">Date of Transaction</label>
         <input type="date" name="transactionDate">
-        <input type="text" name="artistID" placeholder="Artist ID">
+        <input type="hidden" name="artistID" value="{{Auth::user()->id}}">
         <button><h3>SUBMIT</h3></button>
     </form>
 @endsection
