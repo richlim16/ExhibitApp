@@ -2,6 +2,10 @@
     <head>
         <title>Sample for IM2</title>
         <style>
+            a{
+                text-decoration: none;
+                color: #111;
+            }
             body{
                 padding: 0;
                 margin: 0;
@@ -13,7 +17,6 @@
                 padding: 20px;
 
                 background: #fff;
-                border-radius: 10px;
             }
             td{
                 border: 1px solid black;
@@ -36,12 +39,25 @@
             .tableContainer{
                 display: grid;
                 place-items: center;
-                margin: 10px;
+                margin: 20px;
                 padding: 20px;
 
                 width: 50%;
                 background: #fff;
                 border-radius: 10px;
+                border: 5px solid #111;
+            }
+            .insertButton{
+                margin: 20px;
+                background: #eee;
+                padding: 5px;
+                border-radius: 5px;
+                border: 3px solid #111;
+                font-size: 15px;
+                transition: .2s;
+            }
+            .insertButton:hover{
+                border: 3px solid #fa0;
             }
         </style>
     </head>
@@ -66,23 +82,25 @@
                     @endforeach
                     
                 </table>
+                <button class="insertButton"><a href="/newArt">Insert Art</a></button>
             </div>
             <div class="tableContainer">
                 <table>
-                <h3>Artist Table</h3>
-                <tr>
-                    <th>Artist ID</th>
-                    <th>Name</th>
-                    <th>Email</th>
-                </tr>
-                @foreach($artist as $artist)
-                <tr>
-                    <td>{{$artist['ArtistID']}}</td>
-                    <td>{{$artist['name']}}</td>
-                    <td>{{$artist['EmailAdd']}}</td>
-                </tr>
-                @endforeach
-            </table>
+                    <h3>Artist Table</h3>
+                    <tr>
+                        <th>Artist ID</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                    </tr>
+                    @foreach($artist as $artist)
+                    <tr>
+                        <td>{{$artist['ArtistID']}}</td>
+                        <td>{{$artist['name']}}</td>
+                        <td>{{$artist['EmailAdd']}}</td>
+                    </tr>
+                    @endforeach
+                </table>
+                <button class="insertButton"><a href="/newArtist">Insert Artist</a></button>
             </div>
             <div class="tableContainer">
                 <table>
@@ -102,6 +120,7 @@
                 </tr>
                 @endforeach
             </table>
+                <button class="insertButton"><a href="/newExhibit">Insert Exhibit</a></button>
             </div>
             <div class="tableContainer">
                 <table>
@@ -121,6 +140,7 @@
                     </tr>
                 @endforeach
             </table>
+                <button class="insertButton"><a href="/newMusic">Insert Music</a></button>
             </div>
             <div class="tableContainer">
                 <table>
@@ -138,6 +158,7 @@
                     </tr>
                 @endforeach
             </table>
+                <button class="insertButton"><a href="/newPoetry">Insert Poetry</a></button>
             </div>
             <div class="tableContainer">
                 <table>
@@ -155,6 +176,7 @@
                     </tr>
                 @endforeach
             </table>
+                <button class="insertButton"><a href="/newTransaction">Insert Transaction</a></button>
             </div>
         </div>
     </body>

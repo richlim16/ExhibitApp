@@ -7,5 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class art extends Model
 {
+    public $timestamps = false;
     use HasFactory;
 }
