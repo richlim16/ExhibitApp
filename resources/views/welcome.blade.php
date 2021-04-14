@@ -1,6 +1,7 @@
 <!DOCTYPE html>
     <head>
         <title>Sample for IM2</title>
+        <link href="{{URL::asset('css/style.css')}}" rel="stylesheet">
         <style>
             a{
                 text-decoration: none;
