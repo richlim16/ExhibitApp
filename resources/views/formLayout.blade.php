@@ -1,7 +1,6 @@
 <html>
     <head>
     <style>
-        @yield('style')
         a{
             text-decoration: none;
             color: #111;

@@ -7,21 +7,60 @@
 body{
     background-color: #2c3454;
 }
-#title{
-    
-    margin: auto;
-    position: relative;
-    top: 10px;
-}
+
 #topbar{
+    display: grid;
+    grid-template-columns:20% 60% 6.6% 13.4%;
     background-color: #051431;
     height: 7.5vh;
     font-weight: 700;
-    
+}
+#title{  
+    margin: auto;
+    position: relative;
+}
+
+#userArea{
+    display: inline;
+    margin: auto 0;
+}
+
+#icon{
+    display: inline;
+    float: left;
+    margin: 0 1.5em;
+}
+
+#userName{
+    display: inline;
+}
+
+#logout{
     text-align: center;
     
 }
 
+#logoutText{
+    position: relative;
+    top:19px;
+    font-size: 12px;
+    font-weight: normal;
+}
+.login{
+    background-color: #051431;
+    border: none;
+    outline: none;
+}
+.login:hover{
+    background-color: #294eaa;
+    cursor: pointer;
+}
+#logout{
+    background-color: #310505;
+}
+#logout:hover{
+    background-color: #aa2929;
+}
 #container{
     display: grid;
     grid-template-columns:20% 80%;
@@ -171,3 +210,42 @@ button{
     background: #2c3454;
     padding: 10px 1em 10px 1em;
 }
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+  
+  /* Modal Content/Box */
+  .modal-content {
+    background-color: #051431;
+    margin: 5% auto; /* 15% from the top and centered */
+    padding: 20px;
+    width: 25%; /* Could be more or less, depending on screen size */
+  }
+  
+  /* The Close Button */
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    position: relative;
+    bottom: 10px;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
