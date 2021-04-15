@@ -165,11 +165,7 @@ button{
     display: inline;
     float: right;
     border: 0;
-    padding: 5px 5px 5px 5px;
-    border-radius: 10px;
-    margin: 0px 0 0 10px;
-    font-size: 16px;
-    
+    margin-left: 25px;   
 }
 
 .addData{
