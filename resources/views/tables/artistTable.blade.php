@@ -1,5 +1,6 @@
-@extends('../tableLayout')
+@extends('../pageLayout')
 @section('sidebar')
+                <ul id="nav">
                     <a href="/"><li class="" id="allTab">All</li></a>
                     <a href="/artTable"><li class="subTab">art</li></a>
                     <a href="/#"><li class="selected subTab">artist</li></a>
@@ -10,10 +11,6 @@
                 </ul>
 @endsection
 @section('content')
-                
-            </div>
-            <div id="mainSide">
-                
                 <div class="tableContainer">
                     <table>
                         <div class="tableLabel">
@@ -37,7 +34,4 @@
                         </table>
                     
                 </div>
-        </div>
-    </body>
-</html>
 @endsection

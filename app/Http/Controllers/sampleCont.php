@@ -19,8 +19,9 @@ class sampleCont extends Controller
         $poetry = poetry::all();
         $transaction = transaction::all();
 
-        return view('welcome')->with('art', $art)->with('artist', $artist)->with('exhibit', $exhibit)->with('music', $music)->with('poetry', $poetry)->with('transaction', $transaction);
+        return view('tables/allTable')->with('art', $art)->with('artist', $artist)->with('exhibit', $exhibit)->with('music', $music)->with('poetry', $poetry)->with('transaction', $transaction);
     }
+
 
     function artTable(){
         $art = art::all();
@@ -149,3 +150,4 @@ class sampleCont extends Controller
     }
 
 }
+?>
