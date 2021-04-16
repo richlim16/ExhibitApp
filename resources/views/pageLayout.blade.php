@@ -2,6 +2,7 @@
     <head>
         <title>Main Page</title>
         <link href="{{URL::asset('css/style.css')}}" rel="stylesheet">
+        <link href="{{URL::asset('css/formStyle.css')}}" rel="stylesheet">
     </head>
     <body>
         <div id="topbar">
@@ -55,7 +56,7 @@
                         @csrf
                             <label for="email" class="">{{ __('E-Mail Address') }}</label>
                             <br>
-                            <input id="email" type="email" class="" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                            <input id="email" type="email" class="" name="email" value="{{ old('email') }}" required autocomplete="off" autofocus>
                             <br>
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
@@ -73,14 +74,16 @@
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
+                            <div class="inputContainer">
+                                <label class="form-check-label" for="remember">
+                                        {{ __('Remember Me') }}
+                                </label>
+                                <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
 
-                            <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
 
-                            <label class="form-check-label" for="remember">
-                                    {{ __('Remember Me') }}
-                            </label>
+                            </div>
 
-                            <button type="submit" class="btn btn-primary">
+                            <button type="submit" class="btn btn-primary" id="loginBtn">
                                 {{ __('Login') }}
                             </button>
 

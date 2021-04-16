@@ -1,7 +1,7 @@
 *{
     margin: 0;
     padding: 0;
-    font-family: montserrat;
+    font-family: montserrat, arial;
     color: white;
 }
 body{
@@ -241,7 +241,7 @@ button{
   
   .close:hover,
   .close:focus {
-    color: black;
+    color: #eee;
     text-decoration: none;
     cursor: pointer;
   }
