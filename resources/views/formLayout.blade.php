@@ -79,8 +79,6 @@
             <div class="formContainer">
                 @yield('content')
             </div>
-        </div>
-
-        
+        </div>      
     </body>
 </html>
