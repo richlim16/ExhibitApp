@@ -18,4 +18,24 @@ body{
     height: 92.5vh;
 }
 
+ /* custom scrollbar  */
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #212841; 
+    width: 15px;
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: white;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgb(196, 196, 196); 
+  }
 

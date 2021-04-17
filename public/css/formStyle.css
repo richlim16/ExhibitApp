@@ -32,3 +32,42 @@
     font-size: 2vh;
     padding: 1vh;
 }
+
+
+.formContainer{
+    width:50%;
+}
+form{
+    display: flex;
+    flex-direction: column;
+}
+
+form h1{
+    margin-bottom: 1em;
+}
+
+label{
+    margin: 1vh 0 1vh 0;
+}
+input{
+    
+    margin-bottom: 2vh;
+    font-size: 2vh;
+    padding: 5px;
+    border: 0;
+    border-bottom: 3px solid #2c3454;
+    background-color: #2c3454;
+    transition: .3s;
+}
+input:focus{
+    border-bottom: 3px solid #eee;
+    outline: none;
+}
+
+#submitBtn{
+
+    background-color: #426fe1;
+    margin-top: 1em;
+    font-size: 2vh;
+    padding: 1vh;
+}

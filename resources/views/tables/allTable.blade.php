@@ -44,6 +44,7 @@
                 <th>Title</th>
                 <th>Type</th>
                 <th>ArtistID</th>
+                <th class="modifyColumn"></th>
             </tr>
             @foreach($art as $art)
             <tr>
@@ -51,6 +52,22 @@
                 <td>{{$art['ArtTitle']}}</td>
                 <td>{{$art['ArtType']}}</td>
                 <td>{{$art['ArtistID']}}</td>
+                <td>
+                    <div class="dropdown">
+                        <button onclick="myFunction()" class="dropbtn">Dropdown</button>
+                        <div id="myDropdown" class="dropdown-content">
+                            <form action="">
+                                <input class="tablerowBtn" type="submit" value="Edit">
+                            </form>
+
+                            <form action="">
+                                <input class="tablerowBtn" type="submit" value="Delete">
+                            </form>
+                            
+                            
+                        </div>
+                    </div>
+                </td>
             </tr>
             @endforeach
             

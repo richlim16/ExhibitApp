@@ -46,9 +46,8 @@ button{
     background: none;
 }
 
-.deleteData{
-    background-color: white;
-    color:black;
+.modifyColumn{
+    width: 20%;
 }
 
 #label{
