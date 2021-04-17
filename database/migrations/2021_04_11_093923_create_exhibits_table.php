@@ -14,7 +14,7 @@ class CreateExhibitsTable extends Migration
     public function up()
     {
         Schema::create('exhibits', function (Blueprint $table) {
-            $table->id('ExhibitID');
+            $table->id();
             $table->timestamp('StartDate');
             $table->timestamp('EndDate')->nullable();
             $table->string('Theme', 100);
@@ -23,7 +23,7 @@ class CreateExhibitsTable extends Migration
 
         DB::table('exhibits')->insert(
             array(
-                'ExhibitID' => 1,
+                'id' => 1,
                 'StartDate' => now(),
                 'Theme' => 'Jungle Madness',
                 'TransactionID' => 1
@@ -31,7 +31,7 @@ class CreateExhibitsTable extends Migration
         );
         DB::table('exhibits')->insert(
             array(
-                'ExhibitID' => 2,
+                'id' => 2,
                 'StartDate' => now(),
                 'Theme' => 'City Prison',
                 'TransactionID' => 2

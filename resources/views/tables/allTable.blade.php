@@ -40,7 +40,7 @@
             </div>
             
             <tr>
-                <th>ArtID</th>
+                <th>id</th>
                 <th>Title</th>
                 <th>Type</th>
                 <th>ArtistID</th>
@@ -48,7 +48,7 @@
             </tr>
             @foreach($art as $art)
             <tr>
-                <td>{{$art['ArtID']}}</td>
+                <td>{{$art['id']}}</td>
                 <td>{{$art['ArtTitle']}}</td>
                 <td>{{$art['ArtType']}}</td>
                 <td>{{$art['ArtistID']}}</td>
@@ -67,6 +67,11 @@
                             
                         </div>
                     </div>
+                <form action="/updateArtForm" method="post">
+                    @csrf
+                    <input type="hidden" name="id" value="{{$art['id']}}">
+                    <button>Edit</button>
+                </form>
                 </td>
             </tr>
             @endforeach
@@ -95,9 +100,16 @@
             </tr>
                 @foreach($artist as $artist)
                 <tr>
-                    <td>{{$artist['ArtistID']}}</td>
+                    <td>{{$artist['id']}}</td>
                     <td>{{$artist['name']}}</td>
                     <td>{{$artist['EmailAdd']}}</td>
+                <td>
+                <form action="/updateArtistForm" method="post">
+                    @csrf
+                    <input type="hidden" name="id" value="{{$artist['id']}}">
+                    <button>Edit</button>
+                </form>
+                </td>
                 </tr>
                 @endforeach
             </table>
@@ -125,10 +137,17 @@
         </tr>
             @foreach($exhibit as $exhibit)
             <tr>
-                <td>{{$exhibit['ExhibitID']}}</td>
+                <td>{{$exhibit['id']}}</td>
                 <td>{{$exhibit['StartDate']}}</td>
                 <td>{{$exhibit['Theme']}}</td>
                 <td>{{$exhibit['TransactionID']}}</td>
+                <td>
+                <form action="/updateExhibitForm" method="post">
+                    @csrf
+                    <input type="hidden" name="id" value="{{$exhibit['id']}}">
+                    <button>Edit</button>
+                </form>
+                </td>
             </tr>
             @endforeach
         </table>
@@ -157,10 +176,17 @@
 
             @foreach($music as $music)
                 <tr>
-                    <td>{{$music['MusicID']}}</td>
+                    <td>{{$music['id']}}</td>
                     <td>{{$music['MusicTitle']}}</td>
                     <td>{{$music['genre']}}</td>
                     <td>{{$music['ArtistID']}}</td>
+                <td>
+                <form action="/updateMusicForm" method="post">
+                    @csrf
+                    <input type="hidden" name="id" value="{{$music['id']}}">
+                    <button>Edit</button>
+                </form>
+                </td>
                 </tr>
             @endforeach
 
@@ -187,9 +213,16 @@
         </tr>
             @foreach($poetry as $poetry)
                 <tr>
-                    <td>{{$poetry['PoetryID']}}</td>
+                    <td>{{$poetry['id']}}</td>
                     <td>{{$poetry['PoetryTitle']}}</td>
                     <td>{{$poetry['ArtistID']}}</td>
+                <td>
+                <form action="/updatePoetryForm" method="post">
+                    @csrf
+                    <input type="hidden" name="id" value="{{$poetry['id']}}">
+                    <button>Edit</button>
+                </form>
+                </td>
                 </tr>
             @endforeach
         </table>
@@ -215,9 +248,16 @@
         </tr>
             @foreach($transaction as $transaction)
                 <tr>
-                    <td>{{$transaction['TransactionID']}}</td>
+                    <td>{{$transaction['id']}}</td>
                     <td>{{$transaction['TransactionDate']}}</td>
                     <td>{{$transaction['ArtistID']}}</td>
+                <td>
+                <form action="/updateTransactionForm" method="post">
+                    @csrf
+                    <input type="hidden" name="id" value="{{$transaction['id']}}">
+                    <button>Edit</button>
+                </form>
+                </td>
                 </tr>
             @endforeach
         </table>

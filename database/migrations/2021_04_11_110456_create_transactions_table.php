@@ -14,19 +14,19 @@ class CreateTransactionsTable extends Migration
     public function up()
     {
         Schema::create('transactions', function (Blueprint $table) {
-            $table->id('TransactionID');
+            $table->id();
             $table->timestamp('TransactionDate')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->foreignId('ArtistID');
         });
         DB::table('transactions')->insert(
             array(
-                'TransactionID' => 1,
+                'id' => 1,
                 'ArtistID' => 1
             )
         );
         DB::table('transactions')->insert(
             array(
-                'TransactionID' => 2,
+                'id' => 2,
                 'ArtistID' => 2
             )
         );
