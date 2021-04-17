@@ -160,6 +160,7 @@ td {
 
 button{
     border: 0;
+    background: transparent;
 }
 .tableBtn{
     display: inline;

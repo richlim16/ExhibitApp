@@ -14,7 +14,7 @@ class CreateArtistsTable extends Migration
     public function up()
     {
         Schema::create('artists', function (Blueprint $table) {
-            $table->id('ArtistID');
+            $table->id();
             $table->string('name', 100);
             $table->string('EmailAdd', 100);
 
@@ -22,21 +22,21 @@ class CreateArtistsTable extends Migration
 
         DB::table('artists')->insert(
             array(
-                'ArtistID' => 1,
+                'id' => 1,
                 'name' => 'Juan Karlos',
                 'EmailAdd' => 'jaunkarlos@gmail.com'
             )
         );
         DB::table('artists')->insert(
             array(
-                'ArtistID' => 2,
+                'id' => 2,
                 'name' => 'Beyonce',
                 'EmailAdd' => 'beyonce@gmail.com'
             )
         );
         DB::table('artists')->insert(
             array(
-                'ArtistID' => 3,
+                'id' => 3,
                 'name' => 'Billy Eyelash',
                 'EmailAdd' => 'blash@gmail.com'
             )

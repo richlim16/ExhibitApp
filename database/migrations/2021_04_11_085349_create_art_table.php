@@ -14,7 +14,7 @@ class CreateArtTable extends Migration
     public function up()
     {
         Schema::create('art', function (Blueprint $table) {
-            $table->id('ArtID');
+            $table->id();
             $table->string('ArtTitle', 50);
             $table->enum('ArtType', ['music', 'poetry']);
             $table->foreignId('ArtistID');
@@ -22,7 +22,7 @@ class CreateArtTable extends Migration
 
         DB::table('art')->insert(
             array(
-                'ArtID' => 1,
+                'id' => 1,
                 'ArtTitle' => 'Sample Art #1',
                 'ArtType' => 'music',
                 'ArtistID' => 1
@@ -30,7 +30,7 @@ class CreateArtTable extends Migration
         );
         DB::table('art')->insert(
             array(
-                'ArtID' => 2,
+                'id' => 2,
                 'ArtTitle' => 'Sample Art #2',
                 'ArtType' => 'music',
                 'ArtistID' => 1
@@ -38,7 +38,7 @@ class CreateArtTable extends Migration
         );
         DB::table('art')->insert(
             array(
-                'ArtID' => 3,
+                'id' => 3,
                 'ArtTitle' => 'Sample Art #3',
                 'ArtType' => 'music',
                 'ArtistID' => 1

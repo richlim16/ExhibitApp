@@ -14,7 +14,7 @@ class CreateMusicTable extends Migration
     public function up()
     {
         Schema::create('music', function (Blueprint $table) {
-            $table->id('MusicID');
+            $table->id();
             $table->string('MusicTitle', 100);
             $table->string('genre', 50);
             $table->foreignId('ArtistID');
@@ -22,7 +22,7 @@ class CreateMusicTable extends Migration
 
         DB::table('music')->insert(
             array(
-                'MusicID' => 1,
+                'id' => 1,
                 'MusicTitle' => 'Bad Guy',
                 'genre' => 'emo girl music eyy',
                 'ArtistID' => 3
@@ -30,7 +30,7 @@ class CreateMusicTable extends Migration
         );
         DB::table('music')->insert(
             array(
-                'MusicID' => 2,
+                'id' => 2,
                 'MusicTitle' => 'To The Left',
                 'genre' => 'Hiphop',
                 'ArtistID' => 2
@@ -38,7 +38,7 @@ class CreateMusicTable extends Migration
         );
         DB::table('music')->insert(
             array(
-                'MusicID' => 3,
+                'id' => 3,
                 'MusicTitle' => 'Buwan',
                 'genre' => 'sadboi',
                 'ArtistID' => 1
