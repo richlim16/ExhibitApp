@@ -20,36 +20,43 @@ Route::post('/insertArt', [formController::class, 'insertArt']);
 Route::get('/newArt', [MainController::class, 'artForm']);
 Route::post('/updateArtForm', [MainController::class, 'artFormUpdate']);
 Route::post('/updateArt', [formController::class, 'updateArt']);
+Route::post('/deleteArt', [formController::class, 'deleteArt']);
 
 Route::post('/insertArtist', [formController::class, 'insertArtist']);
 Route::get('/newArtist', [MainController::class, 'artistForm']);
 Route::post('/updateArtistForm', [MainController::class, 'artistFormUpdate']);
 Route::post('/updateArtist', [formController::class, 'updateArtist']);
+Route::post('/deleteArtist', [formController::class, 'deleteArtist']);
 
 Route::post('/insertExhibit', [formController::class, 'insertExhibit']);
 Route::get('/newExhibit', [MainController::class, 'exhibitForm']);
 Route::post('/updateExhibitForm', [MainController::class, 'exhibitFormUpdate']);
 Route::post('/updateExhibit', [formController::class, 'updateExhibit']);
+Route::post('/deleteExhibit', [formController::class, 'deleteExhibit']);
 
 Route::post('/insertMusic', [formController::class, 'insertMusic']);
 Route::get('/newMusic', [MainController::class, 'musicForm']);
 Route::post('/updateMusicForm', [MainController::class, 'musicFormUpdate']);
 Route::post('/updateMusic', [formController::class, 'updateMusic']);
+Route::post('/deleteMusic', [formController::class, 'deleteMusic']);
 
 Route::post('/insertPoetry', [formController::class, 'insertPoetry']);
 Route::get('/newPoetry', [MainController::class, 'poetryForm']);
 Route::post('/updatePoetryForm', [MainController::class, 'poetryFormUpdate']);
 Route::post('/updatePoetry', [formController::class, 'updatePoetry']);
+Route::post('/deletePoetry', [formController::class, 'deletePoetry']);
 
 Route::post('/insertTransaction', [formController::class, 'insertTransaction']);
 Route::get('/newTransaction', [MainController::class, 'transactionForm']);
 Route::post('/updateTransactionForm', [MainController::class, 'transactionFormUpdate']);
 Route::post('/updateTransaction', [formController::class, 'updateTransaction']);
+Route::post('/deleteTransaction', [formController::class, 'deleteTransaction']);
 
 Route::post('/insertUser', [formController::class, 'insertUser']);
 Route::get('/newUser', [MainController::class, 'userForm']);
 Route::post('/updateUserForm', [MainController::class, 'updateUserForm']);
 Route::post('/updateUser', [formController::class, 'updateUser']);
+Route::post('/deleteUser', [formController::class, 'deleteUser']);
 
 
 Auth::routes();

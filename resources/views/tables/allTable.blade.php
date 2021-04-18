@@ -46,7 +46,9 @@
                         <input class="tablerowBtn" type="submit" value="Edit">
                     </form>
             
-                    <form action="">
+                    <form action="/deleteArt" method="post">
+                        @csrf
+                        <input type="hidden" name="id" value="{{$art['id']}}">
                         <input class="tablerowBtn" type="submit" value="Delete">
                     </form>      
                 </td>
@@ -90,7 +92,9 @@
                         <input class="tablerowBtn" type="submit" value="Edit">
                     </form>
             
-                    <form action="">
+                    <form action="/deleteExhibit" method="post">
+                        @csrf
+                        <input type="hidden" name="id" value="{{$art['id']}}">
                         <input class="tablerowBtn" type="submit" value="Delete">
                     </form>
                 </td>
@@ -135,7 +139,9 @@
                             <input class="tablerowBtn" type="submit" value="Edit">
                         </form>
                 
-                        <form action="">
+                        <form action="/deleteMusic" method="post">
+                            @csrf
+                            <input type="hidden" name="id" value="{{$art['id']}}">
                             <input class="tablerowBtn" type="submit" value="Delete">
                         </form>
                     </td>
@@ -178,7 +184,9 @@
                             <input class="tablerowBtn" type="submit" value="Edit">
                         </form>
                 
-                        <form action="">
+                        <form action="/deletePoetry" method="post">
+                            @csrf
+                            <input type="hidden" name="id" value="{{$art['id']}}">
                             <input class="tablerowBtn" type="submit" value="Delete">
                         </form>
                     </td>
@@ -219,7 +227,9 @@
                             <input class="tablerowBtn" type="submit" value="Edit">
                         </form>
                 
-                        <form action="">
+                        <form action="/deleteTransaction" method="post">
+                            @csrf
+                            <input type="hidden" name="id" value="{{$transaction['id']}}">
                             <input class="tablerowBtn" type="submit" value="Delete">
                         </form>
                     </td>
@@ -259,13 +269,15 @@
                 <td>{{$user['admin']}}</td>
 
                 <td class="btnCell">
-                    <form action="/updateExhibitForm" method="post">
+                    <form action="/updateUserForm" method="post">
                         @csrf
                         <input type="hidden" name="id" value="{{$exhibit['id']}}">
                         <input class="tablerowBtn" type="submit" value="Edit">
                     </form>
             
-                    <form action="">
+                    <form action="/deleteUser">
+                        @csrf
+                        <input type="hidden" name="id" value="{{$transaction['id']}}">
                         <input class="tablerowBtn" type="submit" value="Delete">
                     </form>
                 </td>
