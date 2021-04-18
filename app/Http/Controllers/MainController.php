@@ -9,6 +9,8 @@ use App\Models\exhibit;
 use App\Models\music;
 use App\Models\poetry;
 use App\Models\transaction;
+use App\Models\user;
+
 use Illuminate\Support\Facades\Auth;
 
 class MainController extends Controller
@@ -21,8 +23,9 @@ class MainController extends Controller
                 $music = music::all();
                 $poetry = poetry::all();
                 $transaction = transaction::all();
+                $user = user::all();
 
-                return view('tables/allTable')->with('art', $art)->with('exhibit', $exhibit)->with('music', $music)->with('poetry', $poetry)->with('transaction', $transaction);
+                return view('tables/allTable')->with('art', $art)->with('exhibit', $exhibit)->with('music', $music)->with('poetry', $poetry)->with('transaction', $transaction)->with('user', $user);
             }
             else{
                 $id = Auth::user()->id;
@@ -32,6 +35,7 @@ class MainController extends Controller
                 $poetry = poetry::all()->where('userID', "=", $id);
                 $transaction = transaction::all()->where('userID', "=", $id);
                 
+
                 return view('tables/allTable')->with('art', $art)->with('exhibit', $exhibit)->with('music', $music)->with('poetry', $poetry)->with('transaction', $transaction);
             }
             
@@ -67,6 +71,11 @@ class MainController extends Controller
         $transaction = transaction::all();
 
         return view('tables/transactionsTable')->with('transaction', $transaction);
+    }
+    function usersTable(){
+        $user = user::all();
+
+        return view('tables/usersTable')->with('user', $user);
     }
 
 //routes for the forms

@@ -46,6 +46,11 @@ Route::get('/newTransaction', [MainController::class, 'transactionForm']);
 Route::post('/updateTransactionForm', [MainController::class, 'transactionFormUpdate']);
 Route::post('/updateTransaction', [formController::class, 'updateTransaction']);
 
+Route::post('/insertUser', [formController::class, 'insertUser']);
+Route::get('/newUser', [MainController::class, 'userForm']);
+Route::post('/updateUserForm', [MainController::class, 'updateUserForm']);
+Route::post('/updateUser', [formController::class, 'updateUser']);
+
 
 Auth::routes();
 
@@ -56,3 +61,4 @@ Route::get('/exhibitsTable', [MainController::class, 'exhibitsTable']);
 Route::get('/musicTable', [MainController::class, 'musicTable']);
 Route::get('/poetriesTable', [MainController::class, 'poetriesTable']);
 Route::get('/transactionsTable', [MainController::class, 'transactionsTable']);
+Route::get('/usersTable', [MainController::class, 'usersTable']);

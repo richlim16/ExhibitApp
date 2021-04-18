@@ -1,20 +1,20 @@
 @extends('../pageLayout')
 @section('sidebar')
-                <ul id="nav">
-                    <a href="/"><li class="" id="allTab">All</li></a>
-                    <a href="/artTable"><li class="subTab">art</li></a>
-                    <a href="#"><li class="selected subTab">exhibits</li></a>
-                    <a href="/musicTable"><li class="subTab">music</li></a>
-                    <a href="/poetriesTable"><li class="subTab">poetries</li></a>
-                    <a href="/transactionsTable"><li class="subTab">transactions</li></a>
-                    <a href="/usersTable"><li class="subTab">users</li></a>
-                </ul>
+    <ul id="nav">
+        <a href="/"><li class="selected" id="allTab">All</li></a>
+        <a href="/artTable"><li class="subTab">art</li></a>
+        <a href="/exhibitsTable"><li class="subTab">exhibits</li></a>
+        <a href="/musicTable"><li class="subTab">music</li></a>
+        <a href="/poetriesTable"><li class="subTab">poetries</li></a>
+        <a href="/transactionsTable"><li class="subTab">transactions</li></a>
+        <a href="#"><li class="selected subTab">users</li></a>
+    </ul>
 @endsection
-@section('content')
-<div class="tableContainer">
+@section('content')     
+    <div class="tableContainer">
         <table>
             <div class="tableLabel">
-                <h2 class='tableName'>Exhibit</h2>
+                <h2 class='tableName'>Users</h2>
                 @if(Auth::check())
                 <a class="tableBtn" href="/newExhibit">
                     <svg xmlns="http://www.w3.org/2000/svg" width="27" height="27" fill="currentColor" class="bi bi-plus-square" viewBox="0 0 16 16">
@@ -25,23 +25,23 @@
                 @endif
             </div>
         <tr>
-            <th>Exhibit ID</th>
-            <th>Start Date</th>
-            <th>Theme</th>
-            <th>Transaction ID</th>
+            <th>userID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Admin</th>
             <th class="modifyColumn"></th>
         </tr>
-            @foreach($exhibit as $exhibit)
+            @foreach($user as $user)
             <tr>
-                <td>{{$exhibit['id']}}</td>
-                <td>{{$exhibit['StartDate']}}</td>
-                <td>{{$exhibit['Theme']}}</td>
-                <td>{{$exhibit['TransactionID']}}</td>
+                <td>{{$user['id']}}</td>
+                <td>{{$user['name']}}</td>
+                <td>{{$user['email']}}</td>
+                <td>{{$user['admin']}}</td>
 
                 <td class="btnCell">
-                    <form action="/updateExhibitForm" method="post">
+                    <form action="/updateUserForm" method="post">
                         @csrf
-                        <input type="hidden" name="id" value="{{$exhibit['id']}}">
+                        <input type="hidden" name="id" value="{{$user['id']}}">
                         <input class="tablerowBtn" type="submit" value="Edit">
                     </form>
             
