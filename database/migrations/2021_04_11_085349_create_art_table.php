@@ -17,7 +17,7 @@ class CreateArtTable extends Migration
             $table->id();
             $table->string('ArtTitle', 50);
             $table->enum('ArtType', ['music', 'poetry']);
-            $table->foreignId('ArtistID');
+            $table->foreignId('userID');
         });
 
         DB::table('art')->insert(
@@ -25,7 +25,7 @@ class CreateArtTable extends Migration
                 'id' => 1,
                 'ArtTitle' => 'Sample Art #1',
                 'ArtType' => 'music',
-                'ArtistID' => 1
+                'userID' => 1
             )
         );
         DB::table('art')->insert(
@@ -33,7 +33,7 @@ class CreateArtTable extends Migration
                 'id' => 2,
                 'ArtTitle' => 'Sample Art #2',
                 'ArtType' => 'music',
-                'ArtistID' => 1
+                'userID' => 1
             )
         );
         DB::table('art')->insert(
@@ -41,7 +41,7 @@ class CreateArtTable extends Migration
                 'id' => 3,
                 'ArtTitle' => 'Sample Art #3',
                 'ArtType' => 'music',
-                'ArtistID' => 1
+                'userID' => 1
             )
         );
     }

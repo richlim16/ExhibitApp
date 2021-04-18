@@ -15,26 +15,29 @@ class formController extends Controller
     function insertArt(Request $request){
         $title = $request->input('artTitle');
         $type = $request->input('artType');
-        $id = $request->input('artistID');
+        $id = $request->input('userID');
 
         $art = new art;
         $art->ArtTitle = $title;
         $art->ArtType = $type;
-        $art->ArtistID = $id;
+        $art->userID = $id;
         $art->save();
 
         return redirect('/');
     }
     function updateArt(Request $request){
-        $title = $request->input('artTitle');
-        $type = $request->input('artType');
-        $id = $request->input('artistID');
-
         $art = art::find($request->input('id'));
-        $art->ArtTitle = $title;
-        $art->ArtType = $type;
-        $art->ArtistID = $id;
-        $art->save();
+        if($art){
+            $title = $request->input('artTitle');
+            $type = $request->input('artType');
+            $id = $request->input('userID');
+
+            $art->ArtTitle = $title;
+            $art->ArtType = $type;
+            $art->userID = $id;
+            $art->save();
+        }
+        
 
         return redirect('/');
     }
@@ -96,66 +99,66 @@ function updateExhibit(Request $request){
 function insertMusic(Request $request){
         $title = $request->input('musicTitle');
         $genre = $request->input('genre');
-        $artistID = $request->input('artistID');
+        $userID = $request->input('userID');
 
         $music = new music;
         $music->MusicTitle = $title;
         $music->genre = $genre;
-        $music->ArtistID = $artistID;
+        $music->userID = $userID;
         $music->save();
         return redirect('/');
     }
 function updateMusic(Request $request){
         $title = $request->input('musicTitle');
         $genre = $request->input('genre');
-        $artistID = $request->input('artistID');
+        $userID = $request->input('userID');
 
         $music = music::find($request->input('id'));
         $music->MusicTitle = $title;
         $music->genre = $genre;
-        $music->ArtistID = $artistID;
+        $music->userID = $userID;
         $music->save();
         return redirect('/');
     }
 
 function insertPoetry(Request $request){
         $title = $request->input('poetryTitle');
-        $id = $request->input('artistID');
+        $id = $request->input('userID');
 
         $poetry = new poetry;
         $poetry->PoetryTitle = $title;
-        $poetry->ArtistID = $id;
+        $poetry->userID = $id;
         $poetry->save();
         return redirect('/');
     }
 function updatePoetry(Request $request){
         $title = $request->input('poetryTitle');
-        $id = $request->input('artistID');
+        $id = $request->input('userID');
 
         $poetry = poetry::find($request->input('id'));
         $poetry->PoetryTitle = $title;
-        $poetry->ArtistID = $id;
+        $poetry->userID = $id;
         $poetry->save();
         return redirect('/');
     }
 
 function insertTransaction(Request $request){
-        $artistID = $request->input('artistID');
+        $userID = $request->input('userID');
         $date = $request->input('transactionDate');
 
         $trans = new transaction;
         $trans->TransactionDate = $date;
-        $trans->ArtistID = $artistID;
+        $trans->userID = $userID;
         $trans->save();
         return redirect('/');
     }
 function updateTransaction(Request $request){
-        $artistID = $request->input('artistID');
+        $userID = $request->input('userID');
         $date = $request->input('transactionDate');
 
         $trans = transaction::find($request->input('id'));
         $trans->TransactionDate = $date;
-        $trans->ArtistID = $artistID;
+        $trans->userID = $userID;
         $trans->save();
         return redirect('/');
     }

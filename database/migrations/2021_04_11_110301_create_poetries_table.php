@@ -16,7 +16,7 @@ class CreatePoetriesTable extends Migration
         Schema::create('poetries', function (Blueprint $table) {
             $table->id();
             $table->string('PoetryTitle', 100);
-            $table->foreignId('ArtistID');
+            $table->foreignId('userID');
         });
         
     }
