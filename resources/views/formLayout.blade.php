@@ -1,86 +1,70 @@
 <html>
     <head>
-    <style>
-        a{
-            text-decoration: none;
-            color: #111;
-        }
-        body{
-            background: #eee;
-            margin: 0;
-            padding: 0;
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
 
-            font-family: calibri;
-        }
-        .container{
-            padding: 20px;
-        }
-        .homeBtn{
-            background: #ddd;
-            border: 3px solid #111;
-            border-radius: 5px;
-            padding: 5px;
-            font-size: 15px;
-        }
-        .formContainer{
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 800px;
-        }
-        form{
-            display: flex;
-            flex-direction: column;
-            background: #111;
-            color: #eee;
-            padding: 50px;
-            border: 5px solid #aaa;
-        }
-        form h1{
-            margin: auto;
-            margin-bottom: 20px;
-        }
-        label{
-            padding: 5px;
-
-        }
-        input[type=text], input[type=date]{
-            width: 300px;
-            margin-bottom: 20px;
-            border: none;
-            border-bottom: 3px solid #fff;
-            padding: 5px;
-            transition: .2s;
-            background: #111;
-            color: #fff;
-        }
-        input[type=text]:focus, input[type=date]:focus{
-            border-bottom: 3px solid #fa0;
-            outline: none;
-        }
-        form button{
-            margin: auto;
-            background: #111;
-            color: #eee;
-            border: 3px solid #eee;
-            width: 50%;
-            transition: .2s;
-        }
-        form button:hover{
-            color: #fa0;
-            border: 3px solid #fa0;
-        }
-    </style>
+        <link href="{{URL::asset('css/pageStyle.css')}}" rel="stylesheet">
+        <link href="{{URL::asset('css/topbarStyle.css')}}" rel="stylesheet">
+        <link href="{{URL::asset('css/sidenavStyle.css')}}" rel="stylesheet">
+        <link href="{{URL::asset('css/tableStyle.css')}}" rel="stylesheet">
+        <link href="{{URL::asset('css/formStyle.css')}}" rel="stylesheet">
     </head>
     <body>
-        
-        <div class="container">
-            <button class="homeBtn"><a href="/">Home</a></button>
-            <div class="formContainer">
-                @yield('content')
+    <div id="topbar">
+            <div id="userArea">
+
+                <svg id="icon" xmlns="http://www.w3.org/2000/svg" width="1.25em" height="1.25em" viewBox="0 0 36 36">
+                    <path id="Icon_awesome-user-alt" data-name="Icon awesome-user-alt" d="M18,20.25A10.125,10.125,0,1,0,7.875,10.125,10.128,10.128,0,0,0,18,20.25Zm9,2.25H23.126a12.24,12.24,0,0,1-10.252,0H9a9,9,0,0,0-9,9v1.125A3.376,3.376,0,0,0,3.375,36h29.25A3.376,3.376,0,0,0,36,32.625V31.5A9,9,0,0,0,27,22.5Z" fill="#fff"/>
+                </svg>          
+                @guest
+                    @if (Route::has('login'))
+                        <h5 id="userName">Guest Account</h5>   
+                    @endif
+
+                    @else
+                        <h5 id="userName">{{ Auth::user()->name }}</h4>
+                @endguest
+            </div>
+
+            <h1 id="title"><a href=''>XHIBIT</a></h1>
+
+            <div></div>
+
+            @guest
+                @if (Route::has('login'))
+                <button id="myBtn" class="login">Log in</button>
+                @endif
+
+                @else
+                <a id="logout" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+                    <p id="logoutText">
+                        {{ __('Logout') }}
+                    </p>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    @csrf
+                    </form>
+                </a>
+
+                
+            @endguest
             </div>
         </div>
 
-        
+        <div id="container">
+            <!-- side nav bar -->
+            <div id="sidenav">
+                <h2 id="label">TABLES</h2>   
+                @yield('sidebar')
+
+            </div>
+
+            <!-- area that will display tables-->
+            <div id="mainSide">
+                <div class="formContainer">
+                    @yield('content')
+                </div>
+            </div>
+        </div>
+    
     </body>
 </html>

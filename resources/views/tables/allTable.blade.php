@@ -16,20 +16,6 @@
             <div class="tableLabel">
                 <h2 class='tableName'>Art</h2>
                 @if(Auth::check())
-                <a class="tableBtn" href="">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="27" height="27" fill="currentColor" class="bi bi-file-earmark-minus" viewBox="0 0 16 16">
-                    <path d="M5.5 9a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1H6a.5.5 0 0 1-.5-.5z"/>
-                    <path d="M14 4.5V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h5.5L14 4.5zm-3 0A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4.5h-2z"/>
-                    </svg>
-                </a>
-
-                <a class="tableBtn" href="">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="27" height="27" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
-                    <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"/>
-                    </svg>
-                </a>
-                    
-
                 <a class="tableBtn" href="/newArt">
                     <svg xmlns="http://www.w3.org/2000/svg" width="27" height="27" fill="currentColor" class="bi bi-plus-square" viewBox="0 0 16 16">
                     <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
@@ -44,6 +30,7 @@
                 <th>Title</th>
                 <th>Type</th>
                 <th>ArtistID</th>
+                <th class="modifyColumn"></th>
             </tr>
             @foreach($art as $art)
             <tr>
@@ -51,18 +38,24 @@
                 <td>{{$art['ArtTitle']}}</td>
                 <td>{{$art['ArtType']}}</td>
                 <td>{{$art['ArtistID']}}</td>
-                <td>
-                <form action="/updateArtForm" method="post">
-                    @csrf
-                    <input type="hidden" name="id" value="{{$art['id']}}">
-                    <button>Edit</button>
-                </form>
+                
+                <td class="btnCell">                
+                    <form action="/updateArtForm" method="post">
+                        @csrf
+                        <input type="hidden" name="id" value="{{$art['id']}}">
+                        <input class="tablerowBtn" type="submit" value="Edit">
+                    </form>
+            
+                    <form action="">
+                        <input class="tablerowBtn" type="submit" value="Delete">
+                    </form>      
                 </td>
             </tr>
             @endforeach
             
         </table>
     </div>
+
     <div class="tableContainer">
         <table>
             <div class="tableLabel">
@@ -82,19 +75,25 @@
                 <th>Artist ID</th>
                 <th>Name</th>
                 <th>Email</th>
+                <th class="modifyColumn"></th>
             </tr>
                 @foreach($artist as $artist)
                 <tr>
                     <td>{{$artist['id']}}</td>
                     <td>{{$artist['name']}}</td>
                     <td>{{$artist['EmailAdd']}}</td>
-                <td>
-                <form action="/updateArtistForm" method="post">
-                    @csrf
-                    <input type="hidden" name="id" value="{{$artist['id']}}">
-                    <button>Edit</button>
-                </form>
-                </td>
+
+                    <td class="btnCell">
+                        <form action="/updateArtistForm" method="post">
+                            @csrf
+                            <input type="hidden" name="id" value="{{$artist['id']}}">
+                            <input class="tablerowBtn" type="submit" value="Edit">
+                        </form>
+                
+                        <form action="">
+                            <input class="tablerowBtn" type="submit" value="Delete">
+                        </form>    
+                    </td>
                 </tr>
                 @endforeach
             </table>
@@ -119,6 +118,7 @@
             <th>Start Date</th>
             <th>Theme</th>
             <th>Transaction ID</th>
+            <th class="modifyColumn"></th>
         </tr>
             @foreach($exhibit as $exhibit)
             <tr>
@@ -126,12 +126,17 @@
                 <td>{{$exhibit['StartDate']}}</td>
                 <td>{{$exhibit['Theme']}}</td>
                 <td>{{$exhibit['TransactionID']}}</td>
-                <td>
-                <form action="/updateExhibitForm" method="post">
-                    @csrf
-                    <input type="hidden" name="id" value="{{$exhibit['id']}}">
-                    <button>Edit</button>
-                </form>
+
+                <td class="btnCell">
+                    <form action="/updateExhibitForm" method="post">
+                        @csrf
+                        <input type="hidden" name="id" value="{{$exhibit['id']}}">
+                        <input class="tablerowBtn" type="submit" value="Edit">
+                    </form>
+            
+                    <form action="">
+                        <input class="tablerowBtn" type="submit" value="Delete">
+                    </form>
                 </td>
             </tr>
             @endforeach
@@ -157,6 +162,7 @@
                 <th>Title</th>
                 <th>Genre</th>
                 <th>Artist ID</th>
+                <th class="modifyColumn"></th>
             </tr>
 
             @foreach($music as $music)
@@ -165,19 +171,25 @@
                     <td>{{$music['MusicTitle']}}</td>
                     <td>{{$music['genre']}}</td>
                     <td>{{$music['ArtistID']}}</td>
-                <td>
-                <form action="/updateMusicForm" method="post">
-                    @csrf
-                    <input type="hidden" name="id" value="{{$music['id']}}">
-                    <button>Edit</button>
-                </form>
-                </td>
+
+                    <td class="btnCell">
+                        <form action="/updateMusicForm" method="post">
+                            @csrf
+                            <input type="hidden" name="id" value="{{$music['id']}}">
+                            <input class="tablerowBtn" type="submit" value="Edit">
+                        </form>
+                
+                        <form action="">
+                            <input class="tablerowBtn" type="submit" value="Delete">
+                        </form>
+                    </td>
                 </tr>
             @endforeach
 
         </table>
 
     </div>
+    
     <div class="tableContainer">
         <table>
         <div class="tableLabel">
@@ -195,19 +207,25 @@
             <th>Poetry ID</th>
             <th>Title</th>
             <th>Artist ID</th>
+            <th class="modifyColumn"></th>
         </tr>
             @foreach($poetry as $poetry)
                 <tr>
                     <td>{{$poetry['id']}}</td>
                     <td>{{$poetry['PoetryTitle']}}</td>
                     <td>{{$poetry['ArtistID']}}</td>
-                <td>
-                <form action="/updatePoetryForm" method="post">
-                    @csrf
-                    <input type="hidden" name="id" value="{{$poetry['id']}}">
-                    <button>Edit</button>
-                </form>
-                </td>
+
+                    <td class="btnCell">
+                        <form action="/updatePoetryForm" method="post">
+                            @csrf
+                            <input type="hidden" name="id" value="{{$poetry['id']}}">
+                            <input class="tablerowBtn" type="submit" value="Edit">
+                        </form>
+                
+                        <form action="">
+                            <input class="tablerowBtn" type="submit" value="Delete">
+                        </form>
+                    </td>
                 </tr>
             @endforeach
         </table>
@@ -230,19 +248,25 @@
             <th>Transaction ID</th>
             <th>Transaction Date</th>
             <th>Artist ID</th>
+            <th class="modifyColumn"></th>
         </tr>
             @foreach($transaction as $transaction)
                 <tr>
                     <td>{{$transaction['id']}}</td>
                     <td>{{$transaction['TransactionDate']}}</td>
                     <td>{{$transaction['ArtistID']}}</td>
-                <td>
-                <form action="/updateTransactionForm" method="post">
-                    @csrf
-                    <input type="hidden" name="id" value="{{$transaction['id']}}">
-                    <button>Edit</button>
-                </form>
-                </td>
+
+                    <td class="btnCell">
+                        <form action="/updateTransactionForm" method="post">
+                            @csrf
+                            <input type="hidden" name="id" value="{{$transaction['id']}}">
+                            <input class="tablerowBtn" type="submit" value="Edit">
+                        </form>
+                
+                        <form action="">
+                            <input class="tablerowBtn" type="submit" value="Delete">
+                        </form>
+                    </td>
                 </tr>
             @endforeach
         </table>
