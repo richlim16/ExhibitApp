@@ -17,17 +17,15 @@ class MainController extends Controller
         if(Auth::check()){
             if(Auth::user()->admin == true){
                 $art = art::all();
-                $artist = artist::all();
                 $exhibit = exhibit::all();
                 $music = music::all();
                 $poetry = poetry::all();
                 $transaction = transaction::all();
 
-                return view('tables/allTable')->with('art', $art)->with('artist', $artist)->with('exhibit', $exhibit)->with('music', $music)->with('poetry', $poetry)->with('transaction', $transaction);
+                return view('tables/allTable')->with('art', $art)->with('exhibit', $exhibit)->with('music', $music)->with('poetry', $poetry)->with('transaction', $transaction);
             }
             else{
                 $id = Auth::user()->id;
-
                 $art = art::all()->where('userID', "=", $id);
                 $exhibit = exhibit::all()->where('userID', "=", $id);
                 $music = music::all()->where('userID', "=", $id);
@@ -49,11 +47,7 @@ class MainController extends Controller
 
         return view('tables/artTable')->with('art', $art);
     }
-    function artistTable(){
-        $artist = artist::all();
-
-        return view('tables/artistTable')->with('artist', $artist);
-    }
+  
     function exhibitsTable(){
         $exhibit = exhibit::all();
 

@@ -13,7 +13,7 @@
 
 @section('content')
 
-    <form action="/insertArtist" method="post">
+    <form action="/insertExhibit" method="post">
         @csrf
         <h1>EXHIBIT FORM</h1>
         <label for="StartDate">Starting Date</label>

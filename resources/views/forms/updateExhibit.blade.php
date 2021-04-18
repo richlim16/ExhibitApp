@@ -11,10 +11,10 @@
     </ul>
 @endsection
 @section('content')
-    <form action="/updateArtist" method="post">
+    <form action="/updateExhibit" method="post">
         @csrf
         <h1>UPDATE EXHIBIT FORM</h1>
-        <input type="hidden" name="exhibitID" value="{{$exhibit['id']}}">
+        <input type="hidden" name="id" value="{{$exhibit['id']}}">
 
         <label for="StartDate">Starting Date</label>
             <input type="date" name="StartDate">

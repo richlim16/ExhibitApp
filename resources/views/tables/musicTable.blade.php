@@ -29,7 +29,7 @@
                 <th>Music ID</th>
                 <th>Title</th>
                 <th>Genre</th>
-                <th>Artist ID</th>
+                <th>userID</th>
                 <th class="modifyColumn"></th>
             </tr>
 

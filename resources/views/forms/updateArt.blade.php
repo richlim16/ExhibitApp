@@ -15,15 +15,15 @@
         @csrf
         <h1>UPDATE ART FORM</h1>
         
-        <input type="hidden" name="artID" value="{{$art['id']}}">
+        <input type="hidden" name="id" value="{{$art['id']}}">
 
         <label for="artTitle">Art Title</label>
-            <input type="text" name="artTitle" value="{{$art['ArtTitle']}}">
+            <input type="text" name="artTitle" value="{{$art['ArtTitle']}}" required>
 
         <label for="artType">Art Type (music / poetry)</label>
-            <input type="text" name="artType" value="{{$art['ArtType']}}">
+            <input type="text" name="artType" value="{{$art['ArtType']}}" required>
 
-        <input type="hidden" name="artistID" value="{{Auth::user()->id}}">
+        <input type="hidden" name="userID" value="{{Auth::user()->id}}">
         <button id="submitBtn"><h3>SUBMIT</h3></button>
     </form>
 @endsection

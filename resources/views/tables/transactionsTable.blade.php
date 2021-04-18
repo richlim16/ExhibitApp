@@ -27,14 +27,14 @@
         <tr>
             <th>Transaction ID</th>
             <th>Transaction Date</th>
-            <th>Artist ID</th>
+            <th>userID</th>
             <th class="modifyColumn"></th>
         </tr>
             @foreach($transaction as $transaction)
                 <tr>
                     <td>{{$transaction['id']}}</td>
                     <td>{{$transaction['TransactionDate']}}</td>
-                    <td>{{$transaction['ArtistID']}}</td>
+                    <td>{{$transaction['userID']}}</td>
 
                     <td class="btnCell">
                         <form action="/updateTransactionForm" method="post">

@@ -24,9 +24,6 @@
 
             </div>
         </div>
-
-       
-
         <div id="loginPage">
             <div id="loginForm">
                 @guest
@@ -34,7 +31,7 @@
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
                             <label for="email" class="">{{ __('E-Mail Address') }}</label>
-                                <br>
+                                
                                 <input id="email" type="email" class="" name="email" value="{{ old('email') }}" required autocomplete="off" autofocus>
                             
                             @error('email')
@@ -44,7 +41,7 @@
                             @enderror
 
                             <label for="password" class="">{{ __('Password') }}</label>  
-                                <br>
+                                
                                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
                             
                             @if (Route::has('password.request'))
@@ -62,23 +59,30 @@
                                         {{ __('Remember Me') }}
                                 </label>
                                 <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-                                <br>
-
+                                
                             </div>
-                            <br>
+                            
                             <button type="submit" class="btn btn-primary" id="loginBtn">
                                 {{ __('Login') }}
                             </button>
 
-                            <br>
                             
+                            <hr>  
+                              
                     </form>
                     @endif
-                            
+                        
                     @if (Route::has('register'))
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                        </li>
+                    <div style="text-align: center;">
+                    <br>
+                        <p>Dont Have an Account?</p>
+                        
+                        <a class="nav-link" href="{{ route('register') }}">
+                            Register                        
+                        </a>
+                    </div>
+                            
+                            
                     @endif
                 @endguest
             </div>

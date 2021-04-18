@@ -29,7 +29,7 @@
                 <th>id</th>
                 <th>Title</th>
                 <th>Type</th>
-                <th>ArtistID</th>
+                <th>userID</th>
                 <th class="modifyColumn"></th>
             </tr>
             @foreach($art as $art)
@@ -37,7 +37,7 @@
                 <td>{{$art['id']}}</td>
                 <td>{{$art['ArtTitle']}}</td>
                 <td>{{$art['ArtType']}}</td>
-                <td>{{$art['ArtistID']}}</td>
+                <td>{{$art['userID']}}</td>
                 
                 <td class="btnCell">                
                     <form action="/updateArtForm" method="post">

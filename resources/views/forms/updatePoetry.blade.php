@@ -15,12 +15,12 @@
         @csrf
         <h1>UPDATE POETRY FORM</h1>
 
-        <input type="hidden" name="poetryID" value="{{$poetry['id']}}">
+        <input type="hidden" name="id" value="{{$poetry['id']}}">
 
         <label for="poetryTitle">Poetry Title</label>
             <input type="text" name="poetryTitle" value="{{$poetry['PoetryTitle']}}">
         
-        <input type="hidden" name="artistID" value="{{Auth::user()->id}}">
+        <input type="hidden" name="userID" value="{{Auth::user()->id}}">
         <button id="submitBtn"><h3>SUBMIT</h3></button>
     </form>
 @endsection

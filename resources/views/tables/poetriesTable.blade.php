@@ -27,14 +27,14 @@
         <tr>
             <th>Poetry ID</th>
             <th>Title</th>
-            <th>Artist ID</th>
+            <th>userID</th>
             <th class="modifyColumn"></th>
         </tr>
             @foreach($poetry as $poetry)
                 <tr>
                     <td>{{$poetry['id']}}</td>
                     <td>{{$poetry['PoetryTitle']}}</td>
-                    <td>{{$poetry['ArtistID']}}</td>
+                    <td>{{$poetry['userID']}}</td>
 
                     <td class="btnCell">
                         <form action="/updatePoetryForm" method="post">

@@ -21,7 +21,7 @@
         <label for="genre">Genre</label>
             <input type="text" name="genre" required>
 
-        <input type="hidden" name="artistID" value="{{Auth::user()->id}}">
+        <input type="hidden" name="userID" value="{{Auth::user()->id}}">
         <button id="submitBtn"><h3>SUBMIT</h3></button>
     </form>
 @endsection

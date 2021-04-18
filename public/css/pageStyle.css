@@ -37,6 +37,17 @@ body{
   padding: 1vh;
 }
 
+.nav-link{
+  font-size: 18px;
+  position: relative;
+  top: 10px;
+  
+}
+
+.nav-link:hover{
+  text-decoration: underline;
+}
+
  /* custom scrollbar  */
 ::-webkit-scrollbar {
     width: 10px;

@@ -15,7 +15,7 @@
         @csrf
         <h1>UPDATE ARTIST FORM</h1>
 
-        <input type="hidden" name="artistID" value="{{$artist['id']}}">
+        <input type="hidden" name="id" value="{{$artist['id']}}">
 
         <label for="name">Name</label>
             <input type="text" name="name" value="{{$artist['name']}}">
