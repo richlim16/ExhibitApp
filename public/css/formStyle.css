@@ -37,6 +37,8 @@
 .formContainer{
     width:50%;
 }
+
+
 form{
     display: flex;
     flex-direction: column;
@@ -50,7 +52,6 @@ label{
     margin: 1vh 0 1vh 0;
 }
 input{
-    
     margin-bottom: 2vh;
     font-size: 2vh;
     padding: 5px;

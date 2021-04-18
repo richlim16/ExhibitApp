@@ -18,6 +18,25 @@ body{
     height: 92.5vh;
 }
 
+#loginPage{
+  height: 90vh;
+  background-color: #051431;
+  
+}
+
+#loginForm{
+  width: 25vw;
+  margin: auto;
+  position: relative;
+  top: 10%;
+}
+
+#loginBtn{
+  background-color: #426fe1;
+  font-size: 2vh;
+  padding: 1vh;
+}
+
  /* custom scrollbar  */
 ::-webkit-scrollbar {
     width: 10px;

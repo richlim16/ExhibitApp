@@ -51,69 +51,13 @@
                                     @csrf
                     </form>
                 </a>
-
+            
                 
             @endguest
             </div>
         </div>
 
-        <!-- log in pop up -->
-        <div id="myModal" class="modal">
-            <!-- Modal content -->
-            <div class="modal-content">
-                <span class="close">&times;</span>
-                @guest
-                    @if (Route::has('login'))
-                    <form method="POST" action="{{ route('login') }}">
-                        @csrf
-                            <label for="email" class="">{{ __('E-Mail Address') }}</label>
-                            <br>
-                            <input id="email" type="email" class="" name="email" value="{{ old('email') }}" required autocomplete="off" autofocus>
-                            <br>
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            <label for="password" class="">{{ __('Password') }}</label>
-                            <br>
-                            <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
-                            <br>
-                                @error('password')
-                                    <span class="" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            <div class="inputContainer">
-                                <label class="form-check-label" for="remember">
-                                        {{ __('Remember Me') }}
-                                </label>
-                                <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-
-
-                            </div>
-
-                            <button type="submit" class="btn btn-primary" id="loginBtn">
-                                {{ __('Login') }}
-                            </button>
-
-                            <br>
-                            @if (Route::has('password.request'))
-                                <a class="btn btn-link" href="{{ route('password.request') }}">
-                                    {{ __('Forgot Your Password?') }}
-                                </a>
-                            @endif
-                    </form>
-                    @endif
-                            
-                    @if (Route::has('register'))
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                        </li>
-                    @endif
-                @endguest
-            </div>
-        </div>
+       
 
         <div id="container">
             <!-- side nav bar -->
@@ -155,26 +99,6 @@
         window.onclick = function(event) {
             if (event.target == modal) {
                 modal.style.display = "none";
-            }
-        }
-
-        /* When the user clicks on the button,
-        toggle between hiding and showing the dropdown content */
-        function myFunction() {
-            document.getElementById("myDropdown").classList.toggle("show");
-        }
-
-        // Close the dropdown menu if the user clicks outside of it
-        window.onclick = function(event) {
-            if (!event.target.matches('.dropbtn')) {
-                var dropdowns = document.getElementsByClassName("dropdown-content");
-                var i;
-                for (i = 0; i < dropdowns.length; i++) {
-                    var openDropdown = dropdowns[i];
-                    if (openDropdown.classList.contains('show')) {
-                        openDropdown.classList.remove('show');
-                    }
-                }
             }
         }
     </script>

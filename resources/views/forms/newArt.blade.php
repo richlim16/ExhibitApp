@@ -21,7 +21,7 @@
             <input type="text" name="artTitle" required>
 
         <label for="artType">Art Type (music / poetry)</label>
-        <input type="text" name="artType" required>
+            <input type="text" name="artType" required>
         <input type="hidden" name="artistID" value="{{Auth::user()->id}}">
         <button id="submitBtn"><h3>SUBMIT</h3></button>
     </form>
