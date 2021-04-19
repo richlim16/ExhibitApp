@@ -41,6 +41,15 @@ class formController extends Controller
 
         return redirect('/');
     }
+    function deleteArt(Request $request){
+        $art = art::find($request->input('id'));
+        if($art){
+            $art->delete();
+        }
+        
+
+        return redirect('/');
+    }
 
 function insertArtist(Request $request){
         $name = $request->input('name');
@@ -61,6 +70,15 @@ function insertArtist(Request $request){
         $artist->name = $name;
         $artist->EmailAdd = $email;
         $artist->save();
+
+        return redirect('/');
+    }
+    function deleteArtist(Request $request){
+        $artist = artist::find($request->input('id'));
+        if($artist){
+            $artist->delete();
+        }
+        
 
         return redirect('/');
     }
@@ -95,6 +113,15 @@ function updateExhibit(Request $request){
         $exhibit->save();
         return redirect('/');
     }
+    function deleteExhibit(Request $request){
+        $exhibit = exhibit::find($request->input('id'));
+        if($exhibit){
+            $exhibit->delete();
+        }
+        
+
+        return redirect('/');
+    }
 
 function insertMusic(Request $request){
         $title = $request->input('musicTitle');
@@ -120,6 +147,15 @@ function updateMusic(Request $request){
         $music->save();
         return redirect('/');
     }
+    function deleteMusic(Request $request){
+        $music = music::find($request->input('id'));
+        if($music){
+            $music->delete();
+        }
+        
+
+        return redirect('/');
+    }
 
 function insertPoetry(Request $request){
         $title = $request->input('poetryTitle');
@@ -141,6 +177,15 @@ function updatePoetry(Request $request){
         $poetry->save();
         return redirect('/');
     }
+    function deletePoetry(Request $request){
+        $poetry = poetry::find($request->input('id'));
+        if($poetry){
+            $poetry->delete();
+        }
+        
+
+        return redirect('/');
+    }
 
 function insertTransaction(Request $request){
         $userID = $request->input('userID');
@@ -160,6 +205,15 @@ function updateTransaction(Request $request){
         $trans->TransactionDate = $date;
         $trans->userID = $userID;
         $trans->save();
+        return redirect('/');
+    }
+    function deleteTransaction(Request $request){
+        $transaction = transaction::find($request->input('id'));
+        if($transaction){
+            $transaction->delete();
+        }
+        
+
         return redirect('/');
     }
 
