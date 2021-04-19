@@ -7,7 +7,9 @@
                     <a href="/musicTable"><li class="subTab">music</li></a>
                     <a href="/poetriesTable"><li class="subTab">poetries</li></a>
                     <a href="/transactionsTable"><li class="subTab">transactions</li></a>
-                    <a href="/usersTable"><li class="subTab">users</li></a>
+                    @if(Auth::user()->admin == true)
+                        <a href="/usersTable"><li class="subTab">users</li></a>
+                    @endif
                 </ul>
 @endsection
 @section('content')

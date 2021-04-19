@@ -7,11 +7,13 @@
                     <a href="/musicTable"><li class="subTab">music</li></a>
                     <a href="/poetriesTable"><li class="subTab">poetries</li></a>
                     <a href="#"><li class="selected subTab">transactions</li></a>
-                    <a href="/usersTable"><li class="subTab">users</li></a>
+                    @if(Auth::user()->admin == true)
+                        <a href="/usersTable"><li class="subTab">users</li></a>
+                    @endif
                 </ul>
 @endsection
 @section('content')
-    <div class="tableContainer">
+<div class="tableContainer">
         <table>
         <div class="tableLabel">
             <h2 class='tableName'>Transaction</h2>
@@ -27,14 +29,18 @@
         <tr>
             <th>Transaction ID</th>
             <th>Transaction Date</th>
-            <th>userID</th>
+            @if(Auth::user()->admin == true)
+                <th>userID</th>
+            @endif
             <th class="modifyColumn"></th>
         </tr>
             @foreach($transaction as $transaction)
                 <tr>
                     <td>{{$transaction['id']}}</td>
                     <td>{{$transaction['TransactionDate']}}</td>
-                    <td>{{$transaction['userID']}}</td>
+                    @if(Auth::user()->admin == true)
+                        <td>{{$transaction['userID']}}</td>
+                    @endif
 
                     <td class="btnCell">
                         <form action="/updateTransactionForm" method="post">
@@ -50,5 +56,5 @@
                 </tr>
             @endforeach
         </table>
-    </div> 
+    </div>
 @endsection

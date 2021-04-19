@@ -7,7 +7,9 @@
         <a href="/musicTable"><li class="subTab">music</li></a>
         <a href="/poetriesTable"><li class="subTab">poetries</li></a>
         <a href="/transactionsTable"><li class="subTab">transactions</li></a>
-        <a href="/usersTable"><li class="subTab">users</li></a>
+        @if(Auth::user()->admin == true)
+            <a href="/usersTable"><li class="subTab">users</li></a>
+        @endif
     </ul>
 @endsection
 @section('content')
@@ -29,7 +31,9 @@
                 <th>id</th>
                 <th>Title</th>
                 <th>Type</th>
-                <th>userID</th>
+                @if(Auth::user()->admin == true)
+                    <th>userID</th>
+                @endif
                 <th class="modifyColumn"></th>
             </tr>
             @foreach($art as $art)
@@ -37,8 +41,9 @@
                 <td>{{$art['id']}}</td>
                 <td>{{$art['ArtTitle']}}</td>
                 <td>{{$art['ArtType']}}</td>
-                <td>{{$art['userID']}}</td>
-                
+                @if(Auth::user()->admin == true)
+                    <td>{{$art['userID']}}</td>
+                @endif
                 <td class="btnCell">                
                     <form action="/updateArtForm" method="post">
                         @csrf
@@ -117,7 +122,9 @@
                 <th>Music ID</th>
                 <th>Title</th>
                 <th>Genre</th>
-                <th>userID</th>
+                @if(Auth::user()->admin == true)
+                    <th>userID</th>
+                @endif
                 <th class="modifyColumn"></th>
             </tr>
 
@@ -126,7 +133,9 @@
                     <td>{{$music['id']}}</td>
                     <td>{{$music['MusicTitle']}}</td>
                     <td>{{$music['genre']}}</td>
-                    <td>{{$music['userID']}}</td>
+                    @if(Auth::user()->admin == true)
+                        <td>{{$music['userID']}}</td>
+                    @endif
 
                     <td class="btnCell">
                         <form action="/updateMusicForm" method="post">
@@ -162,14 +171,18 @@
         <tr>
             <th>Poetry ID</th>
             <th>Title</th>
-            <th>userID</th>
+            @if(Auth::user()->admin == true)
+                <th>userID</th>
+            @endif
             <th class="modifyColumn"></th>
         </tr>
             @foreach($poetry as $poetry)
                 <tr>
                     <td>{{$poetry['id']}}</td>
                     <td>{{$poetry['PoetryTitle']}}</td>
-                    <td>{{$poetry['userID']}}</td>
+                    @if(Auth::user()->admin == true)
+                        <td>{{$poetry['userID']}}</td>
+                    @endif
 
                     <td class="btnCell">
                         <form action="/updatePoetryForm" method="post">
@@ -203,14 +216,18 @@
         <tr>
             <th>Transaction ID</th>
             <th>Transaction Date</th>
-            <th>userID</th>
+            @if(Auth::user()->admin == true)
+                <th>userID</th>
+            @endif
             <th class="modifyColumn"></th>
         </tr>
             @foreach($transaction as $transaction)
                 <tr>
                     <td>{{$transaction['id']}}</td>
                     <td>{{$transaction['TransactionDate']}}</td>
-                    <td>{{$transaction['userID']}}</td>
+                    @if(Auth::user()->admin == true)
+                        <td>{{$transaction['userID']}}</td>
+                    @endif
 
                     <td class="btnCell">
                         <form action="/updateTransactionForm" method="post">

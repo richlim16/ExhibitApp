@@ -7,11 +7,13 @@
                     <a href="#"><li class="selected subTab">music</li></a>
                     <a href="/poetriesTable"><li class="subTab">poetries</li></a>
                     <a href="/transactionsTable"><li class="subTab">transactions</li></a>
-                    <a href="/usersTable"><li class="subTab">users</li></a>
+                    @if(Auth::user()->admin == true)
+                        <a href="/usersTable"><li class="subTab">users</li></a>
+                    @endif
                 </ul>
 @endsection
 @section('content')
-    <div class="tableContainer">
+<div class="tableContainer">
         <table>
             <div class="tableLabel">
                 <h2 class='tableName'>Music</h2>
@@ -29,7 +31,9 @@
                 <th>Music ID</th>
                 <th>Title</th>
                 <th>Genre</th>
-                <th>userID</th>
+                @if(Auth::user()->admin == true)
+                    <th>userID</th>
+                @endif
                 <th class="modifyColumn"></th>
             </tr>
 
@@ -38,7 +42,9 @@
                     <td>{{$music['id']}}</td>
                     <td>{{$music['MusicTitle']}}</td>
                     <td>{{$music['genre']}}</td>
-                    <td>{{$music['ArtistID']}}</td>
+                    @if(Auth::user()->admin == true)
+                        <td>{{$music['userID']}}</td>
+                    @endif
 
                     <td class="btnCell">
                         <form action="/updateMusicForm" method="post">
@@ -56,5 +62,5 @@
 
         </table>
 
-    </div>       
+</div>       
 @endsection

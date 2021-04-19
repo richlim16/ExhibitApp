@@ -7,11 +7,13 @@
                     <a href="/musicTable"><li class="subTab">music</li></a>
                     <a href="/poetriesTable"><li class="subTab">poetries</li></a>
                     <a href="/transactionsTable"><li class="subTab">transactions</li></a>
-                    <a href="/usersTable"><li class="subTab">users</li></a>
+                    @if(Auth::user()->admin == true)
+                        <a href="/usersTable"><li class="subTab">users</li></a>
+                    @endif
                 </ul>
 @endsection
 @section('content')
-    <div class="tableContainer">
+<div class="tableContainer">
         <table>
             <div class="tableLabel">
                 <h2 class='tableName'>Art</h2>
@@ -29,7 +31,9 @@
                 <th>id</th>
                 <th>Title</th>
                 <th>Type</th>
-                <th>userID</th>
+                @if(Auth::user()->admin == true)
+                    <th>userID</th>
+                @endif
                 <th class="modifyColumn"></th>
             </tr>
             @foreach($art as $art)
@@ -37,8 +41,9 @@
                 <td>{{$art['id']}}</td>
                 <td>{{$art['ArtTitle']}}</td>
                 <td>{{$art['ArtType']}}</td>
-                <td>{{$art['userID']}}</td>
-                
+                @if(Auth::user()->admin == true)
+                    <td>{{$art['userID']}}</td>
+                @endif
                 <td class="btnCell">                
                     <form action="/updateArtForm" method="post">
                         @csrf
