@@ -99,7 +99,7 @@
             
                     <form action="/deleteExhibit" method="post">
                         @csrf
-                        <input type="hidden" name="id" value="{{$art['id']}}">
+                        <input type="hidden" name="id" value="{{$exhibit['id']}}">
                         <input class="tablerowBtn" type="submit" value="Delete">
                     </form>
                 </td>
@@ -150,7 +150,7 @@
                 
                         <form action="/deleteMusic" method="post">
                             @csrf
-                            <input type="hidden" name="id" value="{{$art['id']}}">
+                            <input type="hidden" name="id" value="{{$music['id']}}">
                             <input class="tablerowBtn" type="submit" value="Delete">
                         </form>
                     </td>
@@ -199,7 +199,7 @@
                 
                         <form action="/deletePoetry" method="post">
                             @csrf
-                            <input type="hidden" name="id" value="{{$art['id']}}">
+                            <input type="hidden" name="id" value="{{$poetry['id']}}">
                             <input class="tablerowBtn" type="submit" value="Delete">
                         </form>
                     </td>
@@ -288,13 +288,13 @@
                 <td class="btnCell">
                     <form action="/updateUserForm" method="post">
                         @csrf
-                        <input type="hidden" name="id" value="{{$exhibit['id']}}">
+                        <input type="hidden" name="id" value="{{$user['id']}}">
                         <input class="tablerowBtn" type="submit" value="Edit">
                     </form>
             
                     <form action="/deleteUser">
                         @csrf
-                        <input type="hidden" name="id" value="{{$transaction['id']}}">
+                        <input type="hidden" name="id" value="{{$user['id']}}">
                         <input class="tablerowBtn" type="submit" value="Delete">
                     </form>
                 </td>

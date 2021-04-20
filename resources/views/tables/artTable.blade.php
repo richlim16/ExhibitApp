@@ -51,7 +51,9 @@
                         <input class="tablerowBtn" type="submit" value="Edit">
                     </form>
             
-                    <form action="">
+                    <form action="/deleteArt" method="post">
+                        @csrf
+                        <input type="hidden" name="id" value="{{$art['id']}}">
                         <input class="tablerowBtn" type="submit" value="Delete">
                     </form>      
                 </td>

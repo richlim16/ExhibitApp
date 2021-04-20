@@ -45,8 +45,9 @@
                         <input class="tablerowBtn" type="submit" value="Edit">
                     </form>
             
-                    <form action="">
-                        <input class="tablerowBtn" type="submit" value="Delete">
+                    <form action="/deleteUser">
+                        @csrf
+                        <input type="hidden" name="id" value="{{$user['id']}}">
                     </form>
                 </td>
             </tr>
