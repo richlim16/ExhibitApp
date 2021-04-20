@@ -22,12 +22,6 @@ Route::post('/updateArtForm', [MainController::class, 'artFormUpdate']);
 Route::post('/updateArt', [formController::class, 'updateArt']);
 Route::post('/deleteArt', [formController::class, 'deleteArt']);
 
-Route::post('/insertArtist', [formController::class, 'insertArtist']);
-Route::get('/newArtist', [MainController::class, 'artistForm']);
-Route::post('/updateArtistForm', [MainController::class, 'artistFormUpdate']);
-Route::post('/updateArtist', [formController::class, 'updateArtist']);
-Route::post('/deleteArtist', [formController::class, 'deleteArtist']);
-
 Route::post('/insertExhibit', [formController::class, 'insertExhibit']);
 Route::get('/newExhibit', [MainController::class, 'exhibitForm']);
 Route::post('/updateExhibitForm', [MainController::class, 'exhibitFormUpdate']);
@@ -54,7 +48,7 @@ Route::post('/deleteTransaction', [formController::class, 'deleteTransaction']);
 
 Route::post('/insertUser', [formController::class, 'insertUser']);
 Route::get('/newUser', [MainController::class, 'userForm']);
-Route::post('/updateUserForm', [MainController::class, 'updateUserForm']);
+Route::post('/updateUserForm', [MainController::class, 'userFormUpdate']);
 Route::post('/updateUser', [formController::class, 'updateUser']);
 Route::post('/deleteUser', [formController::class, 'deleteUser']);
 

@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\art;
-use App\Models\artist;
 use App\Models\exhibit;
 use App\Models\music;
 use App\Models\poetry;
@@ -87,14 +86,6 @@ class MainController extends Controller
         return view('forms/updateArt')->with('art', $art);
     }
 
-    function artistForm(){
-        return view('forms/newArtist');
-    }
-    function artistFormUpdate(Request $request){
-        $id = $request->input('id');
-        $artist = artist::find($id);
-        return view('forms/updateArtist')->with('artist', $artist);
-    }
 
     function exhibitForm(){
         return view('forms/newExhibit');
@@ -130,6 +121,13 @@ class MainController extends Controller
         $id = $request->input('id');
         $transaction = transaction::find($id);
         return view('forms/updateTransaction')->with('transaction', $transaction);
+    }
+    function userForm(){
+        return view('forms/newUser');
+    }
+    function userFormUpdate(Request $request){
+        $user = user::find($request->input('id'));
+        return view('forms/updateUser')->with('user', $user);
     }
 
 }

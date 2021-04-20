@@ -1,6 +1,7 @@
 @extends('../formLayout')
+
 @section('sidebar')
-<ul id="nav">
+    <ul id="nav">
         <a href="/"><li id="allTab">All</li></a>
         <a href="/artTable"><li class="subTab">art</li></a>
         <a href="/exhibitsTable"><li class="subTab">exhibits</li></a>
@@ -13,17 +14,18 @@
     </ul>
 @endsection
 @section('content')
-    <form action="/updateArtist" method="post">
+    <form action="/insertUser" method="post">
         @csrf
-        <h1>UPDATE ARTIST FORM</h1>
-
-        <input type="hidden" name="id" value="{{$artist['id']}}">
+        <h1>ART FORM</h1>
 
         <label for="name">Name</label>
-            <input type="text" name="name" value="{{$artist['name']}}">
-
-        <label for="EmailAdd">Email Address</label>
-            <input type="text" name="EmailAdd" value="{{$artist['EmailAdd']}}">
+            <input type="text" name="name" required autocomplete="off">
+        <label for="email">Art Type (music / poetry)</label>
+            <input type="email" name="email" required autocomplete="off">
+        <label for="password">Password</label>
+            <input type="password" name="password" required>
+        <label for="admin">Admin Privileges</label>
+            <input type="checkbox" name="admin">
         <button id="submitBtn"><h3>SUBMIT</h3></button>
     </form>
 @endsection
