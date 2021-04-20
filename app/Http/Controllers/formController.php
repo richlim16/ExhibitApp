@@ -4,11 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\art;
-use App\Models\artist;
+use App\Models\user;
 use App\Models\exhibit;
 use App\Models\music;
 use App\Models\poetry;
 use App\Models\transaction;
+
 
 class formController extends Controller
 {
@@ -45,38 +46,6 @@ class formController extends Controller
         $art = art::find($request->input('id'));
         if($art){
             $art->delete();
-        }
-        
-
-        return redirect('/');
-    }
-
-function insertArtist(Request $request){
-        $name = $request->input('name');
-        $email = $request->input('EmailAdd');
-
-        $artist = new artist;
-        $artist->name = $name;
-        $artist->EmailAdd = $email;
-        $artist->save();
-
-        return redirect('/');
-    }
-    function updateArtist(Request $request){
-        $name = $request->input('name');
-        $email = $request->input('EmailAdd');
-
-        $artist = artist::find($request->input('id'));
-        $artist->name = $name;
-        $artist->EmailAdd = $email;
-        $artist->save();
-
-        return redirect('/');
-    }
-    function deleteArtist(Request $request){
-        $artist = artist::find($request->input('id'));
-        if($artist){
-            $artist->delete();
         }
         
 
@@ -214,6 +183,45 @@ function updateTransaction(Request $request){
         }
         
 
+        return redirect('/');
+    }
+
+    function insertUser(Request $request){
+        $name = $request->input('name');
+        $email = $request->input('email');
+        $password = $request->input('password');
+        $admin = $request->input('admin');
+
+        $user = new user;
+        $user->name = $name;
+        $user->admin = $admin;
+        $user->email = $email;
+        $user->password = Hash::make($password);//needs to be fixed as hash does not work here. might need to import something
+        $user->save();
+
+        return redirect('/');
+    }
+    function updateUser(Request $request){
+        $name = $request->input('name');
+        $email = $request->input('email');
+        $password = $request->input('password');
+        $admin = $request->input('admin');
+
+        $user = user::find($reqest->input('id'));
+        if($user){
+            $user->name = $name;
+            $user->admin = $admin;
+            $user->email = $email;
+            $user->password = Hash::make($password);
+            $user->save();
+        }
+        return redirect('/');
+    }
+    function deleteUser(Request $request){
+        $user = user::find($request->input('id'));
+        if($user){
+            $user->delete();
+        }
         return redirect('/');
     }
 
