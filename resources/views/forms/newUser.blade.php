@@ -16,16 +16,16 @@
 @section('content')
     <form action="/insertUser" method="post">
         @csrf
-        <h1>ART FORM</h1>
+        <h1>USER FORM</h1>
 
         <label for="name">Name</label>
             <input type="text" name="name" required autocomplete="off">
-        <label for="email">Art Type (music / poetry)</label>
+        <label for="email">Email Address</label>
             <input type="email" name="email" required autocomplete="off">
         <label for="password">Password</label>
             <input type="password" name="password" required>
         <label for="admin">Admin Privileges</label>
-            <input type="checkbox" name="admin">
+            <input type="checkbox" name="admin" checked="checked" />
         <button id="submitBtn"><h3>SUBMIT</h3></button>
     </form>
 @endsection

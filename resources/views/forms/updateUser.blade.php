@@ -15,11 +15,11 @@
 @section('content')
     <form action="/insertUser" method="post">
         @csrf
-        <h1>ART FORM</h1>
+        <h1>USER FORM</h1>
         <input type="hidden" name="id"value="{{$user['id']}}">
         <label for="name">Name</label>
             <input type="text" name="name" required value="{{$user['name']}}">
-        <label for="email">Art Type (music / poetry)</label>
+        <label for="email">Email Address</label>
             <input type="email" name="email" required value="{{$user['email']}}">
 
         <!-- <label for="password">Password</label> -->

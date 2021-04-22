@@ -9,6 +9,7 @@ use App\Models\exhibit;
 use App\Models\music;
 use App\Models\poetry;
 use App\Models\transaction;
+use Illuminate\Support\Facades\Hash;
 
 
 class formController extends Controller
@@ -190,7 +191,7 @@ function updateTransaction(Request $request){
         $name = $request->input('name');
         $email = $request->input('email');
         $password = $request->input('password');
-        $admin = $request->input('admin');
+        $admin = $request->input('admin') ? true : false;
 
         $user = new user;
         $user->name = $name;
@@ -205,7 +206,7 @@ function updateTransaction(Request $request){
         $name = $request->input('name');
         $email = $request->input('email');
         $password = $request->input('password');
-        $admin = $request->input('admin');
+        $admin = $request->input('admin') ? true : false;
 
         $user = user::find($reqest->input('id'));
         if($user){
