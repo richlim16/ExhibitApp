@@ -21,8 +21,9 @@
             <input type="text" name="name" required value="{{$user['name']}}">
         <label for="email">Art Type (music / poetry)</label>
             <input type="email" name="email" required value="{{$user['email']}}">
-        <label for="password">Password</label>
-            <input type="password" name="password" required value="">
+
+        <!-- <label for="password">Password</label> -->
+            <input type="hidden" name="password" required value="{{$user['password']}}">
         <label for="admin">Admin Privileges</label>
             <input type="checkbox" name="admin"value="{{$user['admin']}}">
         <button id="submitBtn"><h3>SUBMIT</h3></button>
