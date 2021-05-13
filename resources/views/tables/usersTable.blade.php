@@ -29,6 +29,7 @@
             <th>Name</th>
             <th>Email</th>
             <th>Admin</th>
+            <th>isBan/unBan</th>
             <th class="modifyColumn"></th>
         </tr>
             @foreach($user as $user)
@@ -37,6 +38,13 @@
                 <td>{{$user['name']}}</td>
                 <td>{{$user['email']}}</td>
                 <td>{{$user['admin']}}</td>
+                <td>
+                    @if($user['isBan'] == '0')
+                        <label>Not Banned</label>
+                    @elseif($user['isBan'] == '1')
+                        <label>Banned</label>
+                    @endif
+                </td>
 
                 <td class="btnCell">
                     <form action="/updateUserForm" method="post">

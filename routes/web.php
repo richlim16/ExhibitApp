@@ -55,7 +55,10 @@ Route::post('/deleteUser', [formController::class, 'deleteUser']);
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::group(['middleware' => ['auth', 'isUser']], function(){
+    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+});
+
 Route::get('/artTable', [MainController::class, 'artTable']);
 Route::get('/artistTable', [MainController::class, 'artistTable']);
 Route::get('/exhibitsTable', [MainController::class, 'exhibitsTable']);
