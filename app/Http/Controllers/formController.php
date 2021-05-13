@@ -207,6 +207,7 @@ function updateTransaction(Request $request){
         $email = $request->input('email');
         $password = $request->input('password');
         $admin = $request->input('admin') ? true : false;
+        $isBan = $request->input('isBan');
 
         $user = user::find($reqest->input('id'));
         if($user){
@@ -214,6 +215,7 @@ function updateTransaction(Request $request){
             $user->admin = $admin;
             $user->email = $email;
             $user->password = Hash::make($password);
+            $user->isBan = $isBan;
             $user->save();
         }
         return redirect('/');

@@ -39,11 +39,11 @@
                 <td>{{$user['email']}}</td>
                 <td>{{$user['admin']}}</td>
                 <td>
-                    @if($user['isBan'] == '0')
-                        <label>Not Banned</label>
-                    @elseif($user['isBan'] == '1')
-                        <label>Banned</label>
-                    @endif
+                @if($user['isBan'] == '0')
+                    <label style="color:blue">Not Banned</label>
+                @elseif($user['isBan'] == '1')
+                    <label style="color:red">Banned</label>
+                @endif
                 </td>
 
                 <td class="btnCell">
