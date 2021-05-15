@@ -9,4 +9,12 @@ class art extends Model
 {
     public $timestamps = false;
     use HasFactory;
+
+    protected $fillable = [
+        'title',
+        'description',
+        'theme',
+        'photo',
+        'user_id'
+    ];
 }

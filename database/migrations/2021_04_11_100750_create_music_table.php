@@ -17,7 +17,7 @@ class CreateMusicTable extends Migration
             $table->id();
             $table->string('MusicTitle', 100);
             $table->string('genre', 50);
-            $table->foreignId('userID');
+            $table->foreignId('user_id');
         });
 
         DB::table('music')->insert(
@@ -25,7 +25,7 @@ class CreateMusicTable extends Migration
                 'id' => 1,
                 'MusicTitle' => 'Bad Guy',
                 'genre' => 'emo girl music eyy',
-                'userID' => 3
+                'user_id' => 3
             )
         );
         DB::table('music')->insert(
@@ -33,7 +33,7 @@ class CreateMusicTable extends Migration
                 'id' => 2,
                 'MusicTitle' => 'To The Left',
                 'genre' => 'Hiphop',
-                'userID' => 2
+                'user_id' => 2
             )
         );
         DB::table('music')->insert(
@@ -41,7 +41,7 @@ class CreateMusicTable extends Migration
                 'id' => 3,
                 'MusicTitle' => 'Buwan',
                 'genre' => 'sadboi',
-                'userID' => 1
+                'user_id' => 1
             )
         );
     }

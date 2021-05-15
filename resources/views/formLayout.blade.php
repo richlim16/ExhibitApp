@@ -8,6 +8,9 @@
         <link href="{{URL::asset('css/sidenavStyle.css')}}" rel="stylesheet">
         <link href="{{URL::asset('css/tableStyle.css')}}" rel="stylesheet">
         <link href="{{URL::asset('css/formStyle.css')}}" rel="stylesheet">
+
+        <!--script for file div and file upload-->
+        
     </head>
     <body>
     <div id="topbar">
@@ -65,6 +68,6 @@
                 </div>
             </div>
         </div>
-    
+    <script src={{asset('js\script.js')}}></script>
     </body>
 </html>

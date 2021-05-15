@@ -15,26 +15,33 @@ class CreateExhibitsTable extends Migration
     {
         Schema::create('exhibits', function (Blueprint $table) {
             $table->id();
-            $table->timestamp('StartDate');
-            $table->timestamp('EndDate')->nullable();
-            $table->string('Theme', 100);
-            $table->foreignId('TransactionID');
+            $table->timestamp('startDate');
+            $table->timestamp('endDate')->nullable();
+            $table->string('theme', 100);
+            $table->string('title', 150);
+            $table->string('description');
+            $table->enum('status', ['pending', 'paid', 'completed'])->default('pending');
+            $table->foreignId('user_id');
         });
 
         DB::table('exhibits')->insert(
             array(
                 'id' => 1,
-                'StartDate' => now(),
-                'Theme' => 'Jungle Madness',
-                'TransactionID' => 1
+                'startDate' => now(),
+                'title' => 'monke',
+                'theme' => 'Jungle Madness',
+                'description' => 'lorem ipsum choo choo chooo imm a train',
+                'user_id' => 1
             )
         );
         DB::table('exhibits')->insert(
             array(
                 'id' => 2,
-                'StartDate' => now(),
-                'Theme' => 'City Prison',
-                'TransactionID' => 2
+                'startDate' => now(),
+                'title' => 'Raymond is a weeb',
+                'theme' => 'Weeb',
+                'description' => 'lorem ipsum choo choo chooo imm a train',
+                'user_id' => 1
             )
         );
     }
