@@ -49,6 +49,11 @@ class CreateUsersTable extends Migration
             'email' => 'blash@gmail.com',
             'password' => Hash::make('password')
         ]);
+        DB::table('users')->insert([
+            'name' => 'Julies Bakeshop',
+            'email' => 'jb@gmail.com',
+            'password' => Hash::make('password')
+        ]);
     }
 
     /**
