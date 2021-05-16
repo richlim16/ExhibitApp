@@ -22,42 +22,6 @@ class CreateArtTable extends Migration
             $table->foreignId('user_id');
             $table->foreignId('exhibitID')->nullable();
         });
-
-        DB::table('art')->insert([
-            'title' => 'sample art #1',
-            'description' => 'lorem ipsum choo choo choo choo',
-            'theme' => 'space',
-            'photo' => 'sample1.jpg',
-            'user_id' => 1
-        ]);
-        DB::table('art')->insert([
-            'title' => 'sample art #2',
-            'description' => 'lorem ipsum choo choo choo choo',
-            'theme' => 'food',
-            'photo' => 'sample2.jpg',
-            'user_id' => 2
-        ]);
-        DB::table('art')->insert([
-            'title' => 'sample art #3',
-            'description' => 'lorem ipsum choo choo choo choo',
-            'theme' => 'anime',
-            'photo' => 'sample3.jpg',
-            'user_id' => 1
-        ]);
-        DB::table('art')->insert([
-            'title' => 'sample art #4',
-            'description' => 'lorem ipsum choo choo choo choo',
-            'theme' => 'games',
-            'photo' => 'sample4.jpg',
-            'user_id' => 3
-        ]);
-        DB::table('art')->insert([
-            'title' => 'sample art #4',
-            'description' => 'lorem ipsum choo choo choo choo',
-            'theme' => 'nature',
-            'photo' => 'sample4.jpg',
-            'user_id' => 4
-        ]);
     }
 
     /**

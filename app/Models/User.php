@@ -44,4 +44,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Art::class);
     }
+
+    public function poetry()
+    {
+        return $this->hasMany(Art::class);
+    }
 }

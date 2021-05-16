@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ArtController;
+use App\Http\Controllers\PoetryController;
 
 
 Auth::routes();
@@ -11,5 +12,16 @@ Route::group(['middleware' => ['auth', 'isUser']], function(){
 });
 
 Route::resource('art', ArtController::class);
-Route::get('/', function () {return redirect()->route('art.index');});
+Route::resource('poetry', PoetryController::class);
+Route::get('/', function () {
+    
+    if(Auth::check()){
+        return redirect()->route('art.index');
+    }
+    
+    else{
+        return redirect('/login');
+    }
+
+});
 
