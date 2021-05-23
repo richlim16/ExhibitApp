@@ -9,4 +9,11 @@ class poetry extends Model
 {
     public $timestamps = false;
     use HasFactory;
+
+    protected $fillable = [
+        'title',
+        'body',
+        'theme',
+        'user_id'
+    ];
 }

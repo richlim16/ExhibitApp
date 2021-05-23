@@ -15,16 +15,28 @@
 @endsection
 
 @section('content')
-    <form action="/insertArt" method="post">
+    <form action="{{route('art.store')}}"  enctype="multipart/form-data" method="post">
         @csrf
         <h1>ART FORM</h1>
+        <input type="hidden" name="user_id" value="{{Auth::user()->id}}">
 
-        <label for="artTitle">Art Title</label>
-            <input type="text" name="artTitle" required>
+        <label for="title">Art Title</label>
+            <input type="text" name="title" required>
 
-        <label for="artType">Art Type (music / poetry)</label>
-            <input type="text" name="artType" required>
-        <input type="hidden" name="userID" value="{{Auth::user()->id}}">
+        <label for="description">Description</label>
+            <input type="text" name="description" required>
+
+        <label for="theme">Theme</label>
+            <input type="text" name="theme" required>
+
+        <div class="fileDiv">
+            <div id="img-prev">
+                <p>No File Chosen</p>
+            </div>
+            <input type="file" accept="image/*" id="choose-file" name="photo">
+            <div class="fileBtn" onClick="fileup()">Choose Photo</div>
+        </div>
+
         <button id="submitBtn"><h3>SUBMIT</h3></button>
     </form>
 @endsection

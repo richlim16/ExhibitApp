@@ -2,7 +2,7 @@
 @section('sidebar')
                 <ul id="nav">
                     <a href="/"><li class="" id="allTab">All</li></a>
-                    <a href="/artTable"><li class="subTab">art</li></a>
+                    <a href="{{route('art.index')}}"><li class="subTab">art</li></a>
                     <a href="/exhibitsTable"><li class="subTab">exhibits</li></a>
                     <a href="/musicTable"><li class="subTab">music</li></a>
                     <a href="#"><li class="selected subTab">poetries</li></a>
@@ -43,16 +43,18 @@
                     @endif
 
                     <td class="btnCell">
-                        <form action="/updatePoetryForm" method="post">
+                        <form action="{{route('poetry.edit', $poetry->id)}}" method="post">
+                        <input type="hidden" name="_method" value="GET">
                             @csrf
                             <input type="hidden" name="id" value="{{$poetry['id']}}">
                             <input class="tablerowBtn" type="submit" value="Edit">
                         </form>
                 
-                        <form action="/deletePoetry" method="post">
-                            @csrf
-                            <input type="hidden" name="id" value="{{$poetry['id']}}">
-                        </form>
+                        <form action="{{route('poetry.destroy', $poetry->id)}}" method="post">
+                        <input type="hidden" name="_method" value="DELETE">
+                        @csrf
+                        <input class="tablerowBtn" type="submit" value="Delete">
+                    </form> 
                     </td>
                 </tr>
             @endforeach
