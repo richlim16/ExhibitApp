@@ -9,4 +9,21 @@ class exhibit extends Model
 {
     public $timestamps = false;
     use HasFactory;
+
+    protected $fillable = [
+        'startDate',
+        'endDate',
+        'theme',
+        'title',
+        'description',
+        'user_id'
+    ];
+
+    public function art() {
+        return $this->hasMany(art::class);
+    }
+
+    public function poetry() {
+        return $this->hasMany(poetry::class);
+    }
 }

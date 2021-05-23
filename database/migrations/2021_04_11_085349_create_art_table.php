@@ -20,7 +20,7 @@ class CreateArtTable extends Migration
             $table->string('theme');
             $table->string('photo');
             $table->foreignId('user_id');
-            $table->foreignId('exhibitID')->nullable();
+            $table->foreignId('exhibit_id')->nullable();
         });
     }
 

@@ -1,0 +1,13 @@
+1. create new exhibit
+    - make new exhibit row in controller, return all art and exhibit id
+2. choose art view
+    - form with all photos and check box for each
+        - <form action="exhibit/chooseArt/exhibit_id">
+            @foreach ($art as $art)
+                <label for="{{$art->id}}"><img src=" {{asset('storage/images/'.$art->image)}} " alt=""></label>
+                <input type="checkbox" name=" {{$art->id}} " value=" {{$art->id}} ">
+            @endforeach
+            <input type="checkbox" value>
+        </form>
+3. get all inputs and find their models to set exhibit_id 
+    - repeat step 2 for poetries

@@ -15,6 +15,6 @@ class art extends Model
         'description',
         'theme',
         'photo',
-        'user_id'
+        'user_id',
     ];
 }

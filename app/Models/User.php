@@ -42,11 +42,15 @@ class User extends Authenticatable
     ];
     public function art()
     {
-        return $this->hasMany(Art::class);
+        return $this->hasMany(art::class);
     }
 
     public function poetry()
     {
-        return $this->hasMany(Art::class);
+        return $this->hasMany(poetry::class);
+    }
+    public function exhibit()
+    {
+        return $this->hasMany(exhibit::class);
     }
 }

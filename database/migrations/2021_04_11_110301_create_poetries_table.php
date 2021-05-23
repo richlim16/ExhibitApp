@@ -19,7 +19,7 @@ class CreatePoetriesTable extends Migration
             $table->text('body');
             $table->string('theme');
             $table->foreignId('user_id');
-            $table->foreignId('exhibitID')->nullable();
+            $table->foreignId('exhibit_id')->nullable();
         });
         DB::table('poetries')->insert([
             'title' => 'sample poetry #1',
