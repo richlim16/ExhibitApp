@@ -1,16 +1,6 @@
 @extends('../pageLayout')
 @section('sidebar')
-                <ul id="nav">
-                    <a href="/"><li class="" id="allTab">All</li></a>
-                    <a href="{{route('art.index')}}"><li class="subTab">art</li></a>
-                    <a href="/exhibitsTable"><li class="subTab">exhibits</li></a>
-                    <a href="/musicTable"><li class="subTab">music</li></a>
-                    <a href="#"><li class="selected subTab">poetries</li></a>
-                    <a href="/transactionsTable"><li class="subTab">transactions</li></a>
-                    @if(Auth::user()->admin == true)
-                        <a href="/usersTable"><li class="subTab">users</li></a>
-                    @endif
-                </ul>
+
 @endsection
 @section('content')
 <div class="tableContainer">

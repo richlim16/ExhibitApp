@@ -86,11 +86,17 @@ class ArtController extends Controller
 
         $inputs = request()->except(['_token', '_method']);
         $photo = $_FILES['photo'];
-        $inputs['photo'] = $photo['name'];
-        request(('photo'))->storeAs($destination_path, $photo['name']);
-        Art::where('id', $id)
+        
+        if ($_FILES['photo']['size'] == 0)
+        {
+            $inputs['photo'] = $photo['name'];
+        } else{
+            request(('photo'))->storeAs($destination_path, $photo['name']);
+            Art::where('id', $id)
             ->update($inputs);
+        }
 
+        
         return redirect()->route('art.index');
     }
 

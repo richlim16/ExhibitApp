@@ -57,7 +57,30 @@
             <!-- side nav bar -->
             <div id="sidenav">
                 <h2 id="label">TABLES</h2>   
-                @yield('sidebar')
+                
+                <ul id="nav">    
+                    <a href="@if (\Request::is('art')) # @else /art @endif">
+                        <li class="@if (\Request::is('art'))selected @endif subTab">art</li>
+                    </a>
+
+                    <a href="@if (\Request::is('exhibit')) # @else /exhibit @endif">
+                        <li class="@if (\Request::is('exhibit'))selected @endif subTab">exhibit</li>
+                    </a>
+
+                    <a href="@if (\Request::is('poetry')) # @else /poetry @endif">
+                        <li class="@if (\Request::is('poetry'))selected @endif subTab">poetry</li>
+                    </a>
+
+                    <a href="@if (\Request::is('transaction')) # @else /transaction @endif">
+                        <li class="@if (\Request::is('transaction'))selected @endif subTab">transaction</li>
+                    </a>
+
+                    @if(Auth::user()->admin == true)
+                        <a href="/usersTable">
+                            <li class="subTab">user</li>
+                        </a>
+                    @endif
+                </ul>
 
             </div>
 
