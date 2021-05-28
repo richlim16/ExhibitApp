@@ -83,6 +83,16 @@ class PoetryController extends Controller
 
         return redirect()->route('poetry.index');
     }
+    public function addToExhibit(Request $req, $id){
+        $inputs = $req->get('poetry');
+
+        foreach($inputs as $item){
+            $art = poetry::where('id', $item);
+            $input = ['exhibit_id' => $id];
+            $art->update($input);
+        }
+        return redirect()->route('exhibit.edit', $id);
+    }
 
     /**
      * Remove the specified resource from storage.

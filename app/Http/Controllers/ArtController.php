@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Art;
+use App\Models\art;
 use Carbon\Carbon;
 
 class ArtController extends Controller
@@ -99,6 +99,17 @@ class ArtController extends Controller
 
         
         return redirect()->route('art.index');
+    }
+
+    public function addToExhibit(Request $req, $id){
+        $inputs = $req->get('art');
+
+        foreach($inputs as $item){
+            $art = art::where('id', $item);
+            $input = ['exhibit_id' => $id];
+            $art->update($input);
+        }
+        return redirect()->route('exhibit.edit', $id);
     }
 
     /**

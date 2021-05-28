@@ -42,8 +42,8 @@ class ExhibitController extends Controller
     {
         $inputs = $request->all();
         $exhibit = auth()->user()->exhibit()->create($inputs);
-        $art = art::all();
-        return view('forms.chooseArt', ['exhibit' => $exhibit, 'art' => $art]);
+        
+        return redirect()->route('exhibit.edit', $exhibit->id);
     }
 
     /**
@@ -65,7 +65,15 @@ class ExhibitController extends Controller
      */
     public function edit($id)
     {
-        //
+        $exhibit = exhibit::find($id);
+        $art = art::where('exhibit_id', $id)
+                ->orWhere('exhibit_id', NULL)
+                ->get();
+        $poetry = poetry::where('exhibit_id', $id)
+                ->orWhere('exhibit_id', NULL)
+                ->get();
+        
+        return view('forms.updateExhibit', ['art' => $art, 'poetry' => $poetry, 'id' => $id]);
     }
 
     /**
@@ -88,6 +96,7 @@ class ExhibitController extends Controller
      */
     public function destroy($id)
     {
-        //
+        exhibit::where('id', $id)->delete();
+        return redirect()->route("exhibit.index");
     }
 }

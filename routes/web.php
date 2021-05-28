@@ -12,7 +12,9 @@ Route::group(['middleware' => ['auth', 'isUser']], function(){
 });
 
 Route::resource('art', ArtController::class);
+Route::post('/art/addToExhibit/{id}', [ArtController::class, 'addToExhibit']);
 Route::resource('poetry', PoetryController::class);
+Route::post('/poetry/addToExhibit/{id}', [PoetryController::class, 'addToExhibit']);
 Route::resource('exhibit', ExhibitController::class);
 Route::get('/', function () {
     
