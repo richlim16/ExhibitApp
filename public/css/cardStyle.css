@@ -47,7 +47,57 @@
   padding: 10px 0;
 }
 
+.cards-table .poetry-card {
+  display: -ms-grid;
+  display: grid;
+  background-color: #426fe1;
+  -ms-grid-rows: 40px 200px .6fr 1fr;
+      grid-template-rows: 40px 200px .6fr 1fr;
+  -webkit-transition: -webkit-transform .2s;
+  transition: -webkit-transform .2s;
+  transition: transform .2s;
+  transition: transform .2s, -webkit-transform .2s;
+}
+
+.cards-table .poetry-card img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  height: 100%;
+}
+
+.cards-table .poetry-card img:hover {
+  cursor: pointer;
+}
+
+.cards-table .poetry-card .title {
+  padding: 10px 0;
+  text-align: center;
+}
+
+.cards-table .poetry-card .description {
+  padding: 10px 0;
+}
+
+.cards-table .poetry-card .theme-label {
+  padding: 10px 0 0 0;
+  text-align: center;
+}
+
+.cards-table .poetry-card .theme-title {
+  text-align: center;
+  padding: 10px 0;
+}
+
 .cards-table .card:hover {
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
+}
+
+.cards-table .hover:hover {
+  cursor: pointer;
+}
+
+.cards-table .poetry-card:hover {
   -webkit-transform: scale(1.05);
           transform: scale(1.05);
 }

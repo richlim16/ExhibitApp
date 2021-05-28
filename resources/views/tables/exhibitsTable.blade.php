@@ -3,47 +3,52 @@
 
 @endsection
 @section('content')
-<div class="tableContainer">
-        <table>
-            <div class="tableLabel">
-                <h2 class='tableName'>Exhibit</h2>
-                @if(Auth::check())
-                <a class="tableBtn" href=" {{route('exhibit.create')}} ">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="27" height="27" fill="currentColor" class="bi bi-plus-square" viewBox="0 0 16 16">
-                    <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
-                    <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
-                    </svg>
-                </a>
-                @endif
-            </div>
-        <tr>
-            <th>Exhibit ID</th>
-            <th>Start Date</th>
-            <th>Theme</th>
-            <th>Transaction ID</th>
-            <th class="modifyColumn"></th>
-        </tr>
-            @foreach($exhibit as $exhibit)
-            <tr>
-                <td>{{$exhibit['id']}}</td>
-                <td>{{$exhibit['StartDate']}}</td>
-                <td>{{$exhibit['Theme']}}</td>
-                <td>{{$exhibit['TransactionID']}}</td>
+<div style="padding: 50px 0; font-size: 48px">
+    Arts
+    <hr>
+</div>
 
-                <td class="btnCell">
-                    <form action="/updateExhibitForm" method="post">
-                        @csrf
-                        <input type="hidden" name="id" value="{{$exhibit['id']}}">
-                        <input class="tablerowBtn" type="submit" value="Edit">
-                    </form>
-            
-                    <form action="/deleteExhibit" method="post">
-                        @csrf
-                        <input type="hidden" name="id" value="{{$exhibit['id']}}">
-                    </form>
-                </td>
-            </tr>
+<div class="tableContainer">
+
+        <form action="">  
+            <div class="cards-table">
+            @foreach($art as $art)
+                <label for="art-{{$art['id']}}">
+                    <div class="card hover">
+                        <div class="title">
+                            <input  style="float:left;"  id="art-{{$art['id']}}" type="checkbox" value="{{$art['id']}}">
+                            "{{$art['title']}}"
+                        </div>
+                        <img src="{{asset('storage/art/'.$art->photo)}}"  alt="Art Photo" style="width:100%" id="img"> 
+                    </div>
+                </label>
             @endforeach
-        </table>
-    </div>
+        </form>
+</div> -->
+
+<div style="padding: 50px 0; font-size: 48px">
+    Poetry
+    <hr>
+</div>
+
+<div class="tableContainer">
+    <div class="cards-table">
+            @foreach($poetry as $poetry)
+                <label for="poetry-{{$poetry['id']}}">
+                    <div class="poetry-card hover">
+                        <div class="title">
+                            <input  style="float:left;" id="poetry-{{$poetry['id']}}" type="checkbox" value="{{$poetry['id']}}">
+                            "{{$poetry['title']}}"
+                        </div>
+                        <div style="background-color: #1e3c86; overflow-y:scroll; padding: 15px 25px">
+                                {{$poetry['body']}}           
+                        </div>
+                    </div>
+                </label>
+            @endforeach
+        </div>  
+</div> 
+
+
+
 @endsection

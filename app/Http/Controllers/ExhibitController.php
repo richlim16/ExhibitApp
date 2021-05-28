@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\exhibit;
 use App\Models\art;
+use App\Models\poetry;
 use Illuminate\Http\Request;
 
 class ExhibitController extends Controller
@@ -16,8 +17,9 @@ class ExhibitController extends Controller
     public function index()
     {
         $exhibit = exhibit::all();
-
-        return view('tables.exhibitsTable', ['exhibit' => $exhibit]);
+        $art = Art::all();
+        $poetry = Poetry::all();
+        return view('tables.exhibitsTable', ['exhibit' => $exhibit, 'art' => $art, 'poetry' => $poetry]);
     }
 
     /**

@@ -22,7 +22,7 @@
             <input type="text" name="title" required>
 
         <label for="body">Body</label>
-            <textarea name="body" cols="30" rows="10"></textarea>
+            <textarea  style="font-size: 2vh; background-color:#2c3454; padding: 15px 20px;" name="body" cols="30" rows="10"></textarea>
 
         <label for="theme">Theme</label>
             <input type="text" name="theme" required>
