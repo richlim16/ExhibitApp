@@ -77,9 +77,6 @@
                             <li class="@if (\Request::is('poetry'))selected @endif subTab">poetry</li>
                         </a>
 
-                        <a href="@if (\Request::is('transaction')) # @else /transaction @endif">
-                            <li class="@if (\Request::is('transaction'))selected @endif subTab">transaction</li>
-                        </a>
 
                         @if(Auth::user()->admin == true)
                             <a href="/usersTable">

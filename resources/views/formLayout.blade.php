@@ -8,7 +8,7 @@
         <link href="{{URL::asset('css/sidenavStyle.css')}}" rel="stylesheet">
         <link href="{{URL::asset('css/tableStyle.css')}}" rel="stylesheet">
         <link href="{{URL::asset('css/formStyle.css')}}" rel="stylesheet">
-
+        <link href="{{URL::asset('css/cardStyle.css')}}" rel="stylesheet">
         <!--script for file div and file upload-->
         
     </head>
@@ -71,10 +71,6 @@
                         <li class="@if (\Request::is('poetry'))selected @endif subTab">poetry</li>
                     </a>
 
-                    <a href="@if (\Request::is('transaction')) # @else /transaction @endif">
-                        <li class="@if (\Request::is('transaction'))selected @endif subTab">transaction</li>
-                    </a>
-
                     @if(Auth::user()->admin == true)
                         <a href="/usersTable">
                             <li class="subTab">user</li>
@@ -89,6 +85,8 @@
                 <div class="formContainer">
                     @yield('content')
                 </div>
+
+                @yield('content-gallery')
             </div>
         </div>
     <script src={{asset('js\script.js')}}></script>

@@ -103,6 +103,12 @@ class ArtController extends Controller
 
     public function addToExhibit(Request $req, $id){
         $inputs = $req->get('art');
+        $var = art::where('exhibit_id', $id)->get();
+
+        foreach($var as $var){
+            $input = ['exhibit_id' => NULL];
+            $var->update($input);
+        }
 
         foreach($inputs as $item){
             $art = art::where('id', $item);

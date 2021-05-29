@@ -1,6 +1,36 @@
 @extends('../formLayout')
 
 @section('content')
+
+<form action="{{route('exhibit.update', $id)}} " method="post">
+    {{csrf_field()}}
+    {{ method_field('PATCH') }}
+
+    <h1>EXHIBIT FORM</h1>
+    <label for="startDate">Starting Date</label>
+        <input type="date" name="startDate" value="<?php echo $exhibit->startDate ?>" required>
+
+    <label for="endDate">Ending Date</label>
+        <input type="date" name="endDate" value="<?php echo $exhibit->endDate ?>" required>
+
+    <label for="title">Exhibit Title</label>
+        <input type="text" name="title" value="{{$exhibit->title}}">
+
+    <label for="theme">Theme</label>
+        <input type="text" name="theme"value="{{$exhibit->theme}}" required>
+
+    <label for="description">Description</label>
+        <textarea name="description" cols="30" rows="5 " value="{{$exhibit->description}}"></textarea>
+    <button id="submitBtn"><h3>SUBMIT</h3></button>
+</form>
+
+
+@endsection
+
+
+
+
+@section('content-gallery')
 <div style="padding: 50px 0; font-size: 48px">
     Arts
     <hr>
@@ -15,10 +45,10 @@
             <label for="art-{{$art['id']}}">
                 <div class="card hover">
                     <div class="title">
-                        <input style="float:left; " id="art-{{$art['id']}}" name="art[]" type="checkbox" value="{{$art['id']}}" @if($art->exhibit_id == $id) checked  @endif>
+                        <input style="float:left;" id="art-{{$art['id']}}" name="art[]" type="checkbox" value="{{$art['id']}}" @if($art->exhibit_id == $id) checked  @endif>
                         {{$art['title']}}
                     </div>
-                    <img src="{{asset('storage/art/'.$art->photo)}}" alt="Art Photo" style="height: 100px; width: 50px; object-fit: cover;" id="img">
+                    <img src="{{asset('storage/art/'.$art->photo)}}" alt="Art Photo" style="width:100%" id="img">
                 </div>
             </label>
             @endforeach

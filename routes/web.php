@@ -16,6 +16,9 @@ Route::post('/art/addToExhibit/{id}', [ArtController::class, 'addToExhibit']);
 Route::resource('poetry', PoetryController::class);
 Route::post('/poetry/addToExhibit/{id}', [PoetryController::class, 'addToExhibit']);
 Route::resource('exhibit', ExhibitController::class);
+
+Route::resource('user', UserController::class);
+
 Route::get('/', function () {
     
     if(Auth::check()){

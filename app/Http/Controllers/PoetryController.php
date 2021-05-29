@@ -78,11 +78,16 @@ class PoetryController extends Controller
     public function update(Request $request, $id)
     {
         $inputs = request()->except('_token');
+        $inputs = ['exhibit_id' => NULL];
         Poetry::where('id', $id)
             ->update($inputs);
 
         return redirect()->route('poetry.index');
     }
+
+
+
+
     public function addToExhibit(Request $req, $id){
         $inputs = $req->get('poetry');
 

@@ -73,7 +73,7 @@ class ExhibitController extends Controller
                 ->orWhere('exhibit_id', NULL)
                 ->get();
         
-        return view('forms.updateExhibit', ['art' => $art, 'poetry' => $poetry, 'id' => $id], 'exhibit' => $exhibit);
+        return view('forms.updateExhibit', ['art' => $art, 'poetry' => $poetry, 'id' => $id, 'exhibit' => $exhibit]);
     }
 
     /**
@@ -85,7 +85,7 @@ class ExhibitController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $inputs = $request->all();
+        $inputs = $request->except('_token', '_method');
         $exhibit = exhibit::where('id', $id)
                 ->update($inputs);
         
