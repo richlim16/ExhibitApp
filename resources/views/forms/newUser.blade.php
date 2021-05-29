@@ -14,7 +14,7 @@
     </ul>
 @endsection
 @section('content')
-    <form action="/insertUser" method="post">
+    <form action=" {{route('user.store')}} " method="post">
         @csrf
         <h1>USER FORM</h1>
 

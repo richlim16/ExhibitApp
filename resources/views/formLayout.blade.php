@@ -72,7 +72,7 @@
                     </a>
 
                     @if(Auth::user()->admin == true)
-                        <a href="/usersTable">
+                        <a href=" {{route('user.index')}} ">
                             <li class="subTab">user</li>
                         </a>
                     @endif

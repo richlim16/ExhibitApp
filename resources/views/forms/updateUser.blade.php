@@ -1,7 +1,7 @@
 @extends('../formLayout')
 
 @section('content')
-    <form action="/insertUser" method="post">
+    <form action=" {{route('user.update', $user['id'])}} " method="post">
         @csrf
         <h1>USER FORM</h1>
 
