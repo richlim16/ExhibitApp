@@ -107,3 +107,8 @@ input:focus{
     color: #eee;
     margin-bottom: 20px;
 }
+
+#submitBtn:hover{
+    cursor: pointer;
+    background-color: #1e3c86;
+}
