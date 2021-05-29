@@ -33,10 +33,12 @@
             <div id="img-prev">
                 <p>No File Chosen</p>
             </div>
-            <input type="file" accept="image/*" id="choose-file" name="photo">
+            <input style="display:none;" type="file" accept="image/*" id="choose-file" name="photo">
             <div class="fileBtn" onClick="fileup()">Choose Photo</div>
         </div>
 
         <button id="submitBtn"><h3>SUBMIT</h3></button>
     </form>
+    
+</div>
 @endsection

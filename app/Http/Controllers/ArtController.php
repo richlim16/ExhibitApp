@@ -92,6 +92,7 @@ class ArtController extends Controller
         {
             $inputs['photo'] = $photo['name'];
         } else{
+            $inputs['photo'] = $photo['name'];
             request(('photo'))->storeAs($destination_path, $photo['name']);
             Art::where('id', $id)
             ->update($inputs);
@@ -102,6 +103,7 @@ class ArtController extends Controller
     }
 
     public function addToExhibit(Request $req, $id){
+        
         $inputs = $req->get('art');
         $var = art::where('exhibit_id', $id)->get();
 

@@ -108,7 +108,15 @@ input:focus{
     margin-bottom: 20px;
 }
 
+.fileBtn:hover{
+    cursor: pointer;
+}
+
 #submitBtn:hover{
     cursor: pointer;
     background-color: #1e3c86;
+}
+
+img:hover{
+    cursor: pointer;
 }

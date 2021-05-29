@@ -18,12 +18,27 @@
 
         <div class="fileDiv">
             <div id="img-prev">
-                <img src="{{asset('storage/art/'.$art->photo)}}" alt="Art Photo" id="img">
+                <img onclick="onClick(this)" src="{{asset('storage/art/'.$art->photo)}}" alt="Art Photo" id="img">
             </div>
-            <input type="file" accept="image/*" id="choose-file" name="photo">
+            <input style="display:none;" type="file" accept="image/*" id="choose-file" name="photo">
             <div class="fileBtn" onClick="fileup()">Choose Photo</div>
         </div>
 
         <button id="submitBtn"><h3>SUBMIT</h3></button>
     </form>
+
+    <div id="modal01" class="w3-modal" onclick="this.style.display='none'">
+  
+  <div class="modal-content w3-animate-zoom">
+    <img id="img01" style="width:100%">
+  </div>
+</div>
+
+
+<script>
+    function onClick(element) {
+    document.getElementById("img01").src = element.src;
+    document.getElementById("modal01").style.display = "block";
+    }
+</script>
 @endsection
