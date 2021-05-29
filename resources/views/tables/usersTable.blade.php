@@ -27,7 +27,13 @@
                 <td>{{$user['id']}}</td>
                 <td>{{$user['name']}}</td>
                 <td>{{$user['email']}}</td>
-                <td>{{$user['admin']}}</td>
+                <td>
+                @if($user['admin'] == '0')
+                    <label style="color:blue">User</label>
+                @elseif($user['admin'] == '1')
+                    <label style="color:red">Admin</label>
+                @endif
+                </td>
                 <td>
                 @if($user['isBan'] == '0')
                     <label style="color:blue">Not Banned</label>

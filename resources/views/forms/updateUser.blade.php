@@ -11,7 +11,7 @@
             <input type="text" name="name" required value="{{$user['name']}}">
         <label for="email">Email Address</label>
             <input type="email" name="email" required value="{{$user['email']}}">
-        @method('PUT')
+            @method('PUT')
         <h3> Ban Status:
             @if($user['isBan'] == '0')
                 <label style="color:blue">Not Banned</label>
@@ -28,9 +28,18 @@
         </div>
         </br>
         <!-- <label for="password">Password</label> -->
-            <input type="hidden" name="password" required value="{{$user['password']}}">
-        <label for="admin">Admin Privileges</label>
-            <input type="checkbox" name="admin"value="{{$user['admin']}}">
+        <h3> Ban Status:
+            @if($user['admin'] == '0')
+                <label style="color:blue">User</label>
+            @elseif($user['admin'] == '1')
+                <label style="color:red">Admin</label>
+            @endif
+        </h3>
+        <select style="background-color: #2c3454;" name="admin">
+                <option value="">Select Admin or User</option>
+                <option value="0">User</option>
+                <option value="1">Admin</option>
+        </select>
         <button id="submitBtn"><h3>SUBMIT</h3></button>
     </form>
 
