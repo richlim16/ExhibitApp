@@ -8,10 +8,10 @@
 
     <h1>EXHIBIT FORM</h1>
     <label for="startDate">Starting Date</label>
-        <input type="date" name="startDate" value="<?php echo $exhibit->startDate ?>" required>
-
+        <input type="date" name="startDate" value="<?php use Carbon\carbon; echo Carbon::parse($exhibit->startDate)->toDateString(); ?>" required>
+        
     <label for="endDate">Ending Date</label>
-        <input type="date" name="endDate" value="<?php echo $exhibit->endDate ?>" required>
+        <input type="date" name="endDate" value="<?php echo Carbon::parse($exhibit->endDate)->toDateString(); ?>" required>
 
     <label for="title">Exhibit Title</label>
         <input type="text" name="title" value="{{$exhibit->title}}">
@@ -20,7 +20,7 @@
         <input type="text" name="theme"value="{{$exhibit->theme}}" required>
 
     <label for="description">Description</label>
-        <textarea name="description" cols="30" rows="5 " value="{{$exhibit->description}}"></textarea>
+        <textarea name="description" cols="30" rows="5 " style="background-color: #2c3454;" value="{{$exhibit->description}}"></textarea>
     <button id="submitBtn"><h3>SUBMIT</h3></button>
 </form>
 

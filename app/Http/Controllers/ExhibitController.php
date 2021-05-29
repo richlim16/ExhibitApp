@@ -42,7 +42,7 @@ class ExhibitController extends Controller
     {
         $inputs = $request->all();
         $exhibit = auth()->user()->exhibit()->create($inputs);
-        
+        $exhibit->where('startDate', '<=', $request['startDate']);
         return redirect()->route('exhibit.edit', $exhibit->id);
     }
 

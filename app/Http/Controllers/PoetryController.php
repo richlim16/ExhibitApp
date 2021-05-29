@@ -77,8 +77,8 @@ class PoetryController extends Controller
      */
     public function update(Request $request, $id)
     {
+        
         $inputs = request()->except('_token');
-        $inputs = ['exhibit_id' => NULL];
         Poetry::where('id', $id)
             ->update($inputs);
 
@@ -87,14 +87,21 @@ class PoetryController extends Controller
 
 
 
-
+    
     public function addToExhibit(Request $req, $id){
         $inputs = $req->get('poetry');
+        $var = poetry::where('exhibit_id', $id)->get();
 
-        foreach($inputs as $item){
-            $art = poetry::where('id', $item);
-            $input = ['exhibit_id' => $id];
-            $art->update($input);
+        foreach($var as $var){
+            $var->exhibit_id = NULL;
+            $var->save();
+        }
+        if($inputs){
+            foreach($inputs as $item){
+                $art = poetry::where('id', $item);
+                $input = ['exhibit_id' => $id];
+                $art->update($input);
+            }
         }
         return redirect()->route('exhibit.edit', $id);
     }

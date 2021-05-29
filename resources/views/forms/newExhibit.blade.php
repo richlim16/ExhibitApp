@@ -31,7 +31,7 @@
             <input type="text" name="theme" required>
 
         <label for="description">Description</label>
-            <textarea name="description" cols="30" rows="5"></textarea>
+            <textarea name="description" style="background-color: #2c3454;" cols="30" rows="5"></textarea>
         <button id="submitBtn"><h3>SUBMIT</h3></button>
     </form>
 @endsection
