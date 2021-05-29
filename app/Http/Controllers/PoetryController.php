@@ -78,7 +78,7 @@ class PoetryController extends Controller
     public function update(Request $request, $id)
     {
         
-        $inputs = request()->except('_token');
+        $inputs = request()->except('_token', '_method');
         Poetry::where('id', $id)
             ->update($inputs);
 
