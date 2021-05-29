@@ -32,12 +32,17 @@
                 <td>{{$item->startDate}}</td>
                 <td>{{$item->endDate}}</td>
                 <td>
-                    <a href=" {{route('exhibit.edit', $item->id)}} ">Edit</a>
+                    <form action="{{route('exhibit.edit', $item->id)}}">
+                        <input type="hidden" name="_method" value="DELETE">
+                        @csrf
+                    <input class="tablerowBtn" type="submit" value="Edit">
+                    </form>  
+                    </br>
                     <form action="{{route('exhibit.destroy', $item->id)}}" method="post">
                         <input type="hidden" name="_method" value="DELETE">
                         @csrf
                     <input class="tablerowBtn" type="submit" value="Delete">
-                </form>  
+                    </form>  
                 </td>
             </tr>
         @endforeach
