@@ -19,7 +19,7 @@
             @endif
         </h3>
         <div>
-            <select name="isBan">
+            <select style="background-color: #2c3454;" name="isBan">
                 <option value="">Select Ban or Unban</option>
                 <option value="0">Unban</option>
                 <option value="1">Ban</option>

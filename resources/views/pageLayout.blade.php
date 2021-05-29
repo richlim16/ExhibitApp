@@ -42,7 +42,6 @@
                 @if (Route::has('login'))
                 <button id="myBtn" class="login">Log in</button>
                 @endif
-
                 @else
                 <a id="logout" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
                     <p id="logoutText">
@@ -51,9 +50,7 @@
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                     @csrf
                     </form>
-                </a>
-            
-                
+                </a>      
             @endguest
             </div>
         </div>
