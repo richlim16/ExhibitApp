@@ -106,14 +106,17 @@ class ArtController extends Controller
         $var = art::where('exhibit_id', $id)->get();
 
         foreach($var as $var){
-            $input = ['exhibit_id' => NULL];
-            $var->update($input);
+            $var->exhibit_id = NULL;
+            $var->save();
         }
 
-        foreach($inputs as $item){
-            $art = art::where('id', $item);
-            $input = ['exhibit_id' => $id];
-            $art->update($input);
+        if($inputs){
+            
+            foreach($inputs as $item){
+                $art = art::where('id', $item);
+                $input = ['exhibit_id' => $id];
+                $art->update($input);
+            }
         }
         return redirect()->route('exhibit.edit', $id);
     }
