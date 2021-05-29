@@ -11,6 +11,7 @@
             <input type="text" name="name" required value="{{$user['name']}}">
         <label for="email">Email Address</label>
             <input type="email" name="email" required value="{{$user['email']}}">
+        @method('PUT')
         <h3> Ban Status:
             @if($user['isBan'] == '0')
                 <label style="color:blue">Not Banned</label>

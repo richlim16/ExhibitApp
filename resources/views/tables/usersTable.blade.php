@@ -19,7 +19,7 @@
             <th>Name</th>
             <th>Email</th>
             <th>Admin</th>
-            <th>isBan/unBan</th>
+            <th>Ban status</th>
             <th class="modifyColumn"></th>
         </tr>
             @foreach($user as $user)

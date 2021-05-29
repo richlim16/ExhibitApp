@@ -73,7 +73,11 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $user = User::find($id);
+        $user->isBan = $request->input('isBan');
+        $user->update();
+        
+        return view('forms.updateUser', ['user' => $user]);
     }
 
     /**
