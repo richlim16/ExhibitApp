@@ -20,7 +20,7 @@
             <th>Email</th>
             <th>Admin</th>
             <th>Ban status</th>
-            <th>Active status</th>
+            <!-- <th>Active status</th> -->
             <th class="modifyColumn"></th>
         </tr>
             @foreach($user as $user)
@@ -42,14 +42,6 @@
                     <label style="color:red">Banned</label>
                 @endif
                 </td>
-                <td>
-                    @if($user['active'] == '0')
-                    <label style="color:lime">Active</label>
-                    @elseif($user['active'] == '1')
-                    <label style="color:red">Inactive</label>
-                    @endif
-                </td>
-
                 <td class="btnCell">
                     <a href=" {{route('user.edit', $user['id'])}} ">Edit</a>
                     <form action="/deleteUser">

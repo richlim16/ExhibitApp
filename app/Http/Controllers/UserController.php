@@ -76,7 +76,7 @@ class UserController extends Controller
         $user = User::find($id);
         $user->isBan = $request->input('isBan');
         $user->admin = $request->input('admin');
-        $user->active = $request->input('active');
+        // $user->active = $request->input('active');
         $user->update();
         
         return view('forms.updateUser', ['user' => $user]);
