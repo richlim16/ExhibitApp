@@ -16,44 +16,87 @@
     @endif
 
     <div class="cards-table">
+
         @foreach($art as $art)
-        <div class="card">
-            <div class="title">
-                "{{$art['title']}}"
-            </div>
-            <img src="{{asset('storage/art/'.$art->photo)}}" onclick="onClick(this)" alt="Art Photo" style="width:100%" id="img">
 
-            <div>
+        @if(Auth::user()->admin == false)
+            @if(Auth::user()->id == $art['user_id'])
+                <div class="card">
+                    <div class="title">
+                        "{{$art['title']}}"
+                    </div>
+                    <img src="{{asset('storage/art/'.$art->photo)}}" onclick="onClick(this)" alt="Art Photo" style="width:100%" id="img">
 
-                <div class="theme-title">
-                    {{$art['theme']}}
-                </div>  
-                <hr>  
-            </div>
+                    <div>
+
+                        <div class="theme-title">
+                            {{$art['theme']}}
+                        </div>  
+                        <hr>  
+                    </div>
+
+                
+                    <div style="padding: 0 10px;">
+                        <div class="description">
+                        {{$art['description']}}
+                        </div>
+                    </div>
+
+                    <div>
+                        <form action="{{route('art.edit', $art->id)}}" method="post">
+                            <input type="hidden" name="_method" value="GET">
+                            @csrf
+                            <input class="tablerowBtn" type="submit" value="Edit">
+                        </form>
+                
+                        <form action="{{route('art.destroy', $art->id)}}" method="post">
+                            <input type="hidden" name="_method" value="DELETE">
+                            @csrf
+                            <input class="tablerowBtn" type="submit" value="Delete">
+                        </form>  
+                
+                    </div>
+                </div>
+            @endif
+        @else
+            <div class="card">
+                <div class="title">
+                    "{{$art['title']}}"
+                </div>
+                <img src="{{asset('storage/art/'.$art->photo)}}" onclick="onClick(this)" alt="Art Photo" style="width:100%" id="img">
+
+                <div>
+
+                    <div class="theme-title">
+                        {{$art['theme']}}
+                    </div>  
+                    <hr>  
+                </div>
 
             
+                <div style="padding: 0 10px;">
+                    <div class="description">
+                    {{$art['description']}}
+                    </div>
+                </div>
 
-            <div style="padding: 0 10px;">
-                <div class="description">
-                {{$art['description']}}
+                <div>
+                    <form action="{{route('art.edit', $art->id)}}" method="post">
+                        <input type="hidden" name="_method" value="GET">
+                        @csrf
+                        <input class="tablerowBtn" type="submit" value="Edit">
+                    </form>
+            
+                    <form action="{{route('art.destroy', $art->id)}}" method="post">
+                        <input type="hidden" name="_method" value="DELETE">
+                        @csrf
+                        <input class="tablerowBtn" type="submit" value="Delete">
+                    </form>  
+            
                 </div>
             </div>
-
-            <div>
-                <form action="{{route('art.edit', $art->id)}}" method="post">
-                    <input type="hidden" name="_method" value="GET">
-                    @csrf
-                    <input class="tablerowBtn" type="submit" value="Edit">
-                </form>
+        @endif
         
-                <form action="{{route('art.destroy', $art->id)}}" method="post">
-                    <input type="hidden" name="_method" value="DELETE">
-                    @csrf
-                    <input class="tablerowBtn" type="submit" value="Delete">
-                </form>  
-         
-            </div>
-        </div>
         @endforeach
     </div>     
 </div>

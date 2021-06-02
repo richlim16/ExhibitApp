@@ -42,15 +42,30 @@
         @csrf
         <div class="cards-table">
             @foreach($art as $art)
-            <label for="art-{{$art['id']}}">
-                <div class="card hover">
-                    <div class="title">
-                        <input style="float:left;" id="art-{{$art['id']}}" name="art[]" type="checkbox" value="{{$art['id']}}" @if($art->exhibit_id == $id) checked  @endif>
-                        {{$art['title']}}
+
+            @if(Auth::user()->admin == false)
+                @if(Auth::user()->id == $art['user_id'])
+                    <label for="art-{{$art['id']}}">
+                        <div class="card hover">
+                            <div class="title">
+                                <input style="float:left;" id="art-{{$art['id']}}" name="art[]" type="checkbox" value="{{$art['id']}}" @if($art->exhibit_id == $id) checked  @endif>
+                                {{$art['title']}}
+                            </div>
+                            <img src="{{asset('storage/art/'.$art->photo)}}" alt="Art Photo" style="width:100%" id="img">
+                        </div>
+                    </label>
+                @endif
+            @else
+                <label for="art-{{$art['id']}}">
+                    <div class="card hover">
+                        <div class="title">
+                            <input style="float:left;" id="art-{{$art['id']}}" name="art[]" type="checkbox" value="{{$art['id']}}" @if($art->exhibit_id == $id) checked  @endif>
+                            {{$art['title']}}
+                        </div>
+                        <img src="{{asset('storage/art/'.$art->photo)}}" alt="Art Photo" style="width:100%" id="img">
                     </div>
-                    <img src="{{asset('storage/art/'.$art->photo)}}" alt="Art Photo" style="width:100%" id="img">
-                </div>
-            </label>
+                </label>
+            @endif
             @endforeach
         </div>
         <input type="submit" value="submit">
@@ -67,17 +82,34 @@
         @csrf
         <div class="cards-table">
             @foreach($poetry as $poetry)
-            <label for="poetry-{{$poetry['id']}}">
-                <div class="poetry-card hover">
-                    <div class="title">
-                        <input style="float:left;" id="poetry-{{$poetry['id']}}" name="poetry[]"type="checkbox" value="{{$poetry['id']}}" @if($poetry->exhibit_id == $id) checked  @endif>
-                        "{{$poetry['title']}}"
+
+            @if(Auth::user()->admin == false)
+                @if(Auth::user()->id == $poetry['user_id'])
+                    <label for="poetry-{{$poetry['id']}}">
+                        <div class="poetry-card hover">
+                            <div class="title">
+                                <input style="float:left;" id="poetry-{{$poetry['id']}}" name="poetry[]"type="checkbox" value="{{$poetry['id']}}" @if($poetry->exhibit_id == $id) checked  @endif>
+                                "{{$poetry['title']}}"
+                            </div>
+                            <div style="background-color: #1e3c86; overflow-y:scroll; padding: 15px 25px">
+                                {{$poetry['body']}}
+                            </div>
+                        </div>
+                    </label>
+                @endif
+            @else
+                <label for="poetry-{{$poetry['id']}}">
+                    <div class="poetry-card hover">
+                        <div class="title">
+                            <input style="float:left;" id="poetry-{{$poetry['id']}}" name="poetry[]"type="checkbox" value="{{$poetry['id']}}" @if($poetry->exhibit_id == $id) checked  @endif>
+                            "{{$poetry['title']}}"
+                        </div>
+                        <div style="background-color: #1e3c86; overflow-y:scroll; padding: 15px 25px">
+                            {{$poetry['body']}}
+                        </div>
                     </div>
-                    <div style="background-color: #1e3c86; overflow-y:scroll; padding: 15px 25px">
-                        {{$poetry['body']}}
-                    </div>
-                </div>
-            </label>
+                </label>
+            @endif
             @endforeach
         </div>
         <input type="submit" value="submit">

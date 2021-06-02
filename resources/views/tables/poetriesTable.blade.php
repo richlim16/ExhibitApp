@@ -19,6 +19,9 @@
 <div class="tableContainer">
     <div class="cards-table">
         @foreach($poetry as $poetry)
+
+        @if(Auth::user()->admin == false)
+            @if(Auth::user()->id == $poetry['user_id'])
             <div class="poetry-card">
                 <div class="title">
                     "{{$poetry['title']}}"
@@ -50,6 +53,40 @@
             
                 </div>
             </div>
+            @endif
+        @else
+            <div class="poetry-card">
+                <div class="title">
+                    "{{$poetry['title']}}"
+                </div>
+                
+                <div style="background-color: #1e3c86; overflow-y:scroll; padding: 15px 25px">
+                    {{$poetry['body']}}
+                </div>
+
+                <div>
+                    <hr>  
+                    <div class="theme-title">
+                        {{$poetry['theme']}}
+                    </div>  
+                </div>
+
+                <div>
+                    <form action="{{route('poetry.edit', $poetry->id)}}" method="post">
+                        <input type="hidden" name="_method" value="GET">
+                        @csrf
+                        <input class="tablerowBtn" type="submit" value="Edit">
+                    </form>
+            
+                    <form action="{{route('poetry.destroy', $poetry->id)}}" method="post">
+                        <input type="hidden" name="_method" value="DELETE">
+                        @csrf
+                        <input class="tablerowBtn" type="submit" value="Delete">
+                    </form>  
+            
+                </div>
+            </div>
+        @endif
         @endforeach
     </div>  
 </div>
