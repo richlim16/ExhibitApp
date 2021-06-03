@@ -18,10 +18,7 @@
             <th>userID</th>
             <th>Name</th>
             <th>Email</th>
-            <th>Admin</th>
-            <th>Ban status</th>
-            <!-- <th>Active status</th> -->
-            <th class="modifyColumn"></th>
+            <th colspan=2 >Actions</th>
         </tr>
             @foreach($user as $user)
             <tr>
@@ -30,24 +27,17 @@
                 <td>{{$user['email']}}</td>
                 <td>
                 @if($user['admin'] == '0')
-                    <label style="color:blue">User</label>
-                @elseif($user['admin'] == '1')
-                    <label style="color:red">Admin</label>
+                    <a href="/user/changeAdmin/{{$user['id']}}" style="color:orange">User</a>
+                @else
+                    <a href="/user/changeAdmin/{{$user['id']}}" style="color: Cyan">Admin</a>
                 @endif
                 </td>
                 <td>
                 @if($user['isBan'] == '0')
-                    <label style="color:lime">Not Banned</label>
-                @elseif($user['isBan'] == '1')
-                    <label style="color:red">Banned</label>
+                    <a href="/user/changeBan/{{$user['id']}}" style="color:lime">Not Banned</a>
+                @else
+                    <a href="/user/changeBan/{{$user['id']}}" style="color:red">Banned</a>
                 @endif
-                </td>
-                <td class="btnCell">
-                    <a href=" {{route('user.edit', $user['id'])}} ">Edit</a>
-                    <form action="/deleteUser">
-                        @csrf
-                        <input type="hidden" name="id" value="{{$user['id']}}">
-                    </form>
                 </td>
             </tr>
             @endforeach

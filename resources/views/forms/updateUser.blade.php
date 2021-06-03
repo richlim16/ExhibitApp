@@ -1,8 +1,12 @@
 @extends('../formLayout')
 
 @section('content')
+    @if($errors->any())
+        <h3 style="color: red;">{{$errors->first()}}</h3>
+    @endif
     <form action=" {{route('user.update', $user['id'])}} " method="post">
         @csrf
+        {{method_field('PATCH')}}
         <h1>USER FORM</h1>
 
         </br>
@@ -27,9 +31,9 @@
             </select>
         </div>
 
-        <h3> Ban Status:
+        <h3> Admin Status:
             @if($user['admin'] == '0')
-                <label style="color:blue">User</label>
+                <label style="color:orange">User</label>
             @elseif($user['admin'] == '1')
                 <label style="color:red">Admin</label>
             @endif

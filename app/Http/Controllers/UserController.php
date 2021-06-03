@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -35,7 +36,13 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        $inputs = $request->except('_token', '_method');
+        $inputs = $request->validate([
+            'name' => 'required',
+            'email' => 'required|unique:users,email',
+            'password' => 'required|min:8|confirmed',
+            'password_confirmation' => 'required|min:8'
+        ]);
+        $inputs['password'] = Hash::make( $request->input('password'));
         User::create($inputs);
         return redirect()->route('user.index');
     }
@@ -71,15 +78,35 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    public function changeAdmin($id){
+        $user = User::find($id);
+        if($user){
+            $user->admin = !$user->admin;
+            $user->save();
+        }
+
+        return redirect()->route('user.index');
+    }
+
+    public function changeBan($id){
+        $user = User::find($id);
+        if($user){
+            $user->isBan = !$user->isBan;
+            $user->save();
+        }
+
+        return redirect()->route('user.index');
+    }
+
     public function update(Request $request, $id)
     {
-        $user = User::find($id);
-        $user->isBan = $request->input('isBan');
-        $user->admin = $request->input('admin');
-        // $user->active = $request->input('active');
-        $user->update();
+       $user = User::find($id);
+        if($user){
+            $inputs = $request->except(['_token', '_method']);
+            $user->update($inputs);
+        }
         
-        return view('forms.updateUser', ['user' => $user]);
+        return redirect()->route('user.index');
     }
 
     /**

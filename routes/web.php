@@ -22,6 +22,8 @@ Route::resource('poetry', PoetryController::class);
 Route::post('/poetry/addToExhibit/{id}', [PoetryController::class, 'addToExhibit']);
 Route::resource('exhibit', ExhibitController::class);
 Route::resource('user', UserController::class);
+Route::get('/user/changeAdmin/{id}', [UserController::class, 'changeAdmin']);
+Route::get('/user/changeBan/{id}', [UserController::class, 'changeBan']);
 
 Route::resource('user', UserController::class);
 
