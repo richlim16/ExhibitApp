@@ -6,6 +6,10 @@ use App\Http\Controllers\PoetryController;
 use App\Http\Controllers\ExhibitController;
 use App\Http\Controllers\UserController;
 
+use App\Models\exhibit;
+use App\Models\art;
+use App\Models\poetry;
+
 Auth::routes();
 
 Route::group(['middleware' => ['auth', 'isUser']], function(){
@@ -23,12 +27,24 @@ Route::resource('user', UserController::class);
 
 Route::get('/', function () {
     
-    if(Auth::check()){
-        return redirect()->route('art.index');
-    }
+    // if(Auth::check()){
+    //     return redirect()->route('art.index');
+    // }
     
-    else{
-        return redirect('/login');
-    }
+    // else{$exhibit = exhibit::all();
+        $exhibits = exhibit::all();
+        return view('tables.gallery.exhibits', ['exhibits' => $exhibits]);
 
+        // return redirect('/login');
+    // }
+
+});
+
+Route::get('/exhibit-{id}', function ($id){
+
+    $exhibit = exhibit::find($id);
+    $exhibits = exhibit::all();
+    $art = art::where('exhibit_id', $id)->get();
+    $poetry = poetry::where('exhibit_id', $id)->get();
+    return view('tables.gallery.exhibit', ['exhibit' => $exhibit, 'exhibits' => $exhibits, 'art' => $art, 'poetry' => $poetry]);
 });

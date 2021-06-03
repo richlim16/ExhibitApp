@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\art;
+use App\Models\User;
 use Carbon\Carbon;
 
 class ArtController extends Controller
@@ -15,6 +16,7 @@ class ArtController extends Controller
      */
     public function index()
     {
+        $user = User::all();
         $art = Art::all();
         return view('tables.artTable', ['art' => $art]);
     }

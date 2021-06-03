@@ -20,7 +20,7 @@
         <input type="text" name="theme"value="{{$exhibit->theme}}" required>
 
     <label for="description">Description</label>
-        <textarea name="description" cols="30" rows="5 " style="background-color: #2c3454;" value="{{$exhibit->description}}"></textarea>
+        <textarea name="description" cols="30" rows="5 " style="background-color: #2c3454;">{{$exhibit->description}}</textarea>
     <button id="submitBtn"><h3>SUBMIT</h3></button>
 </form>
 

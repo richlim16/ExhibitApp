@@ -56,6 +56,10 @@
                         </form>  
                 
                     </div>
+
+                    <div>
+                    
+                    </div>
                 </div>
             @endif
         @else
@@ -94,6 +98,8 @@
                     </form>  
             
                 </div>
+
+                made by user: {{$art['user_id']}}
             </div>
         @endif
         
