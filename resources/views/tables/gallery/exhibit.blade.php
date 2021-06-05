@@ -21,7 +21,6 @@
 
                 <?php 
                     $userName = $user->find($art['user_id']);
-
                 ?>
                 <div class="card">
                     <div class="title">
@@ -54,12 +53,17 @@
 
         @else
             @foreach($poetry as $poetry)
+
+                <?php 
+                    $userName = $user->find($poetry['user_id']);
+                ?>
+
                 <div class="poetry-card">
                     <div class="title">
                         "{{$poetry['title']}}"
                     </div>
                     
-                    <div onclick="onClickPoetry(this)" id="poetry_body" style="background-color: #1e3c86; overflow-y:scroll; padding: 15px 25px">
+                    <div onclick="onClickPoetry(this, '<?php echo $poetry->title?>', '<?php echo $poetry->theme?>', '<?php echo $userName->name?>')" id="poetry_body" style="background-color: #1e3c86; overflow-y:scroll; padding: 15px 25px">
                         {{$poetry['body']}}
                     </div>
 
@@ -85,13 +89,16 @@
     <div class="modal-content w3-animate-zoom">
         <img id="img01" style="width:100%">
     </div>
-
     <div id="caption"></div>
 </div>
 
 <div id="modal02" class="w3-modal" onclick="this.style.display='none'">
     <div class="modal-content w3-animate-zoom">
-        <div style="white-space: break-spaces;" id="poetry-text"></div>
+        <h2 id="poetry-title"></h2>
+        <h3 id="poetry-theme"></h2>
+        <h4 id="poetry-user"></h4>
+        <hr style="margin-top: 10px;">
+        <div id="poetry-text"></div>
     </div>
 </div>
 
@@ -103,11 +110,13 @@
         document.getElementById("modal01").style.display = "block";
     }
 
-    function onClickPoetry(element) {
+    function onClickPoetry(element, title, theme, username) {
         string = element.innerHTML;
         newstr = string.substr(25)
         document.getElementById("poetry-text").innerHTML = newstr;
-
+        document.getElementById("poetry-title").innerHTML = title;
+        document.getElementById("poetry-theme").innerHTML = theme;
+        document.getElementById("poetry-user").innerHTML = "by " + username;
         document.getElementById("modal02").style.display = "block";
     }
 

@@ -194,4 +194,11 @@
 #poetry_body:hover {
   cursor: pointer;
 }
+
+#modal02 #poetry-text {
+  white-space: pre-wrap;
+  height: 350px;
+  padding: 10px 0;
+  overflow-y: scroll;
+}
 /*# sourceMappingURL=cardStyle.css.map */
