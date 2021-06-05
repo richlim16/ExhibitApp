@@ -12,10 +12,6 @@
   display: grid;
   -ms-grid-rows: 40px 300px .6fr 1fr 1fr;
       grid-template-rows: 40px 300px .6fr 1fr 1fr;
-  -webkit-transition: -webkit-transform .2s;
-  transition: -webkit-transform .2s;
-  transition: transform .2s;
-  transition: transform .2s, -webkit-transform .2s;
 }
 
 .cards-table .card img {

@@ -1,0 +1,38 @@
+.exhibit-grid {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+  gap: 50px 100px;
+}
+
+.exhibit-grid .exhibit-card {
+  background-color: #051431;
+  height: 250px;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+.exhibit-grid .exhibit-card .exhibit-details {
+  display: -ms-grid;
+  display: grid;
+  gap: 10px;
+  -ms-grid-columns: 1fr 3fr;
+      grid-template-columns: 1fr 3fr;
+  -ms-grid-rows: 1fr 1fr 4fr 1fr;
+      grid-template-rows: 1fr 1fr 4fr 1fr;
+  opacity: 0;
+  padding: 10px 15px;
+}
+
+.exhibit-grid .exhibit-card:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+.exhibit-grid .exhibit-card:hover .exhibit-details {
+  opacity: 1;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+/*# sourceMappingURL=exhibitCardStyle.css.map */

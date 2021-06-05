@@ -13,51 +13,60 @@
 
 <div id="London" style="display:block" class="tabcontent">
     <div class="cards-table">
-        @foreach ($art as $art)
-            <div class="card">
-                <div class="title">
-                    "{{$art['title']}}"
-                </div>
-                <img src="{{asset('storage/art/'.$art->photo)}}" onclick="onClick(this)" alt="Art Photo" style="width:100%" id="img">
+        @if($poetry->isEmpty())
+            <h2>there are no arts in this exhibit</h2>
+        @else
+            @foreach ($art as $art)
+                <div class="card">
+                    <div class="title">
+                        "{{$art['title']}}"
+                    </div>
+                    <img src="{{asset('storage/art/'.$art->photo)}}" onclick="onClick(this)" alt="Art Photo" style="width:100%" id="img">
 
-                <div>
+                    <div>
 
-                    <div class="theme-title">
-                        {{$art['theme']}}
-                    </div>  
-                    <hr>  
-                </div>
+                        <div class="theme-title">
+                            {{$art['theme']}}
+                        </div>  
+                        <hr>  
+                    </div>
 
 
-                <div style="padding: 0 10px;">
-                    <div class="description">
-                        {{$art['description']}}
+                    <div style="padding: 0 10px;">
+                        <div class="description">
+                            {{$art['description']}}
+                        </div>
                     </div>
                 </div>
-            </div>
-        @endforeach
+            @endforeach
+        @endif
     </div>
 </div>
 
 <div id="Paris" style="display:none"  class="tabcontent">
     <div class="cards-table">
-        @foreach($poetry as $poetry)
-            <div class="poetry-card">
-                <div class="title">
-                    "{{$poetry['title']}}"
-                </div>
-                
-                <div style="background-color: #1e3c86; overflow-y:scroll; padding: 15px 25px">
-                    {{$poetry['body']}}
-                </div>
+        @if($poetry->isEmpty())
+            <h2>there are no poetries in this exhibit</h2>
 
-                <div> 
-                    <div class="theme-title">
-                        {{$poetry['theme']}}
-                    </div>  
+        @else
+            @foreach($poetry as $poetry)
+                <div class="poetry-card">
+                    <div class="title">
+                        "{{$poetry['title']}}"
+                    </div>
+                    
+                    <div style="background-color: #1e3c86; overflow-y:scroll; padding: 15px 25px">
+                        {{$poetry['body']}}
+                    </div>
+
+                    <div> 
+                        <div class="theme-title">
+                            {{$poetry['theme']}}
+                        </div>  
+                    </div>
                 </div>
-            </div>
-        @endforeach
+            @endforeach
+        @endif
     </div>
 </div>
 
