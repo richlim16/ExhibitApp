@@ -85,7 +85,7 @@
 }
 
 /* The Modal (background) */
-#modal01 {
+#modal01, #modal02 {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
@@ -149,4 +149,7 @@
   cursor: pointer;
 }
 
+#poetry_body:hover{
+  cursor: pointer;
+}
 

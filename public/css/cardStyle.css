@@ -99,7 +99,7 @@
 }
 
 /* The Modal (background) */
-#modal01 {
+#modal01, #modal02 {
   display: none;
   /* Hidden by default */
   position: fixed;
@@ -188,6 +188,10 @@
 .close:focus {
   color: #bbb;
   text-decoration: none;
+  cursor: pointer;
+}
+
+#poetry_body:hover {
   cursor: pointer;
 }
 /*# sourceMappingURL=cardStyle.css.map */

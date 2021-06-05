@@ -81,6 +81,7 @@
                     <ul id="nav">    
 
                     @foreach ($exhibits as $item)
+                        
                         <a href="exhibit-{{$item->id}}">
                             <li class="subTab">{{$item->title}}</li>
                         </a>

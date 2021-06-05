@@ -2,14 +2,15 @@
 
 
 @section('content')
-<div>
-</div>
+
+<h1>{{$exhibit['title']}}</h1>
 
 <div class="tab">
   <button class="tablinks active" onclick="openCategory(event, 'Arts')">Arts</button>
   <button class="tablinks" onclick="openCategory(event, 'Poetry')">Poetries</button>
   <button class="tablinks" onclick="openCategory(event, 'Music')">Music</button>
 </div>
+
 
 <div id="Arts" style="display:block" class="tabcontent">
     <div class="cards-table">
@@ -26,7 +27,7 @@
                     <div class="title">
                         "{{$art['title']}}"
                     </div>
-                    <img src="{{asset('storage/art/'.$art->photo)}}" onclick="onClick(this)" alt="&ldquo;{{$art['title']}}&rdquo; by {{$userName['name']}}" style="width:100%" id="img">
+                    <img src="{{asset('storage/art/'.$art->photo)}}" onclick="onClickImg(this)" alt="&ldquo;{{$art['title']}}&rdquo; by {{$userName['name']}}" style="width:100%" id="img">
                     <div>
                         <div class="theme-title">
                             {{$art['theme']}}
@@ -58,7 +59,7 @@
                         "{{$poetry['title']}}"
                     </div>
                     
-                    <div style="background-color: #1e3c86; overflow-y:scroll; padding: 15px 25px">
+                    <div onclick="onClickPoetry(this)" id="poetry_body" style="background-color: #1e3c86; overflow-y:scroll; padding: 15px 25px">
                         {{$poetry['body']}}
                     </div>
 
@@ -81,20 +82,33 @@
 
 
 <div id="modal01" class="w3-modal" onclick="this.style.display='none'">
-  <div class="modal-content w3-animate-zoom">
-    <img id="img01" style="width:100%">
-  </div>
-  <div id="caption"></div>
+    <div class="modal-content w3-animate-zoom">
+        <img id="img01" style="width:100%">
+    </div>
+
+    <div id="caption"></div>
+</div>
+
+<div id="modal02" class="w3-modal" onclick="this.style.display='none'">
+    <div class="modal-content w3-animate-zoom">
+        <div style="white-space: break-spaces;" id="poetry-text"></div>
+    </div>
 </div>
 
 
-
-
 <script>
-    function onClick(element) {
-    document.getElementById("img01").src = element.src;
-    document.getElementById("caption").innerHTML = element.alt;
-    document.getElementById("modal01").style.display = "block";
+    function onClickImg(element) {
+        document.getElementById("img01").src = element.src;
+        document.getElementById("caption").innerHTML = element.alt;
+        document.getElementById("modal01").style.display = "block";
+    }
+
+    function onClickPoetry(element) {
+        string = element.innerHTML;
+        newstr = string.substr(25)
+        document.getElementById("poetry-text").innerHTML = newstr;
+
+        document.getElementById("modal02").style.display = "block";
     }
 
     function openCategory(evt, category) {
