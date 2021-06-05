@@ -6,25 +6,28 @@
 </div>
 
 <div class="tab">
-  <button class="tablinks active" onclick="openCity(event, 'London')">Arts</button>
-  <button class="tablinks" onclick="openCity(event, 'Paris')">Poetries</button>
-  <button class="tablinks" onclick="openCity(event, 'Tokyo')">Music</button>
+  <button class="tablinks active" onclick="openCategory(event, 'Arts')">Arts</button>
+  <button class="tablinks" onclick="openCategory(event, 'Poetry')">Poetries</button>
+  <button class="tablinks" onclick="openCategory(event, 'Music')">Music</button>
 </div>
 
-<div id="London" style="display:block" class="tabcontent">
+<div id="Arts" style="display:block" class="tabcontent">
     <div class="cards-table">
         @if($poetry->isEmpty())
             <h2>there are no arts in this exhibit</h2>
         @else
             @foreach ($art as $art)
+
+                <?php 
+                    $userName = $user->find($art['user_id']);
+
+                ?>
                 <div class="card">
                     <div class="title">
                         "{{$art['title']}}"
                     </div>
-                    <img src="{{asset('storage/art/'.$art->photo)}}" onclick="onClick(this)" alt="Art Photo" style="width:100%" id="img">
-
+                    <img src="{{asset('storage/art/'.$art->photo)}}" onclick="onClick(this)" alt="&ldquo;{{$art['title']}}&rdquo; by {{$userName['name']}}" style="width:100%" id="img">
                     <div>
-
                         <div class="theme-title">
                             {{$art['theme']}}
                         </div>  
@@ -43,7 +46,7 @@
     </div>
 </div>
 
-<div id="Paris" style="display:none"  class="tabcontent">
+<div id="Poetry" style="display:none"  class="tabcontent">
     <div class="cards-table">
         @if($poetry->isEmpty())
             <h2>there are no poetries in this exhibit</h2>
@@ -70,7 +73,7 @@
     </div>
 </div>
 
-<div id="Tokyo" style="display:none"  class="tabcontent">
+<div id="Music" style="display:none"  class="tabcontent">
   <h3>Tokyo</h3>
   <p>Tokyo is the capital of Japan.</p>
 </div>
@@ -81,6 +84,7 @@
   <div class="modal-content w3-animate-zoom">
     <img id="img01" style="width:100%">
   </div>
+  <div id="caption"></div>
 </div>
 
 
@@ -89,10 +93,11 @@
 <script>
     function onClick(element) {
     document.getElementById("img01").src = element.src;
+    document.getElementById("caption").innerHTML = element.alt;
     document.getElementById("modal01").style.display = "block";
     }
 
-    function openCity(evt, cityName) {
+    function openCategory(evt, category) {
         var i, tabcontent, tablinks;
         tabcontent = document.getElementsByClassName("tabcontent");
         for (i = 0; i < tabcontent.length; i++) {
@@ -102,7 +107,7 @@
         for (i = 0; i < tablinks.length; i++) {
             tablinks[i].className = tablinks[i].className.replace(" active", "");
         }
-        document.getElementById(cityName).style.display = "block";
+        document.getElementById(category).style.display = "block";
         evt.currentTarget.className += " active";
     }
 </script>

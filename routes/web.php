@@ -9,6 +9,7 @@ use App\Http\Controllers\UserController;
 use App\Models\exhibit;
 use App\Models\art;
 use App\Models\poetry;
+use App\Models\User;
 
 Auth::routes();
 
@@ -48,5 +49,6 @@ Route::get('/exhibit-{id}', function ($id){
     $exhibits = exhibit::all();
     $art = art::where('exhibit_id', $id)->get();
     $poetry = poetry::where('exhibit_id', $id)->get();
-    return view('tables.gallery.exhibit', ['exhibit' => $exhibit, 'exhibits' => $exhibits, 'art' => $art, 'poetry' => $poetry]);
+    $user = User::all();
+    return view('tables.gallery.exhibit', ['exhibit' => $exhibit, 'exhibits' => $exhibits, 'art' => $art, 'poetry' => $poetry, 'user' => $user]);
 });
