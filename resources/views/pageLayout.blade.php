@@ -12,7 +12,7 @@
         <link href="{{URL::asset('css/popupStyle.css')}}" rel="stylesheet">
         <link href="{{URL::asset('css/formStyle.css')}}" rel="stylesheet">
         <link href="{{URL::asset('css/cardStyle.css')}}" rel="stylesheet">
-        
+        <link href="{{URL::asset('css/exhibitCardStyle.css')}}" rel="stylesheet">
 
     </head>
     <body>

@@ -3,7 +3,16 @@
 
 @section('content')
 
+@guest
+    @if (Route::has('login'))
+
+    @endif
+    @else
+        <a href="/home">go back</a>
+@endguest
+
 <h1>{{$exhibit['title']}}</h1>
+
 
 <div class="tab">
   <button class="tablinks active" onclick="openCategory(event, 'Arts')">Arts</button>

@@ -18,41 +18,16 @@
 
     </head>
     <body>
-        <div id="topbar">
-            <div id="userArea">
-                <svg id="icon" xmlns="http://www.w3.org/2000/svg" width="1.25em" height="1.25em" viewBox="0 0 36 36">
-                    <path id="Icon_awesome-user-alt" data-name="Icon awesome-user-alt" d="M18,20.25A10.125,10.125,0,1,0,7.875,10.125,10.128,10.128,0,0,0,18,20.25Zm9,2.25H23.126a12.24,12.24,0,0,1-10.252,0H9a9,9,0,0,0-9,9v1.125A3.376,3.376,0,0,0,3.375,36h29.25A3.376,3.376,0,0,0,36,32.625V31.5A9,9,0,0,0,27,22.5Z" fill="#fff"/>
-                </svg>
-                
-                @guest
-                    @if (Route::has('login'))
-                        <h5 id="userName">Guest Account</h5>   
-                    @endif
 
-                    @else
-                        <h5 id="userName">{{ Auth::user()->name }}</h4>
-                @endguest
+        
+        <div id="topbar">
+            <div>
+                
             </div>
 
             <h1 id="title"><a href='/'>XHIBIT</a></h1>
 
-            <div>
-                
-
-                @guest
-                    @if (Route::has('login'))
-
-                    @endif
-                    @else
-                    <a class="tableBtn" style="margin-top: 15px; margin-right: 15px"href="/home">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="27" height="27" fill="currentColor" class="bi bi-plus-square" viewBox="0 0 16 16">
-                        <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
-                        <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
-                        </svg>
-                    </a>     
-                @endguest
-                
-            </div>
+            <div></div>
             
             @guest
                 @if (Route::has('login'))
@@ -77,16 +52,52 @@
         @else 
         <div id="container">
             <div id="sidenav">
-                <h2 id="label">Exhibits</h2>
-                    <ul id="nav">    
 
-                    @foreach ($exhibits as $item)
+                @guest
+                    @if (Route::has('login'))
+                        <h2 id="label">Exhibits</h2>
+                        <ul id="nav">    
+
+                        @foreach ($exhibits as $item)
+                            
+                            <a href="exhibit-{{$item->id}}">
+                                <li class="subTab">{{$item->title}}</li>
+                            </a>
+                        @endforeach
+                        </ul>
+                    @endif
+                    @else
+                        <h2 id="label">TABLES</h2>
                         
-                        <a href="exhibit-{{$item->id}}">
-                            <li class="subTab">{{$item->title}}</li>
-                        </a>
-                    @endforeach
-                    </ul>
+                        <ul id="nav">  
+
+                            <a href="@if (\Request::is('home')) # @else /home @endif">
+                                <li class="@if (\Request::is('home'))selected @endif subTab">Gallery</li>
+                            </a>  
+                            <a href="@if (\Request::is('art')) # @else /art @endif">
+                                <li class="@if (\Request::is('art'))selected @endif subTab">Art</li>
+                            </a>
+
+                            <a href="@if (\Request::is('exhibit')) # @else /exhibit @endif">
+                                <li class="@if (\Request::is('exhibit'))selected @endif subTab">Exhibit</li>
+                            </a>
+
+                            <a href="@if (\Request::is('poetry')) # @else /poetry @endif">
+                                <li class="@if (\Request::is('poetry'))selected @endif subTab">Poetry</li>
+                            </a>
+
+                            <a href="@if (\Request::is('music')) # @else /music @endif">
+                                <li class="@if (\Request::is('music'))selected @endif subTab">Music</li>
+                            </a>
+
+                            @if(Auth::user()->admin == true)
+                                <a href="{{route('user.index')}}">
+                                    <li class="@if (\Request::is('poetry'))selected @endif subTab">User</li>
+                                </a>
+                            @endif
+                        </ul>
+                @endguest
+                
             </div>
         
         @endif

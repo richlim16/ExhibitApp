@@ -21,7 +21,7 @@
                 <p>No File Chosen</p>
             </div>
             <input style="display:none;" type="file" accept="image/*" id="choose-file" name="photo" required>
-            <div class="fileBtn" onClick="fileup()">Choose Photo</div>
+                <div class="fileBtn"  onClick="fileup()">Choose Photo</div>
         </div>
 
         <button id="submitBtn"><h3>SUBMIT</h3></button>

@@ -23,7 +23,7 @@
         <textarea name="description" cols="30" rows="5 " style="background-color: #2c3454;">{{$exhibit->description}}</textarea>
     @if(Auth::user()->admin == 1)
         <label for="status">Status</label>
-        <select name="status" id="status">
+        <select style="background-color: #2c3454;" name="status" id="status">
             <option value="pending">Pending</option>
             <option value="paid">Paid</option>
             <option value="completed">Completed</option>

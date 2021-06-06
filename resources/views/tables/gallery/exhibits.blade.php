@@ -2,7 +2,13 @@
 
 
 @section('content')
-
+@guest
+    @if (Route::has('login'))
+        
+    @endif
+    @else
+        <script>window.location = "/home";</script>
+@endguest
 <div class="exhibit-grid">
     @foreach ($exhibits as $item)
         <a href="/exhibit-{{$item->id}}">
