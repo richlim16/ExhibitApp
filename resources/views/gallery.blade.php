@@ -90,8 +90,6 @@
             </div>
         
         @endif
-        
-
             <div id="mainSide">
                 @yield('content')
             </div>
