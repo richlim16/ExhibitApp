@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\models\music;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 class MusicController extends Controller
 {
@@ -13,7 +16,13 @@ class MusicController extends Controller
      */
     public function index()
     {
-        //
+        if(Auth::user()->admin == false){
+            $music = music::where('user_id', Auth::user()->id)->get();
+        }else{
+            $music = music::all();
+        }
+
+        return view('tables.musicTable', ['music' => $music]);
     }
 
     /**
@@ -23,7 +32,7 @@ class MusicController extends Controller
      */
     public function create()
     {
-        //
+        return view('forms.newMusic');
     }
 
     /**
@@ -34,7 +43,15 @@ class MusicController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $path = 'public/music';
+
+        $inputs = request()->except('_token', '_method');
+        $music = $_FILES['music'];
+        $inputs['music'] = $music['name'];
+        request(('music'))->storeAs($path, $music['name']);
+        auth()->user()->music()->create($inputs);
+
+        return redirect()->route('music.index');
     }
 
     /**

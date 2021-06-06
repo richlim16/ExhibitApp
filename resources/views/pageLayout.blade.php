@@ -65,24 +65,27 @@
                     <ul id="nav">  
 
                         <a href="@if (\Request::is('home')) # @else /home @endif">
-                            <li class="@if (\Request::is('home'))selected @endif subTab">gallery</li>
+                            <li class="@if (\Request::is('home'))selected @endif subTab">Gallery</li>
                         </a>  
                         <a href="@if (\Request::is('art')) # @else /art @endif">
-                            <li class="@if (\Request::is('art'))selected @endif subTab">art</li>
+                            <li class="@if (\Request::is('art'))selected @endif subTab">Art</li>
                         </a>
 
                         <a href="@if (\Request::is('exhibit')) # @else /exhibit @endif">
-                            <li class="@if (\Request::is('exhibit'))selected @endif subTab">exhibit</li>
+                            <li class="@if (\Request::is('exhibit'))selected @endif subTab">Exhibit</li>
                         </a>
 
                         <a href="@if (\Request::is('poetry')) # @else /poetry @endif">
-                            <li class="@if (\Request::is('poetry'))selected @endif subTab">poetry</li>
+                            <li class="@if (\Request::is('poetry'))selected @endif subTab">Poetry</li>
                         </a>
 
+                        <a href="@if (\Request::is('music')) # @else /music @endif">
+                            <li class="@if (\Request::is('music'))selected @endif subTab">Music</li>
+                        </a>
 
                         @if(Auth::user()->admin == true)
                             <a href="{{route('user.index')}}">
-                                <li class="@if (\Request::is('poetry'))selected @endif subTab">user</li>
+                                <li class="@if (\Request::is('poetry'))selected @endif subTab">User</li>
                             </a>
                         @endif
                     </ul>

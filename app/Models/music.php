@@ -9,4 +9,12 @@ class music extends Model
 {
     public $timestamps = false;
     use HasFactory;
+
+    protected $fillable = [
+        'title',
+        'genre',
+        'user_id',
+        'music',
+        'exhibit_id'
+    ];
 }
