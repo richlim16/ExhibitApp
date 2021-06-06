@@ -1,4 +1,4 @@
-@extends('../formLayout')
+@extends('../pageLayout')
 
 @section('content')
     <form action="{{route('art.update', $art->id)}}" enctype="multipart/form-data" method="post">

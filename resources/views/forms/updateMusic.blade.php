@@ -1,4 +1,4 @@
-@extends('../formLayout')
+@extends('../pageLayout')
 
 @section('content')
     <form action="/updateMusic" method="post">
