@@ -16,7 +16,8 @@ class exhibit extends Model
         'theme',
         'title',
         'description',
-        'user_id'
+        'user_id',
+        'status'
     ];
 
     public function art() {

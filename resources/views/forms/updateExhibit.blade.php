@@ -21,6 +21,14 @@
 
     <label for="description">Description</label>
         <textarea name="description" cols="30" rows="5 " style="background-color: #2c3454;">{{$exhibit->description}}</textarea>
+    @if(Auth::user()->admin == 1)
+        <label for="status">Status</label>
+        <select name="status" id="status">
+            <option value="pending">Pending</option>
+            <option value="paid">Paid</option>
+            <option value="completed">Completed</option>
+        </select>
+    @endif
     <button id="submitBtn"><h3>SUBMIT</h3></button>
 </form>
 
@@ -82,7 +90,6 @@
         @csrf
         <div class="cards-table">
             @foreach($poetry as $poetry)
-
             @if(Auth::user()->admin == false)
                 @if(Auth::user()->id == $poetry['user_id'])
                     <label for="poetry-{{$poetry['id']}}">
