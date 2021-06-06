@@ -44,6 +44,11 @@ class User extends Authenticatable
     {
         return $this->hasMany(art::class);
     }
+    
+    public function music()
+    {
+        return $this->hasMany(music::class);
+    }
 
     public function poetry()
     {

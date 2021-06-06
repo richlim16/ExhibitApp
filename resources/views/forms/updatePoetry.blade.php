@@ -1,4 +1,4 @@
-@extends('../formLayout')
+@extends('../pageLayout')
 
 @section('content')
     <form action="{{route('poetry.update', $poetry->id)}}" method="post">

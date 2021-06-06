@@ -1,4 +1,4 @@
-@extends('../formLayout')
+@extends('../pageLayout')
 
 @section('content')
 
@@ -21,16 +21,17 @@
 
     <label for="description">Description</label>
         <textarea name="description" cols="30" rows="5 " style="background-color: #2c3454;">{{$exhibit->description}}</textarea>
+    @if(Auth::user()->admin == 1)
+        <label for="status">Status</label>
+        <select name="status" id="status">
+            <option value="pending">Pending</option>
+            <option value="paid">Paid</option>
+            <option value="completed">Completed</option>
+        </select>
+    @endif
     <button id="submitBtn"><h3>SUBMIT</h3></button>
 </form>
 
-
-@endsection
-
-
-
-
-@section('content-gallery')
 <div style="padding: 50px 0; font-size: 48px">
     Arts
     <hr>
@@ -73,7 +74,7 @@
 </div>
         
 <div style="padding: 50px 0; font-size: 48px">
-    Poetry
+    poetry
     <hr>
 </div>
 
@@ -82,13 +83,12 @@
         @csrf
         <div class="cards-table">
             @foreach($poetry as $poetry)
-
             @if(Auth::user()->admin == false)
                 @if(Auth::user()->id == $poetry['user_id'])
                     <label for="poetry-{{$poetry['id']}}">
                         <div class="poetry-card hover">
                             <div class="title">
-                                <input style="float:left;" id="poetry-{{$poetry['id']}}" name="poetry[]"type="checkbox" value="{{$poetry['id']}}" @if($poetry->exhibit_id == $id) checked  @endif>
+                                <input style="float:left;" id="poetry-{{$poetry['id']}}" name="poetry[]"type="checkbox" value="{{$poetry['id']}}" @if($music->exhibit_id == $id) checked  @endif>
                                 "{{$poetry['title']}}"
                             </div>
                             <div style="background-color: #1e3c86; overflow-y:scroll; padding: 15px 25px">
@@ -114,6 +114,27 @@
         </div>
         <input type="submit" value="submit">
     </form>
-    
+</div>
+
+<div class="tableContainer">
+    <form action="/music/addToExhibit/{{$id}}" method="POST">
+        @csrf
+        <div class="cards-table">
+            @foreach($music as $music)
+            <label for="music-{{$music['id']}}">
+                <div class="music-card hover">
+                    <div class="title">
+                        <input style="float:left;" id="music-{{$music['id']}}" name="music[]" type="checkbox"
+                            value="{{$music['id']}}" @if($music->exhibit_id == $id) checked @endif>
+                        "{{$music['title']}}"
+                    </div>
+                    <audio controls src="{{asset('storage/music/'.$music->music)}}"></audio>
+                </div>
+            </label>
+            @endforeach
+        </div>
+        <input type="submit" value="submit">
+    </form>
+
 </div>
 @endsection

@@ -1,4 +1,4 @@
-<?php
+ <?php
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
@@ -15,35 +15,12 @@ class CreateMusicTable extends Migration
     {
         Schema::create('music', function (Blueprint $table) {
             $table->id();
-            $table->string('MusicTitle', 100);
+            $table->string('title', 100);
             $table->string('genre', 50);
-            $table->foreignId('user_id');
+            $table->foreignId('user_id'); 
+            $table->string('music');
+            $table->foreignId('exhibit_id')->nullable();
         });
-
-        DB::table('music')->insert(
-            array(
-                'id' => 1,
-                'MusicTitle' => 'Bad Guy',
-                'genre' => 'emo girl music eyy',
-                'user_id' => 3
-            )
-        );
-        DB::table('music')->insert(
-            array(
-                'id' => 2,
-                'MusicTitle' => 'To The Left',
-                'genre' => 'Hiphop',
-                'user_id' => 2
-            )
-        );
-        DB::table('music')->insert(
-            array(
-                'id' => 3,
-                'MusicTitle' => 'Buwan',
-                'genre' => 'sadboi',
-                'user_id' => 1
-            )
-        );
     }
 
     /**

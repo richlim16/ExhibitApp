@@ -99,7 +99,7 @@
             
                 </div>
 
-                made by user: {{$art['user_id']}}
+                made by : {{$art->user['name']}}
             </div>
         @endif
         

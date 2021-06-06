@@ -5,6 +5,7 @@ use App\Http\Controllers\ArtController;
 use App\Http\Controllers\PoetryController;
 use App\Http\Controllers\ExhibitController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\MusicController;
 
 use App\Models\exhibit;
 use App\Models\art;
@@ -29,6 +30,8 @@ Route::resource('user', UserController::class);
 Route::get('/user/changeAdmin/{id}', [UserController::class, 'changeAdmin']);
 Route::get('/user/changeBan/{id}', [UserController::class, 'changeBan']);
 Route::get('/exhibit/changeStatus/{id}', [ExhibitController::class, 'changeStatus']);
+Route::resource('music', MusicController::class);
+Route::post('/music/addToExhibit/{id}', [MusicController::class, 'addToExhibit']);
 
 Route::resource('user', UserController::class);
 
