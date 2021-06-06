@@ -79,6 +79,11 @@ class ExhibitController extends Controller
         $music = music::where('exhibit_id', $id)
                 ->orWhere('exhibit_id', NULL)
                 ->get();
+        if(Auth::user()->admin == false){
+            $art = $art->where('user_id', Auth::user());
+            $poetry = $poetry->where('user_id', Auth::user());
+            $music = $music->where('user_id', Auth::user());
+        }
         
         return view('forms.updateExhibit', ['art' => $art, 'poetry' => $poetry, 'id' => $id, 'exhibit' => $exhibit, 'music' => $music]);
     }
