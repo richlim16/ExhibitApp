@@ -7,6 +7,7 @@ use App\Models\art;
 use App\Models\poetry;
 use App\Models\music;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ExhibitController extends Controller
 {
@@ -17,10 +18,12 @@ class ExhibitController extends Controller
      */
     public function index()
     {
-        $exhibit = exhibit::all();
-        $art = Art::all();
-        $poetry = Poetry::all();
-        return view('tables.exhibitsTable', ['exhibit' => $exhibit, 'art' => $art, 'poetry' => $poetry]);
+        if(Auth::user()->admin == false){
+            $exhibit = exhibit::where('user_id', Auth::user()->id)->get();
+        }else{
+            $exhibit = exhibit::all();
+        }
+        return view('tables.exhibitsTable', ['exhibit' => $exhibit]);
     }
 
     /**
