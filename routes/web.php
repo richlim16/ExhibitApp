@@ -14,7 +14,10 @@ use App\Models\User;
 Auth::routes();
 
 Route::group(['middleware' => ['auth', 'isUser']], function(){
-    Route::get('/home', [App\Http\Controllers\ArtController::class, 'index'])->name('home');
+    Route::get('/home', function(){
+        $exhibits = exhibit::all();
+        return view('tables/galleryTable', ['exhibits' => $exhibits]);
+    })->name('home');
 });
 
 Route::resource('art', ArtController::class);

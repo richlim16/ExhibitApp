@@ -62,7 +62,11 @@
             <!-- side nav bar -->
             <div id="sidenav">
                 <h2 id="label">TABLES</h2>
-                    <ul id="nav">    
+                    <ul id="nav">  
+
+                        <a href="@if (\Request::is('home')) # @else /home @endif">
+                            <li class="@if (\Request::is('home'))selected @endif subTab">gallery</li>
+                        </a>  
                         <a href="@if (\Request::is('art')) # @else /art @endif">
                             <li class="@if (\Request::is('art'))selected @endif subTab">art</li>
                         </a>
@@ -75,9 +79,10 @@
                             <li class="@if (\Request::is('poetry'))selected @endif subTab">poetry</li>
                         </a>
 
+
                         @if(Auth::user()->admin == true)
                             <a href="{{route('user.index')}}">
-                                <li class="subTab">user</li>
+                                <li class="@if (\Request::is('poetry'))selected @endif subTab">user</li>
                             </a>
                         @endif
                     </ul>
