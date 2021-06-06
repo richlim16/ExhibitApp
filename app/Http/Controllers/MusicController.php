@@ -49,6 +49,11 @@ class MusicController extends Controller
         $music = $_FILES['music'];
         $inputs['music'] = $music['name'];
         request(('music'))->storeAs($path, $music['name']);
+
+        $photo = $_FILES['photo'];
+        $inputs['photo'] = $photo['name'];
+        request(('photo'))->storeAs($path, $photo['name']);
+
         auth()->user()->music()->create($inputs);
 
         return redirect()->route('music.index');

@@ -15,6 +15,7 @@ class music extends Model
         'genre',
         'user_id',
         'music',
-        'exhibit_id'
+        'exhibit_id',
+        'photo'
     ];
 }

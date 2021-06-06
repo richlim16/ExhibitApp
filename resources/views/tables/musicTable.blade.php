@@ -14,11 +14,17 @@
         </a>
 
     @endif
-
-    @foreach ($music as $music)
-        <h3>{{$music->title}}</h3>
-        <audio controls src="{{asset('storage/music/'.$music->music)}}"></audio>
-    @endforeach    
+    <div class="cards-table">
+        @foreach ($music as $music)
+            <div class="card">
+                <h3>{{$music->title}}</h3>
+                <img src="{{asset('storage/art/'.$music->photo)}}" onclick="onClick(this)" alt="Art Photo" style="width:100%" id="img">
+                <div></div>
+                <audio controls src="{{asset('storage/music/'.$music->music)}}"></audio>
+            </div>
+        @endforeach 
+    </div>
+       
 </div>
 @endsection
 

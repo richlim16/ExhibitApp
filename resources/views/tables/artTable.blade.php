@@ -28,7 +28,6 @@
                     <img src="{{asset('storage/art/'.$art->photo)}}" onclick="onClick(this)" alt="Art Photo" style="width:100%" id="img">
 
                     <div>
-
                         <div class="theme-title">
                             {{$art['theme']}}
                         </div>  

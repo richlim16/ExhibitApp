@@ -20,6 +20,7 @@ class CreateMusicTable extends Migration
             $table->foreignId('user_id'); 
             $table->string('music');
             $table->foreignId('exhibit_id')->nullable();
+            $table->string('photo');
         });
     }
 
