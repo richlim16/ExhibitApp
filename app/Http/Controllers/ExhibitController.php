@@ -103,4 +103,14 @@ class ExhibitController extends Controller
         exhibit::where('id', $id)->delete();
         return redirect()->route("exhibit.index");
     }
+
+    public function changeStatus($id){
+        $exhibit = exhibit::find($id);
+        if($exhibit){
+            $exhibit->isDone = !$exhibit->isDone;
+            $exhibit->save();
+        }
+
+        return redirect()->route('exhibit.index');
+    }
 }
