@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\exhibit;
 use App\Models\art;
 use App\Models\poetry;
+use App\Models\music;
 use Illuminate\Http\Request;
 
 class ExhibitController extends Controller
@@ -72,8 +73,11 @@ class ExhibitController extends Controller
         $poetry = poetry::where('exhibit_id', $id)
                 ->orWhere('exhibit_id', NULL)
                 ->get();
+        $music = music::where('exhibit_id', $id)
+                ->orWhere('exhibit_id', NULL)
+                ->get();
         
-        return view('forms.updateExhibit', ['art' => $art, 'poetry' => $poetry, 'id' => $id, 'exhibit' => $exhibit]);
+        return view('forms.updateExhibit', ['art' => $art, 'poetry' => $poetry, 'id' => $id, 'exhibit' => $exhibit, 'music' => $music]);
     }
 
     /**

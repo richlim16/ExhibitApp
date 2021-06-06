@@ -75,7 +75,26 @@ class MusicController extends Controller
     {
         //
     }
+    public function addToExhibit(Request $req, $id){
+        
+        $inputs = $req->get('music');
+        $var = music::where('exhibit_id', $id)->get();
 
+        foreach($var as $var){
+            $var->exhibit_id = NULL;
+            $var->save();
+        }
+
+        if($inputs){
+            
+            foreach($inputs as $item){
+                $music = music::where('id', $item);
+                $input = ['exhibit_id' => $id];
+                $music->update($input);
+            }
+        }
+        return redirect()->route('exhibit.edit', $id);
+    }
     /**
      * Update the specified resource in storage.
      *
