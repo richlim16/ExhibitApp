@@ -97,7 +97,7 @@
             </div>
         </div>
     </body>
-
+<script src={{asset('js\script.js')}}></script>
     <script>
         // Get the modal
         var modal = document.getElementById("myModal");
