@@ -20,30 +20,10 @@ class CreateExhibitsTable extends Migration
             $table->string('theme', 100);
             $table->string('title', 150);
             $table->string('description');
-            $table->enum('status', ['pending', 'paid', 'completed'])->default('pending');
+            $table->enum('status', ['pending', 'paid'])->default('pending');
             $table->foreignId('user_id');
+            $table->string('referenceNum')->nullable();
         });
-
-        DB::table('exhibits')->insert(
-            array(
-                'id' => 1,
-                'startDate' => now(),
-                'title' => 'monke',
-                'theme' => 'Jungle Madness',
-                'description' => 'lorem ipsum choo choo chooo imm a train',
-                'user_id' => 1
-            )
-        );
-        DB::table('exhibits')->insert(
-            array(
-                'id' => 2,
-                'startDate' => now(),
-                'title' => 'Raymond is a weeb',
-                'theme' => 'Weeb',
-                'description' => 'lorem ipsum choo choo chooo imm a train',
-                'user_id' => 1
-            )
-        );
     }
 
     /**

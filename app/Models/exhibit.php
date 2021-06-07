@@ -17,7 +17,8 @@ class exhibit extends Model
         'title',
         'description',
         'user_id',
-        'status'
+        'status',
+        'referenceNum'
     ];
 
     public function art() {
