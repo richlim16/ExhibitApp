@@ -5,7 +5,7 @@
     @csrf
     <h1>MUSIC FORM</h1>
 
-    <label for="title">Art Title</label>
+    <label for="title">Music Title</label>
     <input type="text" name="title" required>
 
     <label for="genre">Genre</label>
