@@ -88,8 +88,16 @@
 </div>
 
 <div id="Music" style="display:none"  class="tabcontent">
-  <h3>Tokyo</h3>
-  <p>Tokyo is the capital of Japan.</p>
+    <div class="cards-table">
+        @foreach($music as $music)
+            <div class="music-card hover">
+                <div class="title">
+                    "{{$music['title']}}"
+                </div>
+                <audio controls src="{{asset('storage/music/'.$music->music)}}"></audio>
+            </div>
+        @endforeach
+    </div>
 </div>
 
 

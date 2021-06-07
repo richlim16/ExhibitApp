@@ -1,7 +1,7 @@
 @extends('../pageLayout')
 
 @section('content')
-    <form action="{{route('art.update', $art->id)}}" enctype="multipart/form-data" method="post">
+    <form action="{{route('art.update', $art->id)}}" autocomplete="off" enctype="multipart/form-data" method="post">
         {{csrf_field()}}
         {{ method_field('PATCH') }}
         <input type="hidden" name="user_id" value="{{Auth::user()->id}}">

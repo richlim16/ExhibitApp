@@ -1,7 +1,7 @@
 @extends('../pageLayout')
 
 @section('content')
-    <form action="{{route('poetry.update', $poetry->id)}}" method="post">
+    <form action="{{route('poetry.update', $poetry->id)}}" autocomplete="off" method="post">
         {{csrf_field()}}
         {{ method_field('PATCH') }}
         <h1>POETRY FORM</h1>

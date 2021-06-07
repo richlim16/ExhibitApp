@@ -10,6 +10,7 @@ use App\Http\Controllers\MusicController;
 use App\Models\exhibit;
 use App\Models\art;
 use App\Models\poetry;
+use App\Models\music;
 use App\Models\User;
 
 Auth::routes();
@@ -55,6 +56,7 @@ Route::get('/exhibit-{id}', function ($id){
     $exhibits = exhibit::all();
     $art = art::where('exhibit_id', $id)->get();
     $poetry = poetry::where('exhibit_id', $id)->get();
+    $music = music::where('exhibit_id', $id)->get();
     $user = User::all();
-    return view('tables.gallery.exhibit', ['exhibit' => $exhibit, 'exhibits' => $exhibits, 'art' => $art, 'poetry' => $poetry, 'user' => $user]);
+    return view('tables.gallery.exhibit', ['exhibit' => $exhibit, 'exhibits' => $exhibits, 'art' => $art, 'poetry' => $poetry, 'music' => $music,'user' => $user]);
 });

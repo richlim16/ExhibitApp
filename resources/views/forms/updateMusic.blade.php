@@ -1,7 +1,7 @@
 @extends('../pageLayout')
 
 @section('content')
-    <form action="/updateMusic" method="post">
+    <form action="/updateMusic" autocomplete="off" method="post">
         @csrf   
         <h1>UPDATE MUSIC FORM</h1>
 

@@ -2,7 +2,7 @@
 
 
 @section('content')
-    <form action="{{route('art.store')}}"  enctype="multipart/form-data" method="post">
+    <form action="{{route('art.store')}}"  enctype="multipart/form-data" autocomplete="off" method="post">
         @csrf
         <h1>ART FORM</h1>
         <input type="hidden" name="user_id" value="{{Auth::user()->id}}">

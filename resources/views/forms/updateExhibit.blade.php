@@ -7,6 +7,8 @@
     {{ method_field('PATCH') }}
 
     <h1>EXHIBIT FORM</h1>
+
+    
     <label for="startDate">Starting Date</label>
         <input type="date" name="startDate" value="<?php use Carbon\carbon; echo Carbon::parse($exhibit->startDate)->toDateString(); ?>" required>
         
@@ -87,7 +89,7 @@
 </div>
 
 <div class="tableContainer">
-    <form action="/music/addToExhibit/{{$id}}" method="POST">
+    <form action="/music/addToExhibit/{{$id}}" autocomplete="off" method="POST">
         @csrf
         <div class="cards-table">
 

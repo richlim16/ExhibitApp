@@ -3,7 +3,7 @@
     @if($errors->any())
         <h3 style="color: red;">{{$errors->first()}}</h3>
     @endif
-    <form action=" {{route('user.store')}} " method="post">
+    <form action=" {{route('user.store')}} " autocomplete="off" method="post">
         @csrf
         <h1>USER FORM</h1>
 

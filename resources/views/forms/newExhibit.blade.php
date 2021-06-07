@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <form action=" {{route('exhibit.store')}} " method="post">
+    <form action=" {{route('exhibit.store')}} "autocomplete="off"  method="post">
         @csrf
         <h1>EXHIBIT FORM</h1>
         <label for="startDate">Starting Date</label>

@@ -1,7 +1,7 @@
 @extends('../pageLayout')
 
 @section('content')
-    <form action="/updateTransaction" method="post">
+    <form action="/updateTransaction" autocomplete="off" method="post">
         @csrf
         <h1>UPDATE TRANSACTION FORM</h1>
 

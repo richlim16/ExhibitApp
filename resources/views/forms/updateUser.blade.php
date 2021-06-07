@@ -4,7 +4,7 @@
     @if($errors->any())
         <h3 style="color: red;">{{$errors->first()}}</h3>
     @endif
-    <form action=" {{route('user.update', $user['id'])}} " method="post">
+    <form action=" {{route('user.update', $user['id'])}} " autocomplete="off" method="post">
         @csrf
         {{method_field('PATCH')}}
         <h1>USER FORM</h1>

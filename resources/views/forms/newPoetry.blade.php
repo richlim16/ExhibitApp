@@ -1,7 +1,7 @@
 @extends('../pageLayout')
 
 @section('content')
-    <form action="{{route('poetry.store')}}" method="post">
+    <form action="{{route('poetry.store')}}" autocomplete="off" method="post">
         @csrf
         <h1>POETRY FORM</h1>
 

@@ -1,11 +1,11 @@
 @extends('../pageLayout')
 
 @section('content')
-<form action="{{route('music.store')}}" enctype="multipart/form-data" method="post">
+<form action="{{route('music.store')}}" autocomplete="off" enctype="multipart/form-data" method="post">
     @csrf
     <h1>MUSIC FORM</h1>
 
-    <label for="title">Art Title</label>
+    <label for="title">Song Name</label>
     <input type="text" name="title" required>
 
     <label for="genre">Genre</label>
@@ -18,7 +18,7 @@
             <div id="img-prev">
                 <p>No File Chosen</p>
             </div>
-            <input type="file" accept="image/*" id="choose-file" name="photo" required>
+            <input type="file" style="display:none;" accept="image/*" id="choose-file" name="photo" required>
                 <div class="fileBtn"  onClick="fileup()">Choose Thumbnail</div>
     </div>
 

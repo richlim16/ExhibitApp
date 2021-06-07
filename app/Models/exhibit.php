@@ -27,4 +27,7 @@ class exhibit extends Model
     public function poetry() {
         return $this->hasMany(poetry::class);
     }
+    public function user() {
+        return $this->BelongsTo(User::class);
+    }
 }
