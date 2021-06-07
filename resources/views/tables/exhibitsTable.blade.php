@@ -16,9 +16,7 @@
     <thead>
         <tr><h1>Exhibit Table</h1></tr>
         <tr>
-            @if(Auth::user()->admin == 1)
             <th>Status</th>
-            @endif
             <th>Title</th>
             <th>Theme</th>
             <th>Description</th>
