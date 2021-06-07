@@ -30,6 +30,7 @@ Route::resource('exhibit', ExhibitController::class);
 Route::resource('user', UserController::class);
 Route::get('/user/changeAdmin/{id}', [UserController::class, 'changeAdmin']);
 Route::get('/user/changeBan/{id}', [UserController::class, 'changeBan']);
+Route::get('/exhibit/changeStatus/{id}', [ExhibitController::class, 'changeStatus']);
 Route::resource('music', MusicController::class);
 Route::post('/music/addToExhibit/{id}', [MusicController::class, 'addToExhibit']);
 

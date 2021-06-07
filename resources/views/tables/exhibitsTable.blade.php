@@ -15,6 +15,7 @@
     <thead>
         <tr><h1>Exhibit Table</h1></tr>
         <tr>
+            <th>Status</th>
             <th>Title</th>
             <th>Theme</th>
             <th>Description</th>
@@ -26,6 +27,14 @@
     <tbody>
         @foreach ($exhibit as $item)
             <tr>
+            @if(Auth::user()->admin == 1)
+                <td>@if($item['isDone'] == '0')
+                    <a href="/exhibit/changeStatus/{{$item['id']}}" style="color:lime">✔</a>
+                @else
+                    <a href="/exhibit/changeStatus/{{$item['id']}}" style="color: red">✖</a>
+                @endif
+            @endif
+                </td>
                 <td>{{$item->title}}</td>
                 <td>{{$item->theme}}</td>
                 <td>{{$item->description}}</td>
