@@ -29,13 +29,13 @@
             @foreach ($art as $art)
 
                 <?php 
-                    $userName = $user->find($art['user_id']);
+                    $artistName = $user->find($art['user_id'])->name;
                 ?>
                 <div class="card">
                     <div class="title">
                         "{{$art['title']}}"
                     </div>
-                    <img src="{{asset('storage/art/'.$art->photo)}}" onclick="onClickImg(this)" alt="&ldquo;{{$art['title']}}&rdquo; by {{$userName['name']}}" style="width:100%" id="img">
+                    <img src="{{asset('storage/art/'.$art->photo)}}" onclick="onClickImg(this)" alt="&ldquo;{{$art['title']}}&rdquo; by {{$artistName}}" style="width:100%" id="img">
                     <div>
                         <div class="theme-title">
                             {{$art['theme']}}
@@ -48,6 +48,10 @@
                         <div class="description">
                             {{$art['description']}}
                         </div>
+                    </div>
+                    <div></div>
+                    <div style="padding: 0 10px;">
+                        By: {{$artistName}}
                     </div>
                 </div>
             @endforeach
@@ -64,7 +68,7 @@
             @foreach($poetry as $poetry)
 
                 <?php 
-                    $userName = $user->find($poetry['user_id']);
+                    $artistName = $user->find($poetry['user_id'])->name;
                 ?>
 
                 <div class="poetry-card">
@@ -72,7 +76,7 @@
                         "{{$poetry['title']}}"
                     </div>
                     
-                    <div onclick="onClickPoetry(this, '<?php echo $poetry->title;?>', '<?php echo $poetry->theme;?>', '<?php echo $userName->name;?>')" id="poetry_body" style="background-color: #1e3c86; overflow-y:scroll; padding: 15px 25px">
+                    <div onclick="onClickPoetry(this, '<?php echo $poetry->title;?>', '<?php echo $poetry->theme;?>', '<?php echo $artistName;?>')" id="poetry_body" style="background-color: #1e3c86; overflow-y:scroll; padding: 15px 25px">
                         {{$poetry['body']}}
                     </div>
 
@@ -80,7 +84,9 @@
                         <div class="theme-title">
                             {{$poetry['theme']}}
                         </div>  
+                        
                     </div>
+                    <div style="padding: 0 10px;">By: {{$artistName}}</div>
                 </div>
             @endforeach
         @endif
@@ -93,12 +99,18 @@
             <h2>there are no music in this exhibit</h2>
         @else
             @foreach($music as $music)
+            <?php 
+                    $artistName = $user->find($poetry['user_id'])->name;
+                ?>
             <div class="card">
                 <div class="title">{{$music->title}}</div>
                 <img src="{{asset('storage/music/'.$music->photo)}}" onclick="onClick(this)" alt="music Photo" style="width:100%" id="img">
                 <div></div>
                 <audio controls src="{{asset('storage/music/'.$music->music)}}"></audio>
-
+                <div></div>
+                <div style="padding: 0 10px;">
+                    By: {{$artistName}}
+                </div>
             </div>
             @endforeach
         @endif
