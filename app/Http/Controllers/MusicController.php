@@ -120,6 +120,12 @@ class MusicController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $music = music::find($id);
+        
+        if($music){
+            $music->delete();
+        }
+
+        return redirect()->route('music.index');
     }
 }

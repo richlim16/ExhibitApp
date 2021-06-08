@@ -85,7 +85,7 @@
 
                         @if(Auth::user()->admin == true)
                             <a href="{{route('user.index')}}">
-                                <li class="@if (\Request::is('poetry'))selected @endif subTab">User</li>
+                                <li class="@if (\Request::is('user'))selected @endif subTab">User</li>
                             </a>
                         @endif
                     </ul>

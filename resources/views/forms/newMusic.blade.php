@@ -5,11 +5,7 @@
     @csrf
     <h1>MUSIC FORM</h1>
 
-<<<<<<< HEAD
-    <label for="title">Song Name</label>
-=======
     <label for="title">Music Title</label>
->>>>>>> 9a25b074fdd6b57ccd35f7085aa575c5cdd6eacb
     <input type="text" name="title" required>
 
     <label for="genre">Genre</label>

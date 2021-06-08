@@ -26,6 +26,14 @@
     </thead>
     <tbody>
         @foreach ($exhibit as $item)
+
+            <?php
+              
+
+              $item->startDate = date('m-d-Y', strtotime($item->startDate)); 
+              $item->endDate = date('m-d-Y', strtotime($item->endDate));
+            ?>
+
             <tr>
                 <td>{{$item->status}}</td>
                 <td>{{$item->title}}</td>

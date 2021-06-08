@@ -23,7 +23,7 @@
 
 <div id="Arts" style="display:block" class="tabcontent">
     <div class="cards-table">
-        @if($poetry->isEmpty())
+        @if($art->isEmpty())
             <h2>there are no arts in this exhibit</h2>
         @else
             @foreach ($art as $art)
@@ -72,7 +72,7 @@
                         "{{$poetry['title']}}"
                     </div>
                     
-                    <div onclick="onClickPoetry(this, '<?php echo $poetry->title?>', '<?php echo $poetry->theme?>', '<?php echo $userName->name?>')" id="poetry_body" style="background-color: #1e3c86; overflow-y:scroll; padding: 15px 25px">
+                    <div onclick="onClickPoetry(this, '<?php echo $poetry->title;?>', '<?php echo $poetry->theme;?>', '<?php echo $userName->name;?>')" id="poetry_body" style="background-color: #1e3c86; overflow-y:scroll; padding: 15px 25px">
                         {{$poetry['body']}}
                     </div>
 
@@ -89,14 +89,19 @@
 
 <div id="Music" style="display:none"  class="tabcontent">
     <div class="cards-table">
-        @foreach($music as $music)
-            <div class="music-card hover">
-                <div class="title">
-                    "{{$music['title']}}"
-                </div>
+        @if($music->isEmpty())
+            <h2>there are no music in this exhibit</h2>
+        @else
+            @foreach($music as $music)
+            <div class="card">
+                <div class="title">{{$music->title}}</div>
+                <img src="{{asset('storage/music/'.$music->photo)}}" onclick="onClick(this)" alt="music Photo" style="width:100%" id="img">
+                <div></div>
                 <audio controls src="{{asset('storage/music/'.$music->music)}}"></audio>
+
             </div>
-        @endforeach
+            @endforeach
+        @endif
     </div>
 </div>
 
@@ -129,7 +134,7 @@
 
     function onClickPoetry(element, title, theme, username) {
         string = element.innerHTML;
-        newstr = string.substr(25)
+        newstr = string.substr(25);
         document.getElementById("poetry-text").innerHTML = newstr;
         document.getElementById("poetry-title").innerHTML = title;
         document.getElementById("poetry-theme").innerHTML = theme;

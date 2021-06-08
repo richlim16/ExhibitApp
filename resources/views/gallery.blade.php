@@ -47,7 +47,7 @@
             </div>
         </div>
 
-        @if (\Request::is('/')) 
+        @if (\Request::is('/') || \Request::is('/archive')) 
         <div id="exhibit_container">
         @else 
         <div id="container">

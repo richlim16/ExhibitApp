@@ -92,14 +92,14 @@ class ArtController extends Controller
         
         if ($_FILES['photo']['size'] == 0)
         {
-            $inputs['photo'] = $photo['name'];
+            
         } else{
             $inputs['photo'] = $photo['name'];
             request(('photo'))->storeAs($destination_path, $photo['name']);
-            Art::where('id', $id)
-            ->update($inputs);
+            
         }
-
+        Art::where('id', $id)
+        ->update($inputs);
         
         return redirect()->route('art.index');
     }

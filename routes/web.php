@@ -18,7 +18,8 @@ Auth::routes();
 Route::group(['middleware' => ['auth', 'isUser']], function(){
     Route::get('/home', function(){
         $exhibits = exhibit::all();
-        return view('tables/galleryTable', ['exhibits' => $exhibits]);
+        $arts = art::all();
+        return view('tables/galleryTable', ['exhibits' => $exhibits, 'arts' => $arts]);
     })->name('home');
 });
 
@@ -44,7 +45,24 @@ Route::get('/', function () {
     
     // else{$exhibit = exhibit::all();
         $exhibits = exhibit::all();
-        return view('tables.gallery.exhibits', ['exhibits' => $exhibits]);
+        $arts = art::all();
+        return view('tables.gallery.exhibits', ['exhibits' => $exhibits, 'arts' => $arts]);
+
+        // return redirect('/login');
+    // }
+
+});
+
+Route::get('/archives', function () {
+    
+    // if(Auth::check()){
+    //     return redirect()->route('art.index');
+    // }
+    
+    // else{$exhibit = exhibit::all();
+        $exhibits = exhibit::all();
+        $arts = art::all();
+        return view('tables.gallery.exhibits', ['exhibits' => $exhibits, 'arts' => $arts]);
 
         // return redirect('/login');
     // }

@@ -18,9 +18,16 @@
         @foreach ($music as $music)
             <div class="card">
                 <h3>{{$music->title}}</h3>
-                <img src="{{asset('storage/art/'.$music->photo)}}" onclick="onClick(this)" alt="Art Photo" style="width:100%" id="img">
+                <img src="{{asset('storage/music/'.$music->photo)}}" onclick="onClick(this)" alt="music Photo" style="width:100%" id="img">
                 <div></div>
                 <audio controls src="{{asset('storage/music/'.$music->music)}}"></audio>
+                <div>
+                    <form action="{{route('music.destroy', $music->id)}}" method="post">
+                        <input type="hidden" name="_method" value="DELETE">
+                        @csrf
+                        <input class="tablerowBtn" type="submit" value="Delete">
+                    </form>  
+                </div>
             </div>
         @endforeach 
     </div>
