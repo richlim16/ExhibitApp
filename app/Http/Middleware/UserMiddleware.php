@@ -18,10 +18,10 @@ class UserMiddleware
     {
         if(Auth::check() && Auth::user()->isBan)
         {
-            $banned = Auth::user()->isBan == "1";
+            $banned = Auth::user()->isBan == "2";
             Auth::logout();
 
-            if($banned == 1){
+            if($banned == 2){
                 $message = "Your account has been banned.";
             }
             return redirect()->route('login')

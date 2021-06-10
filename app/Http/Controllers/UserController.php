@@ -90,10 +90,13 @@ class UserController extends Controller
 
     public function changeBan($id){
         $user = User::find($id);
-        if($user){
-            $user->isBan = !$user->isBan;
-            $user->save();
-        }
+        if($user->isBan == 1 || $user->isBan == 0){
+            $user->isBan = 2;
+        }else if($user->isBan == 2){
+            $user->isBan = 1;
+        } 
+       
+        $user->save();
 
         return redirect()->route('user.index');
     }

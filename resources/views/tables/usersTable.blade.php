@@ -33,7 +33,7 @@
                 @endif
                 </td>
                 <td>
-                @if($user['isBan'] == '0')
+                @if($user['isBan'] == '1' || $user['isBan'] == '0')
                     <a href="/user/changeBan/{{$user['id']}}" style="color:lime">Not Banned</a>
                 @else
                     <a href="/user/changeBan/{{$user['id']}}" style="color:red">Banned</a>
